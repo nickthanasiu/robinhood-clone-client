@@ -15,11 +15,37 @@ import { SIGN_OUT } from './actions/types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.scss';
 
+const rootReducer = (state, action) => {
+  // 'Clear' state when user signs out to secure user data
+  // state will still exist in localStorage but all values will be undefined
+  if (action.type === SIGN_OUT) {
+    state = undefined;
+  }
+
+  return appReducer(state, action);
+};
+
+const persistedState = loadState();
+const store = createStore(
+  rootReducer,
+  persistedState,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  )
+);
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App>
-      <Route path="/" exact component={Welcome} />
-    </App>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App>
+        <Route path="/" exact component={Welcome} />
+      </App>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('app')
 );
