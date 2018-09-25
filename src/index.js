@@ -9,6 +9,11 @@ import App from './components/App';
 import Welcome from './components/Welcome';
 
 import { loadState, saveState } from './localStorage';
+import appReducer from './reducers';
+import { SIGN_OUT } from './actions/types';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/main.scss';
 
 ReactDOM.render(
   <BrowserRouter>
