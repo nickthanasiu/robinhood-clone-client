@@ -1,0 +1,49 @@
+{
+  "name": "robinhood-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "7",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.20.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "axios": "^0.18.0",
+    "chart.js": "^2.7.2",
+    "dotenv": "^6.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-chartjs-2": "^2.7.4",
+    "react-dom": "^16.5.2",
+    "react-icons": "^3.1.0",
+    "react-moment": "^0.7.9",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-thunk": "^2.3.0"
+  }
+}
