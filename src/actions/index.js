@@ -3,12 +3,12 @@ import {
   AUTH_USER,
   AUTH_ERROR,
   CURRENT_USER,
-  SIGN_OUT
+  SIGN_OUT,
 } from './types';
 
 const API_URL = 'http://localhost:3090';
 
-export const signup = (formProps, callback) => async dispatch => {
+export const signup = (formProps, callback) => async (dispatch) => {
   try {
     const response = await axios.post(`${API_URL}/signup`, formProps);
     dispatch({
@@ -32,7 +32,7 @@ const currentUser = currentUserId => ({
   payload: { currentUserId }
 });
 
-export const signin = (formProps, callback) => async dispatch => ({
+export const signin = (formProps, callback) => async (dispatch) => {
   try {
     const response = await axios.post(`${API_URL}/signin`, formProps);
     dispatch({
@@ -49,7 +49,7 @@ export const signin = (formProps, callback) => async dispatch => ({
       payload: 'Invalid login credentials',
     });
   }
-});
+};
 
 export const signout = () => {
   // Remove auth token from localStorage when user signs out

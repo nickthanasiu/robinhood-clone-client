@@ -12,6 +12,14 @@ export const FETCH_COMPANIES_BEGIN = 'fetch_companies_begin';
 export const FETCH_COMPANIES_SUCCESS = 'fetch_companies_success';
 export const FETCH_COMPANIES_ERROR = 'fetch_companies_error';
 
+export const FOLLOW_COMPANY_BEGIN = 'follow_company_begin';
+export const FOLLOW_COMPANY_SUCCESS = 'follow_company_success';
+export const FOLLOW_COMPANY_ERROR = 'follow_company_error';
+
+export const UNFOLLOW_COMPANY_BEGIN = 'unfollow_company_begin';
+export const UNFOLLOW_COMPANY_SUCCESS = 'unfollow_company_success';
+export const UNFOLLOW_COMPANY_ERROR = 'unfollow_company_error';
+
 export const FETCH_FOLLOWED_COMPANIES_BEGIN = 'fetch_followed_companies_begin';
 export const FETCH_FOLLOWED_COMPANIES_SUCCESS = 'fetch_followed_companies_success';
 export const FETCH_FOLLOWED_COMPANIES_ERROR = 'fetch_followed_companies_error';
