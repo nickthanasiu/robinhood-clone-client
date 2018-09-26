@@ -12,8 +12,9 @@ import SigninPage from './components/SigninPage';
 import SignoutPage from './components/SignoutPage';
 import AccountPage from './components/AccountPage';
 import Dashboard from './components/Dashboard';
+import CompanyPage from './components/CompanyPage';
 
-import { loadState, saveState } from './localStorage';
+import { loadState, saveState } from './util/local_storage_util';
 import appReducer from './reducers';
 import { SIGN_OUT } from './actions/types';
 
@@ -54,6 +55,7 @@ ReactDOM.render(
         <Route path="/signout" component={SignoutPage} />
         <Route path="/account" component={AccountPage} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/company" component={CompanyPage} />
       </App>
     </BrowserRouter>
   </Provider>,

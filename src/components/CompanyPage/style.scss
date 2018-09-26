@@ -1,0 +1,87 @@
+@import '../../styles/_colors.scss';
+
+.company-page {
+  padding-top: 5rem;
+  margin-left: 6rem;
+  min-height: 100vh;
+
+  display: flex;
+
+  .column-left {
+    width: 67vw;
+    padding: 1.5rem;
+
+    .company-header {
+      .company-name {
+        font-size: 2.25rem;
+      }
+
+      .company-price {
+        font-size: 2.8rem;
+      }
+
+      .price-change {
+        .timespan {
+          color: $darkergrey;
+          margin-left: .25rem;
+        }
+      }
+    }
+
+    .chart-container {
+      padding: 2rem;
+    }
+
+    .company-about {
+      margin-top: 2rem;
+
+      & > h3 {
+        border-bottom: 1px solid $grey;
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .company-about-grid {
+        margin-top: 2rem;
+        height: 10rem;
+
+        display: flex;
+        justify-content: space-between;
+
+        .grid-col {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          & > div {
+            display: flex;
+            flex-direction: column;
+
+            & > span {
+              color: $darkergrey;
+            }
+
+            & > .label {
+              font-weight: 500;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .column-right {
+    width: 33vw;
+    flex-shrink: 0;
+
+    .sidebar-container {
+      position: absolute;
+      width: 100%;
+      margin-left: 1rem;
+      margin-top: 4rem;
+    }
+  }
+}

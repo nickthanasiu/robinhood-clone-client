@@ -1,0 +1,168 @@
+@import '../../../styles/_colors.scss';
+
+.sidebar {
+  width: 22%;
+  min-height: 55vh;
+  font-size: .875rem;
+
+  .order-form {
+
+    font-weight: 500;
+    box-shadow:
+      0 0 4px 1px rgba(0,0,0,.01),
+      0 3px 24px rgba(48,51,51,.09);
+
+
+    .order-form-header {
+
+
+
+      padding: 1rem 1rem 0 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+
+      border-bottom: 1px solid $grey;
+
+      display: flex;
+
+      .buy-header {
+        padding-bottom: .75rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .company-symbol {
+          margin-left: .25rem;
+        }
+      }
+
+      .sell-header {
+
+        padding-bottom: .75rem;
+        margin-left: 1rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .company-symbol {
+          margin-left: .25rem;
+        }
+      }
+    }
+
+    form {
+
+      padding: 0 .75rem;
+
+      .order-form-elem {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .shares {
+        input {
+          padding: .5rem .75rem;
+          width: 40%;
+          text-align: right;
+          background-color: $lightgrey;
+
+          border: 1px solid $lightgrey;
+          border-radius: 4px;
+
+          &:hover {
+            border: 1px solid $darkergrey;
+          }
+
+          &:focus, &:active {
+            border: 1px solid $green;
+            outline: none;
+          }
+
+          &::placeholder {
+            text-align: right;
+            color: $blackish;
+          }
+
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+          }
+        }
+
+
+      }
+
+      .market-price {
+        border-bottom: 1px solid $grey;
+      }
+
+      .order-button-container {
+        margin-top: 2rem;
+        padding: .5rem;
+        display: flex;
+        justify-content: center;
+
+        button {
+          font-weight: 500;
+          color: $white;
+          border-radius: 4px;
+
+          height: 3.5rem;
+          width: 85%;
+
+          &:hover {
+            filter: contrast(125%);
+            cursor: pointer;
+          }
+
+          &:focus, &:active {
+            outline: none;
+          }
+        }
+      }
+    }
+
+
+
+
+    .buying-power {
+      margin-top: 1rem;
+      border-top: 1px solid $grey;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  } /* Buy Form END */
+
+  .watch-button-container {
+    margin-top: 1.25rem;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+
+    button {
+      font-weight: 500;
+      border-radius: 4px;
+      color: $white;
+
+      height: 3.5rem;
+      width: 85%;
+
+      &:hover {
+        filter: contrast(125%);
+        cursor: pointer;
+      }
+
+      &:focus, &:active {
+        outline: none;
+      }
+    }
+  }
+
+
+}
