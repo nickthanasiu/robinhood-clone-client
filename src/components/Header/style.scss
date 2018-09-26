@@ -1,0 +1,48 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
+
+.header {
+  height: 4rem;
+  width: 100%;
+  position: fixed;
+  background-color: $white;
+  padding: .25rem;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & a {
+    color: $blackish;
+    font-weight: 400;
+    font-size: .875rem;
+
+    &:hover {
+      text-decoration: none;
+      color: $green;
+    }
+  }
+
+  .header-left {
+    width: 50%;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+
+    .search {
+      margin: 4rem;
+      flex: 1
+    }
+  }
+
+
+
+  .header-right {
+    margin-right: 1rem;
+
+    & a {
+      margin-right: 2rem;
+    }
+  }
+}

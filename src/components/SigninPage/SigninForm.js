@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { FaUserPlus } from 'react-icons/fa';
-import { signup } from '../../actions';
+import { FaIdBadge } from 'react-icons/fa';
+import { signin } from '../../actions';
 
 import './style.scss';
 
-class SignupForm extends Component {
+// @TODO: Update FontAwesome Icon.
+
+class SigninForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
     };
+
     this.onSubmit = this.onSubmit.bind(this);
     this.dropDown = this.dropDown.bind(this);
     this.redirect = this.redirect.bind(this);
   }
 
   onSubmit(formProps) {
-    this.props.signup(formProps, this.redirect());
     this.setState({
       open: true
+    });
+    this.props.signin(formProps, () => {
+      this.redirect();
     });
     this.props.reset();
   }
@@ -44,75 +49,47 @@ class SignupForm extends Component {
     }, 1000);
   }
 
+
   render() {
     return (
-      <div className="signup-page">
+      <div className="signin-page">
         {
           this.state.open ? this.dropDown() : null
         }
-        <div className="signup-header">
+        <div className="signin-header">
           <h5>
-            Sign Up
+            Sign In
           </h5>
         </div>
-        <div className="signup-icon">
-          <FaUserPlus />
+        <div className="signin-icon">
+          <FaIdBadge />
         </div>
-        <div className="signup-form">
+        <div className="signin-form">
           <form
-            id="signup-form"
+            id="signin-form"
             onSubmit={this.props.handleSubmit(this.onSubmit)}
           >
             <div className="form-input">
-              <label htmlFor="firstName">
-                First Name
-              </label>
-              <Field
-                name="firstName"
-                type="text"
-                component="input"
-                placeholder="First Name"
-              />
-            </div>
-
-            <div className="form-input">
-              <label htmlFor="lastName">
-                Last Name
-              </label>
-              <Field
-                name="lastName"
-                type="text"
-                component="input"
-                placeholder="Last Name"
-              />
-            </div>
-
-            <div className="form-input">
-              <label htmlFor="email">
-                E-mail
-              </label>
               <Field
                 name="email"
                 type="text"
                 component="input"
+                autoComplete="none"
                 placeholder="E-mail"
               />
             </div>
-
             <div className="form-input">
-              <label htmlFor="firstName">
-                Password
-              </label>
               <Field
                 name="password"
                 type="password"
                 component="input"
+                autoComplete="none"
                 placeholder="Password"
               />
             </div>
 
             <button type="submit">
-              Sign Up
+              Sign In
             </button>
           </form>
         </div>
@@ -125,12 +102,13 @@ const mapStateToProps = state => ({
   errorMessage: state.auth.errorMessage,
 });
 
-const mapDispatchProps = dispatch => ({
-  signup: (formProps, callback) => dispatch(signup(formProps, callback)),
+const mapDispatchToProps = dispatch => ({
+  signin: (formProps, callback) => dispatch(signin(formProps, callback)),
 });
 
+
 export default compose(
-  connect(mapStateToProps, mapDispatchProps),
-  reduxForm({ form: 'signup' }),
+  connect(mapStateToProps, mapDispatchToProps),
+  reduxForm({ form: 'signin' }),
   withRouter
-)(SignupForm);
+)(SigninForm);

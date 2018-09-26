@@ -7,6 +7,9 @@ import thunk from 'redux-thunk';
 
 import App from './components/App';
 import Welcome from './components/Welcome';
+import SignupPage from './components/SignupPage';
+import SigninPage from './components/SigninPage';
+import SignoutPage from './components/SignoutPage';
 
 import { loadState, saveState } from './localStorage';
 import appReducer from './reducers';
@@ -44,6 +47,9 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route path="/" exact component={Welcome} />
+        <Route path="/signup" component={SignupPage} />
+        <Route path="/signin" component={SigninPage} />
+        <Route path="/signout" component={SignoutPage} />
       </App>
     </BrowserRouter>
   </Provider>,

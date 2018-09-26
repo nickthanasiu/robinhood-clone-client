@@ -1,12 +1,16 @@
 @import '../../styles/_breakpoints.scss';
 @import '../../styles/_colors.scss';
 
-.signup-page {
+.signin-page {
   padding: 4rem;
+
+  max-height: 100vh;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: relative;
 
   .drop-down {
     position: absolute;
@@ -71,13 +75,27 @@
     }
   }
 
-  .signup-header {
+  .back-arrow-icon {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .signin-header {
     margin-bottom: 2rem;
   }
 
-  .signup-form {
+  .signin-form {
     height: 100vh;
     margin-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     form {
       display: flex;
