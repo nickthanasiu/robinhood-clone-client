@@ -1,0 +1,43 @@
+@import '../../styles/_colors.scss';
+
+.dashboard {
+  padding-top: 5rem;
+  margin-left: 6rem;
+  min-height: 100vh;
+
+  display: flex;
+
+  .column-left {
+    width: 67vw;
+    padding: 1.5rem;
+
+    .dashboard-header {
+      .portfolio-value {
+        font-size: 2.8rem;
+      }
+
+      .value-change {
+        .timespan {
+          color: $darkergrey;
+          margin-left: .25rem;
+        }
+      }
+    }
+
+    .chart-container {
+      padding: 2rem;
+    }
+  }
+
+  .column-right {
+    width: 33vw;
+    flex-shrink: 0;
+
+    .sidebar-container {
+      position: fixed;
+      width: 100%;
+      margin-left: 1rem;
+      margin-top: 4rem;
+    }
+  }
+}
