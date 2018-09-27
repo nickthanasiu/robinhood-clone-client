@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router-dom';
-import { FaIdBadge } from 'react-icons/fa';
+import { withRouter, Link } from 'react-router-dom';
 import { signin } from '../../actions';
 
 import './style.scss';
@@ -49,49 +48,66 @@ class SigninForm extends Component {
     }, 1000);
   }
 
-
   render() {
     return (
       <div className="signin-page">
         {
           this.state.open ? this.dropDown() : null
         }
-        <div className="signin-header">
-          <h5>
-            Sign In
-          </h5>
-        </div>
-        <div className="signin-icon">
-          <FaIdBadge />
-        </div>
-        <div className="signin-form">
-          <form
-            id="signin-form"
-            onSubmit={this.props.handleSubmit(this.onSubmit)}
-          >
-            <div className="form-input">
-              <Field
-                name="email"
-                type="text"
-                component="input"
-                autoComplete="none"
-                placeholder="E-mail"
-              />
-            </div>
-            <div className="form-input">
-              <Field
-                name="password"
-                type="password"
-                component="input"
-                autoComplete="none"
-                placeholder="Password"
-              />
-            </div>
+        <div className="container">
+          <div className="row">
 
-            <button type="submit">
-              Sign In
-            </button>
-          </form>
+            <div className="col-md-6 image-container" />
+
+            <div className="col-md-6 page-content">
+
+              <div className="signin-form">
+                <div className="signin-header">
+                  <h3>
+                    Welcome to Doohnibor
+                  </h3>
+                </div>
+
+                <form
+                  id="signin-form"
+                  onSubmit={this.props.handleSubmit(this.onSubmit)}
+                >
+                  <div className="form-input">
+                    <label htmlFor="email">
+                      E-mail
+                    </label>
+                    <Field
+                      name="email"
+                      type="text"
+                      component="input"
+                      autoComplete="none"
+                    />
+                  </div>
+                  <div className="form-input">
+                    <label htmlFor="firstName">
+                      Password
+                    </label>
+                    <Field
+                      name="password"
+                      type="password"
+                      component="input"
+                      autoComplete="none"
+                    />
+                  </div>
+
+                  <div className="buttons-wrapper">
+                    <Link to="/signup">
+                      Not a user? Sign up here
+                    </Link>
+
+                    <button type="submit">
+                      Sign In
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

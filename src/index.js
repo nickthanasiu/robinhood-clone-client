@@ -14,7 +14,7 @@ import AccountPage from './components/AccountPage';
 import Dashboard from './components/Dashboard';
 import CompanyPage from './components/CompanyPage';
 
-import { loadState, saveState } from './util/local_storage_util';
+import { loadState, saveState } from './localStorage';
 import appReducer from './reducers';
 import { SIGN_OUT } from './actions/types';
 
@@ -32,6 +32,7 @@ const rootReducer = (state, action) => {
 };
 
 const persistedState = loadState();
+
 const store = createStore(
   rootReducer,
   persistedState,

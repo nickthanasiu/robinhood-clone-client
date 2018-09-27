@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LoadingTradeSpinner from './LoadingTradeSpinner';
 
 import './style.scss';
 
@@ -173,7 +174,7 @@ class Sidebar extends Component {
     return (
       <button type="submit" onClick={this.handleSubmitButtonClick} style={{ backgroundColor: this.props.fillColor }}>
         {
-          buyStockLoading ? 'Submitting...' : 'Submit'
+          buyStockLoading ? <LoadingTradeSpinner /> : 'Submit'
         }
       </button>
     );
@@ -401,5 +402,6 @@ class Sidebar extends Component {
     );
   }
 }
+
 
 export default Sidebar;

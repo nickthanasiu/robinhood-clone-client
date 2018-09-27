@@ -57,7 +57,7 @@ class SearchBar extends Component {
 
   queryResults() {
     this.setState({
-      queryResults: this.companies.filter((company) => {
+      queryResults: this.props.companies.filter((company) => {
         return company.name.includes(this.state.query);
       })
     });

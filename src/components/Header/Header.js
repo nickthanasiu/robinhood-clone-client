@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Feather from '../Feather';
 import SearchBar from './SearchBar';
@@ -27,13 +28,13 @@ export default (ChildComponent) => {
 
       return (
         <div className="header-right">
-          <Link to ="/">
+          <Link to="/">
             Home
           </Link>
-          <Link to ="/signup">
+          <Link to="/signup">
             Sign Up
           </Link>
-          <Link to ="/signin">
+          <Link to="/signin">
             Sign In
           </Link>
         </div>
@@ -66,5 +67,9 @@ export default (ChildComponent) => {
     }
   }
 
-  return Header;
+  const mapStateToProps = state => ({
+    authenticated: state.auth.authenticated,
+  });
+
+  return connect(mapStateToProps)(Header);
 };
