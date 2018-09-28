@@ -40,6 +40,7 @@
     "dotenv": "^6.0.0",
     "emotion": "^9.2.10",
     "i": "^0.3.6",
+    "lodash": "^4.17.11",
     "npm": "^6.4.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
@@ -53,7 +54,9 @@
     "react-scripts": "^1.1.5",
     "react-spinners": "^0.4.5",
     "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
     "redux-form": "^7.4.2",
+    "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "serve": "^10.0.2"
   }

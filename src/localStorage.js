@@ -4,21 +4,17 @@ export const loadState = () => {
     if (serializedState === null) {
       return undefined;
     }
-
     return JSON.parse(serializedState);
   } catch (err) {
     return undefined;
   }
 };
 
-/*
-export const saveState = () => {
+export const saveState = (state) => {
   try {
-    state.auth.errorMessage = '';
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
   } catch (err) {
     // Ignore write errors
   }
 };
-*/

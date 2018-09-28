@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
+import throttle from 'lodash/throttle';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { loadState, saveState } from './localStorage';
+import appReducer from './reducers';
+import { SIGN_OUT } from './actions/types';
 
 import App from './components/App';
 import Welcome from './components/Welcome';
@@ -13,10 +18,6 @@ import SignoutPage from './components/SignoutPage';
 import AccountPage from './components/AccountPage';
 import Dashboard from './components/Dashboard';
 import CompanyPage from './components/CompanyPage';
-
-import { loadState, saveState } from './localStorage';
-import appReducer from './reducers';
-import { SIGN_OUT } from './actions/types';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.scss';
@@ -31,22 +32,22 @@ const rootReducer = (state, action) => {
   return appReducer(state, action);
 };
 
+
 const persistedState = loadState();
 
 const store = createStore(
   rootReducer,
   persistedState,
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeWithDevTools(
+    applyMiddleware(thunk)
   )
 );
 
-/*
-store.subscribe(() => {
-  saveState(store.getState());
-});
-*/
+store.subscribe(throttle(() => {
+  saveState({
+    auth: store.getState().auth,
+  });
+}, 1000));
 
 ReactDOM.render(
   <Provider store={store}>

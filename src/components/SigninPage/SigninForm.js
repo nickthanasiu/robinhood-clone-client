@@ -51,16 +51,15 @@ class SigninForm extends Component {
   render() {
     return (
       <div className="signin-page">
-        {
-          this.state.open ? this.dropDown() : null
-        }
         <div className="container">
           <div className="row">
 
             <div className="col-md-6 image-container" />
 
             <div className="col-md-6 page-content">
-
+              {
+                this.state.open ? this.dropDown() : null
+              }
               <div className="signin-form">
                 <div className="signin-header">
                   <h3>
