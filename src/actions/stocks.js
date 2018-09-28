@@ -11,7 +11,7 @@ import {
   SELL_STOCK_ERROR,
 } from './types';
 
-const API_URL = 'http://localhost:3090/api';
+const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 
 const fetchStocksBegin = () => ({
   type: FETCH_STOCKS_BEGIN

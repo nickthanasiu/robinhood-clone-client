@@ -6,7 +6,7 @@ import {
   SIGN_OUT,
 } from './types';
 
-const API_URL = 'http://localhost:3090';
+const API_URL = 'https://doohnibor-server.herokuapp.com';
 
 export const signup = (formProps, callback) => async (dispatch) => {
   try {

@@ -10,7 +10,7 @@ import {
   GET_PORTFOLIO_INTRA_ERROR,
 } from './types';
 
-const API_URL = 'http://localhost:3090/api';
+const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 
 const getPortfolioBegin = () => ({
   type: GET_PORTFOLIO_BEGIN
