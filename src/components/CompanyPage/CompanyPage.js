@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import Chart from './Chart';
-import NewsFeed from './NewsFeed';
+import Newsfeed from './Newsfeed';
 import SidebarContainer from './Sidebar';
 
 import { formatOpenPriceKey } from '../../util/market_data_util';
@@ -213,7 +213,7 @@ class CompanyPage extends Component {
           </div>
 
           <div className="newsfeed-container">
-            <NewsFeed
+            <Newsfeed
               company={selectedCompany}
             />
           </div>

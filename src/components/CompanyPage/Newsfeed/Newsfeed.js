@@ -5,7 +5,7 @@ import * as actions from '../../../actions/newsfeed';
 
 import './style.scss';
 
-class NewsFeed extends Component {
+class Newsfeed extends Component {
 
   componentDidMount() {
     const { fetchArticles, company } = this.props;
@@ -67,4 +67,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(NewsFeed);
+export default connect(mapStateToProps, actions)(Newsfeed);
