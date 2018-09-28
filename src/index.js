@@ -25,7 +25,7 @@ const rootReducer = (state, action) => {
   // 'Clear' state when user signs out to secure user data
   // state will still exist in localStorage but all values will be undefined
   if (action.type === SIGN_OUT) {
-    state = undefined;
+    state = null;
   }
 
   return appReducer(state, action);
@@ -42,9 +42,11 @@ const store = createStore(
   )
 );
 
+/*
 store.subscribe(() => {
   saveState(store.getState());
 });
+*/
 
 ReactDOM.render(
   <Provider store={store}>

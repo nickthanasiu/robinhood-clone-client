@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
   },
   resolve: {
     alias: {
@@ -32,7 +32,7 @@ module.exports = {
   mode: 'none',
   devServer: {
     historyApiFallback: true,
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     port: 3000,
   },

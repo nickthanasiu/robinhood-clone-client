@@ -11,6 +11,7 @@ export const loadState = () => {
   }
 };
 
+/*
 export const saveState = () => {
   try {
     state.auth.errorMessage = '';
@@ -20,3 +21,4 @@ export const saveState = () => {
     // Ignore write errors
   }
 };
+*/
