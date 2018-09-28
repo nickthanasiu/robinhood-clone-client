@@ -1,5 +1,7 @@
 /*eslint-disable*/
 import axios from 'axios';
+import { API_URL } from '../api';
+
 import {
   GET_INTRADAY_BEGIN,
   GET_INTRADAY_SUCCESS,
@@ -9,7 +11,6 @@ import {
   GET_LATEST_ERROR
 } from './types';
 
-const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 
 const getIntradayBegin= () => ({
   type: GET_INTRADAY_BEGIN,

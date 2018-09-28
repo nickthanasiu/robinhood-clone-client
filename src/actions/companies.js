@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { API_URL } from '../api';
+
 
 import {
   COMPANY_SEARCH_BEGIN,
@@ -17,8 +19,6 @@ import {
   FETCH_FOLLOWED_COMPANIES_SUCCESS,
   FETCH_FOLLOWED_COMPANIES_ERROR,
 } from './types';
-
-const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 
 const companySearchBegin = () => ({
   type: COMPANY_SEARCH_BEGIN

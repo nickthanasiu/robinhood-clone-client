@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { API_URL } from '../api';
+
 import {
   FETCH_STOCKS_BEGIN,
   FETCH_STOCKS_SUCCESS,
@@ -10,8 +12,6 @@ import {
   SELL_STOCK_SUCCESS,
   SELL_STOCK_ERROR,
 } from './types';
-
-const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 
 const fetchStocksBegin = () => ({
   type: FETCH_STOCKS_BEGIN

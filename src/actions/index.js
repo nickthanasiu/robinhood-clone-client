@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { AUTH_URL } from '../api';
+
 import {
   AUTH_USER,
   AUTH_ERROR,
@@ -6,11 +8,9 @@ import {
   SIGN_OUT,
 } from './types';
 
-const API_URL = 'https://doohnibor-server.herokuapp.com';
-
 export const signup = (formProps, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}/signup`, formProps);
+    const response = await axios.post(`${AUTH_URL}/signup`, formProps);
     dispatch({
       type: AUTH_USER,
       payload: response.data.token
@@ -32,9 +32,14 @@ const currentUser = currentUserId => ({
   payload: { currentUserId }
 });
 
+const signinHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Content-Type': 'application/json',
+};
+
 export const signin = (formProps, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}/signin`, formProps);
+    const response = await axios.post(`${AUTH_URL}/signin`, formProps, { signinHeaders });
     dispatch({
       type: AUTH_USER,
       payload: response.data.token
