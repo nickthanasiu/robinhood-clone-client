@@ -17,6 +17,7 @@ class Sidebar extends Component {
       sharesOwned: 0,
       buyActive: true,
       sellActive: false,
+      inputActive: false,
     };
 
     this.updateNumShares = this.updateNumShares.bind(this);
@@ -27,6 +28,7 @@ class Sidebar extends Component {
     this.handleSellButtonClick = this.handleSellButtonClick.bind(this);
     this.handleSubmitButtonClick = this.handleSubmitButtonClick.bind(this);
     this.toggleActive = this.toggleActive.bind(this);
+    this.inputActive = this.inputActive.bind(this);
   }
 
   componentDidMount() {
@@ -152,6 +154,15 @@ class Sidebar extends Component {
     }
   }
 
+  inputActive(e) {
+    console.log('INPUT IS NOW ACTIVE!');
+    if (!e.target.classList.contains('input-active')) {
+      this.setState({
+        inputActive: !this.state.inputActive
+      });
+    }
+  }
+
   renderBuyButton() {
     return (
       <button type="button" onClick={this.handleBuyButtonClick} style={{ backgroundColor: this.props.fillColor }}>
@@ -185,7 +196,8 @@ class Sidebar extends Component {
       numShares,
       estimatedCost,
       orderSummaryDisplay,
-      submitButtonDisplay
+      submitButtonDisplay,
+      inputActive,
     } = this.state;
 
     const {
@@ -193,6 +205,8 @@ class Sidebar extends Component {
       latestPrice,
       loadingLatestPrice,
     } = this.props;
+
+    const inputStyle = inputActive ? {border: `1px solid ${this.props.fillColor}`} : {border: '1px solid #f6f6f6' };
 
     return (
       <div className="buy-form">
@@ -202,11 +216,14 @@ class Sidebar extends Component {
               Shares
             </span>
             <input
+              className={inputActive ? 'input-active' : ''}
+              style={inputStyle}
               type="number"
               name="shares"
               placeholder="0"
               ref={(input) => { this.sharesInput = input }}
               onChange={this.updateNumShares}
+              onFocus={this.inputActive}
               value={numShares}
             />
           </div>
@@ -258,7 +275,8 @@ class Sidebar extends Component {
       estimatedCredit,
       sharesOwned,
       orderSummaryDisplay,
-      submitButtonDisplay
+      submitButtonDisplay,
+      inputActive,
     } = this.state;
 
     const {
@@ -266,6 +284,8 @@ class Sidebar extends Component {
       latestPrice,
       loadingLatestPrice,
     } = this.props;
+
+    const inputStyle = inputActive ? {border: `1px solid ${this.props.fillColor}`} : {border: '1px solid #f6f6f6' };
 
     return (
       <div className="buy-form">
@@ -275,11 +295,14 @@ class Sidebar extends Component {
               Shares
             </span>
             <input
+              className={inputActive ? 'input-active' : ''}
+              style={inputStyle}
               type="number"
               name="shares"
               placeholder="0"
               ref={(input) => { this.sharesInput = input }}
               onChange={this.updateNumShares}
+              onFocus={this.inputActive}
               value={numShares}
             />
           </div>

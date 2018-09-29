@@ -44,7 +44,7 @@ class Chart extends Component {
     const chartData = {
       labels: Object.keys(data).reverse(),
       datasets: [{
-        label: 'My First dataset',
+        label: this.props.selectedCompany,
         fill: false,
         lineTension: 0.1,
         borderColor: borderColor,
