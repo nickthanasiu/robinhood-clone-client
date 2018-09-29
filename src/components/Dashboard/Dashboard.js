@@ -63,8 +63,8 @@ class Dashboard extends Component {
     const fillColor = dailyChange >= 0 ? '#30cd9a' : '#f68f7c';
 
     this.setState({
-      dailyChange,
-      dailyChangePercentage,
+      dailyChange: dailyChange.toLocaleString('en', { minimumFractionDigits: 2 }),
+      dailyChangePercentage: dailyChangePercentage.toLocaleString('en', { minimumFractionDigits: 2 }),
       changePositive,
       fillColor,
     });
@@ -114,7 +114,7 @@ class Dashboard extends Component {
               {
                 loadingPortfolio ? null :
                   `
-                    $${portfolioValue}
+                    $${portfolioValue.toLocaleString('en', { minimumFractionDigits: 2 })}
                   `
               }
             </h2>

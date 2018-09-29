@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack=dev=server",
+    "dev": "webpack-dev-server",
     "start": "react-scripts start",
     "build": "webpack",
     "heroku-postbuild": "yarn run build"
@@ -41,6 +41,7 @@
     "emotion": "^9.2.10",
     "i": "^0.3.6",
     "lodash": "^4.17.11",
+    "moment": "^2.19.1",
     "npm": "^6.4.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",

@@ -45,14 +45,14 @@ class CompanyPage extends Component {
     const today = new Date(Date.now());
     const openPriceKey = formatOpenPriceKey(today);
     const openPrice = parseFloat(intradayData[openPriceKey], 10);
-    const dailyChange = (latestPrice - openPrice).toFixed(2);
+    const dailyChange = parseFloat(latestPrice - openPrice).toFixed(2);
     const dailyChangePercentage = ((dailyChange / openPrice) * 100).toFixed(2);
     const changePositive = dailyChange >= 0 ? true : false;
     const fillColor = dailyChange >= 0 ? '#30cd9a' : '#f68f7c';
 
     this.setState({
-      dailyChange,
-      dailyChangePercentage,
+      dailyChange: dailyChange.toLocaleString('en', { minimumFractionDigits: 2 }),
+      dailyChangePercentage: dailyChangePercentage.toLocaleString('en', { minimumFractionDigits: 2 }),
       changePositive,
       fillColor,
     });

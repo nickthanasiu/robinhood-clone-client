@@ -54,13 +54,18 @@
         display: flex;
         flex-wrap: wrap;
 
-        .article-source {
-          font-weight: 500;
-        }
+        .article-top-line {
 
-        .article-published {
-          margin-left: .5rem;
-          color: $darkergrey;
+          width: 100%;
+
+          .article-source {
+            font-weight: 500;
+          }
+
+          .article-published {
+            margin-left: .5rem;
+            color: $darkergrey;
+          }
         }
 
         .article-headline {

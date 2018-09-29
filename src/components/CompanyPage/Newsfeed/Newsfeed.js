@@ -9,7 +9,6 @@ class Newsfeed extends Component {
 
   componentDidMount() {
     const { fetchArticles, company } = this.props;
-    // const query = company.name.toLowerCase();
     fetchArticles(company.name);
   }
 
@@ -31,14 +30,16 @@ class Newsfeed extends Component {
                       <img src={article.urlToImage} />
                     </div>
                     <div className="article-right">
-                      <span className="article-source">
-                        { article.source.name }
-                      </span>
-                      <span className="article-published">
-                        <Moment fromNow>
-                           { article.publishedAt }
-                        </Moment>
-                      </span>
+                      <div className="article-top-line">
+                        <span className="article-source">
+                          { article.source.name }
+                        </span>
+                        <span className="article-published">
+                          <Moment fromNow>
+                             { article.publishedAt }
+                          </Moment>
+                        </span>
+                      </div>
 
                       <h5 className="article-headline">
                         { article.title }
