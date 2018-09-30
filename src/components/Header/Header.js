@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { FaSignOutAlt, FaUserAlt } from 'react-icons/fa';
 
 import Feather from '../Feather';
 import SearchBar from './SearchBar';
@@ -9,19 +10,75 @@ import './style.scss';
 
 export default (ChildComponent) => {
   class Header extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        dropdownHidden: true
+      };
+
+      this.dropdown = this.dropdown.bind(this);
+    }
+
+    dropdown() {
+      this.setState({
+        dropdownHidden: !this.state.dropdownHidden
+      });
+    }
+
     renderLinks() {
+      const { dropdownHidden } = this.state;
       if (this.props.authenticated) {
         return (
           <div className="header-right">
-            <Link to="/dashboard">
-              Dashboard
-            </Link>
-            <Link to="/account">
-              Account
-            </Link>
-            <Link to="/signout">
-              Sign Out
-            </Link>
+            <li className="navbar-link">
+              <Link to="/dashboard">
+                Dashboard
+              </Link>
+            </li>
+            <li className='navbar-link'>
+
+              <li onClick={this.dropdown}>
+                <a href="#">
+                  Account
+                </a>
+              </li>
+              <ul className={`account-menu ${dropdownHidden ? 'dropdown-hidden' : null}`}>
+                <li className="account-user">
+                  Nicholas Thanasiu
+                </li>
+                <li className="account-info">
+                  <span className="portfolio-value">
+                    <span>
+                      $4.03
+                    </span>
+                    <span>
+                       Portfolio Value
+                    </span>
+                  </span>
+                  <span className="buying-power">
+                    <span>
+                      $0.00
+                    </span>
+                    <span>
+                       Buying Power
+                    </span>
+                  </span>
+                </li>
+                <li className="account-link">
+                  <FaUserAlt />
+                  <Link to="/account">
+                    Account
+                  </Link>
+                </li>
+                <li className="signout">
+                  <FaSignOutAlt />
+                  <Link to="/signout">
+                    Sign Out
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
           </div>
         );
       }
