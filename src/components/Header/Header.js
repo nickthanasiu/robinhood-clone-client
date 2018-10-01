@@ -155,7 +155,6 @@ export default (ChildComponent) => {
   const mapDispatchToProps = dispatch => ({
     getPortfolioValue: currentUserId => dispatch(getPortfolioValue(currentUserId)),
     getBuyingPower: currentUserId => dispatch(getBuyingPower(currentUserId)),
-    setBuyingPower: value => dispatch(setBuyingPower(value)),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(Header);
