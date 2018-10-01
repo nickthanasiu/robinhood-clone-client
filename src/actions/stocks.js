@@ -14,6 +14,9 @@ import {
   GET_BUYING_POWER_BEGIN,
   GET_BUYING_POWER_SUCCESS,
   GET_BUYING_POWER_ERROR,
+  SET_BUYING_POWER_BEGIN,
+  SET_BUYING_POWER_SUCCESS,
+  SET_BUYING_POWER_ERROR,
 } from './types';
 
 const fetchStocksBegin = () => ({
@@ -57,6 +60,21 @@ const getBuyingPowerError = error => ({
   payload: { error }
 });
 
+export const getBuyingPower = portfolioValueAsNum => async (dispatch) => {
+  try {
+    dispatch(getBuyingPowerBegin());
+    const newValue = (5000 - portfolioValueAsNum).toLocaleString('en', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
+    dispatch(getBuyingPowerSuccess(newValue));
+  } catch (err) {
+    dispatch(getBuyingPowerError(err));
+  }
+};
+
+/*
 export const getBuyingPower = currentUserId => async (dispatch) => {
   try {
     dispatch(getBuyingPowerBegin());
@@ -68,7 +86,7 @@ export const getBuyingPower = currentUserId => async (dispatch) => {
   } catch (err) {
     dispatch(getBuyingPowerError(err));
   }
-};
+};*/
 
 const buyStockBegin = () => ({
   type: BUY_STOCK_BEGIN

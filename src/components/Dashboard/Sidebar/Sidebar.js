@@ -38,7 +38,7 @@ class Sidebar extends Component {
   }
 
   render() {
-    const { intradayData } = this.props;
+    const { intradayData, loadingMyStocks } = this.props;
     return (
       <div className="sidebar-container">
 
@@ -75,8 +75,11 @@ class Sidebar extends Component {
 
                   <div className="list-item-right">
                     <span className="company-price">
-                      $
-                      { stock.value }
+                      {
+                        loadingMyStocks
+                          ? ''
+                          : `$${stock.value}`
+                      }
                     </span>
                   </div>
                 </li>
@@ -99,7 +102,7 @@ class Sidebar extends Component {
                   </span>
                   <span className="company-price">
                     $
-                    { company.price }
+                    { company.price.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 }) }
                   </span>
                 </li>
               ))

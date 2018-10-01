@@ -22,7 +22,12 @@ class CompanyPage extends Component {
   }
 
   componentDidMount() {
-    const { getLatestPrice, getIntraday, selectedCompany } = this.props;
+    const {
+      getLatestPrice,
+      latestPrice,
+      getIntraday,
+      selectedCompany
+    } = this.props;
     getLatestPrice(selectedCompany.symbol);
     getIntraday(selectedCompany.symbol)
       .then(() => {
@@ -45,14 +50,14 @@ class CompanyPage extends Component {
     const today = new Date(Date.now());
     const openPriceKey = formatOpenPriceKey(today);
     const openPrice = parseFloat(intradayData[openPriceKey], 10);
-    const dailyChange = parseFloat(latestPrice - openPrice).toFixed(2);
-    const dailyChangePercentage = ((dailyChange / openPrice) * 100).toFixed(2);
+    const dailyChange = latestPrice - openPrice;
+    const dailyChangePercentage = ((dailyChange / openPrice) * 100);
     const changePositive = dailyChange >= 0 ? true : false;
     const fillColor = dailyChange >= 0 ? '#30cd9a' : '#f68f7c';
 
     this.setState({
-      dailyChange: dailyChange.toLocaleString('en', { minimumFractionDigits: 2 }),
-      dailyChangePercentage: dailyChangePercentage.toLocaleString('en', { minimumFractionDigits: 2 }),
+      dailyChange: dailyChange.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 }),
+      dailyChangePercentage: dailyChangePercentage.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 }),
       changePositive,
       fillColor,
     });
@@ -65,6 +70,7 @@ class CompanyPage extends Component {
       loadingLatestPrice,
       intradayData,
       loadingIntraday,
+      buyingPower,
     } = this.props;
 
     const {
@@ -97,7 +103,9 @@ class CompanyPage extends Component {
             </h2>
             <h2 className="company-price">
               {
-                loadingLatestPrice ? null : `$${latestPrice}`
+                loadingLatestPrice
+                  ? ''
+                  : `$${latestPrice.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
               }
             </h2>
 
@@ -228,6 +236,7 @@ class CompanyPage extends Component {
                   latestPrice={latestPrice}
                   loadingLatestPrice={loadingLatestPrice}
                   fillColor={fillColor}
+                  buyingPower={buyingPower}
                 />
               </div>
             )

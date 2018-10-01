@@ -12,7 +12,7 @@ const initialState = {
   intradayData: {},
   intradayError: '',
   loadingLatestPrice: false,
-  latestPrice: null,
+  latestPrice: '',
   latestPriceError: '',
   //loadingDaily: false,
   //dailyData: [],

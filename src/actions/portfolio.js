@@ -6,6 +6,7 @@ import {
   GET_PORTFOLIO_BEGIN,
   GET_PORTFOLIO_SUCCESS,
   GET_PORTFOLIO_ERROR,
+  GET_PORTFOLIO_AS_NUM,
   GET_PORTFOLIO_INTRA_BEGIN,
   GET_PORTFOLIO_INTRA_SUCCESS,
   GET_PORTFOLIO_INTRA_ERROR,
@@ -25,13 +26,20 @@ const getPortfolioError = error => ({
   payload: { error }
 });
 
+const getPortfolioAsNum = numValue => ({
+  type: GET_PORTFOLIO_AS_NUM,
+  payload: { numValue }
+});
+
 export const getPortfolioValue = currentUserId => async dispatch => {
   try {
     dispatch(getPortfolioBegin());
 
     const response = await axios.post(`${API_URL}/portfolio_value`, { currentUserId });
     const value = response.data;
-    const formatValue = value.toLocaleString('en', { minimumFractionDigits: 2 });
+    const portfolioValueAsNum = value;
+    const formatValue = value.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    dispatch(getPortfolioAsNum(value));
     dispatch(getPortfolioSuccess(formatValue));
 
   } catch (err) {

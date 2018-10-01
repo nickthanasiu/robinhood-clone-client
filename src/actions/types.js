@@ -39,10 +39,15 @@ export const SELL_STOCK_ERROR = 'sell_stock_error';
 export const GET_PORTFOLIO_BEGIN = 'get_portfolio_begin';
 export const GET_PORTFOLIO_SUCCESS = 'get_portfolio_success';
 export const GET_PORTFOLIO_ERROR = 'get_portfolio_error';
+export const GET_PORTFOLIO_AS_NUM = 'get_portfolio_as_num';
 
 export const GET_BUYING_POWER_BEGIN = 'get_buying_power_begin';
 export const GET_BUYING_POWER_SUCCESS = 'get_buying_power_success';
 export const GET_BUYING_POWER_ERROR = 'get_buying_power_error';
+
+export const SET_BUYING_POWER_BEGIN = 'set_buying_power_begin';
+export const SET_BUYING_POWER_SUCCESS = 'set_buying_power_success';
+export const SET_BUYING_POWER_ERROR = 'set_buying_power_error';
 
 export const GET_PORTFOLIO_INTRA_BEGIN = 'get_portfolio_intra_begin';
 export const GET_PORTFOLIO_INTRA_SUCCESS = 'get_portfolio_intra_success';

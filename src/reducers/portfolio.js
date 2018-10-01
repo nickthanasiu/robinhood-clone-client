@@ -2,6 +2,7 @@ import {
   GET_PORTFOLIO_BEGIN,
   GET_PORTFOLIO_SUCCESS,
   GET_PORTFOLIO_ERROR,
+  GET_PORTFOLIO_AS_NUM,
   GET_PORTFOLIO_INTRA_BEGIN,
   GET_PORTFOLIO_INTRA_SUCCESS,
   GET_PORTFOLIO_INTRA_ERROR,
@@ -10,6 +11,7 @@ import {
 
 const initialState = {
   portfolioValue: 0,
+  portfolioValueAsNum: 0,
   loadingPortfolio: false,
   portfolioError: '',
   portfolioIntradayData: {},
@@ -37,6 +39,11 @@ export default (state = initialState, action) => {
         loadingPortfolio: false,
         portfolioError: action.payload.error,
         portfolioValue: 0,
+      };
+    case GET_PORTFOLIO_AS_NUM:
+      return {
+        ...state,
+        portfolioValueAsNum: action.payload.numValue,
       };
     case GET_PORTFOLIO_INTRA_BEGIN:
       return {

@@ -204,6 +204,7 @@ class Sidebar extends Component {
       selectedCompany,
       latestPrice,
       loadingLatestPrice,
+      buyingPower
     } = this.props;
 
     const inputStyle = inputActive ? {border: `1px solid ${this.props.fillColor}`} : {border: '1px solid #f6f6f6' };
@@ -233,7 +234,9 @@ class Sidebar extends Component {
               Market Price
             </span>
             <span>
-              { loadingLatestPrice ? selectedCompany.price : latestPrice }
+              { loadingLatestPrice
+                ? ''
+                : `$${latestPrice.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` }
             </span>
           </div>
 
@@ -262,7 +265,9 @@ class Sidebar extends Component {
         </form>
 
         <div className="buying-power">
-          $0.00 Buying Power Available
+          {`
+            $${buyingPower} Buying Power Available
+          `}
         </div>
       </div>
     );

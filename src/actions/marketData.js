@@ -31,7 +31,6 @@ export const getIntraday = symbol => async (dispatch) => {
     dispatch(getIntradayBegin());
     console.log('FIRING GET INTRADAY ACTION!!');
     const response = await axios.post(`${API_URL}/intraday_data`, { symbol });
-
     dispatch(getIntradaySuccess(response.data));
   } catch (err) {
     dispatch(getIntradayError(err));
@@ -88,7 +87,8 @@ export const getLatestPrice = symbol => async (dispatch) => {
     dispatch(getLatestBegin());
 
     const response = await axios.post(`${API_URL}/latest_price`, { symbol });
-    dispatch(getLatestSuccess(response.data));
+    const { data } = response;
+    dispatch(getLatestSuccess(data));
 
   } catch (err) {
     dispatch(getLatestError(err));

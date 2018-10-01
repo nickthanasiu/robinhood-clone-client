@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
   followedCompanies: state.companies.followedCompanies,
   selectedCompany: state.companies.selectedCompany,
   myStocks: state.stocks.myStocks,
+  loadingMyStocks: state.stocks.loadingMyStocks,
   currentUserId: state.auth.currentUserId,
   articles: state.newsfeed.articles,
   loadingArticles: state.newsfeed.loadingArticles,

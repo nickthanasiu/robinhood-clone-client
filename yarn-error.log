@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js remove -D redux-devtools-extension
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run rev
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -20,7 +20,7 @@ npm manifest:
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-      "dev": "webpack=dev=server",
+      "dev": "webpack-dev-server",
       "start": "react-scripts start",
       "build": "webpack",
       "heroku-postbuild": "yarn run build"
@@ -42,7 +42,6 @@ npm manifest:
       "jest": "^23.6.0",
       "jest-cli": "^23.6.0",
       "node-sass": "^4.9.3",
-      "redux-devtools-extension": "^2.13.5",
       "sass-loader": "^7.1.0",
       "style-loader": "^0.23.0",
       "webpack": "^4.20.1",
@@ -57,6 +56,8 @@ npm manifest:
       "dotenv": "^6.0.0",
       "emotion": "^9.2.10",
       "i": "^0.3.6",
+      "lodash": "^4.17.11",
+      "moment": "^2.19.1",
       "npm": "^6.4.1",
       "prop-types": "^15.6.2",
       "react": "^16.5.2",
@@ -70,6 +71,7 @@ npm manifest:
       "react-scripts": "^1.1.5",
       "react-spinners": "^0.4.5",
       "redux": "^4.0.0",
+      "redux-devtools-extension": "^2.13.5",
       "redux-form": "^7.4.2",
       "redux-persist": "^5.10.0",
       "redux-thunk": "^2.3.0",
@@ -6035,7 +6037,7 @@ Lockfile:
     version "4.4.0"
     resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
   
-  "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.10:
+  "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.10:
     version "4.17.11"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   
@@ -6390,7 +6392,7 @@ Lockfile:
     dependencies:
       minimist "0.0.8"
   
-  moment@^2.10.2:
+  moment@^2.10.2, moment@^2.19.1:
     version "2.22.2"
     resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
   
@@ -10412,14 +10414,14 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Not enough arguments, expected at least 1.
+  Error: Command "rev" not found. Did you mean "dev"?
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:60368:13)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)
       at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:116:14
       at new Promise (<anonymous>)
       at new F (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:23451:28)
-      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12)
-      at Object.run (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:60486:17)
-      at run (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:89113:20)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12
+      at runCommand (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87312:22)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87412:14)

@@ -22,10 +22,15 @@ export default (ChildComponent) => {
     }
 
     componentDidMount() {
-      console.log('HEADER MOUNTED WITH PROPS: ', this.props);
-      const { getPortfolioValue, getBuyingPower, currentUserId } = this.props;
+      const { getPortfolioValue, currentUserId } = this.props;
       getPortfolioValue(currentUserId);
-      getBuyingPower(currentUserId);
+    }
+
+    componentWillReceiveProps(newProps) {
+      const { getBuyingPower, portfolioValueAsNum } = newProps;
+      if (portfolioValueAsNum !== this.props.portfolioValueAsNum) {
+        getBuyingPower(portfolioValueAsNum);
+      }
     }
 
     dropdown() {
@@ -141,6 +146,7 @@ export default (ChildComponent) => {
   const mapStateToProps = state => ({
     authenticated: state.auth.authenticated,
     portfolioValue: state.portfolio.portfolioValue,
+    portfolioValueAsNum: state.portfolio.portfolioValueAsNum,
     currentUserId: state.auth.currentUserId,
     buyingPower: state.stocks.buyingPower,
     loadingBuyingPower: state.stocks.loadingBuyingPower,
@@ -149,6 +155,7 @@ export default (ChildComponent) => {
   const mapDispatchToProps = dispatch => ({
     getPortfolioValue: currentUserId => dispatch(getPortfolioValue(currentUserId)),
     getBuyingPower: currentUserId => dispatch(getBuyingPower(currentUserId)),
+    setBuyingPower: value => dispatch(setBuyingPower(value)),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -46,9 +46,7 @@ class MiniChart extends Component {
     const { intradayData } = this.props;
     return (
       <div className="chart">
-        <div className="chart-wrapper">
-          <Line height={150} data={this.setChartData(intradayData)} options={chartOptions} />
-        </div>
+        {''}
       </div>
     );
   }

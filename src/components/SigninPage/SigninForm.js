@@ -36,7 +36,7 @@ class SigninForm extends Component {
     const message = errorMessage.length === 0 ? 'Welcome Back!' : errorMessage;
     const color = errorMessage.length === 0 ? '#30cd9a' : '#f68f7c';
     return (
-      <div className="drop-down" style={{ backgroundColor: color }}>
+      <div className="drop-down" style={{ color }}>
         { message }
       </div>
     );

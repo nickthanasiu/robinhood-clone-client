@@ -54,14 +54,14 @@ class Dashboard extends Component {
     const openPriceKey = formatOpenPriceKey(today);
     const openPrice = portfolioIntradayData[openPriceKey];
     const latestPrice = Object.values(portfolioIntradayData)[0];
-    const dailyChange = (latestPrice - openPrice).toFixed(2);
-    const dailyChangePercentage = ((dailyChange / openPrice) * 100).toFixed(2);
+    const dailyChange = (latestPrice - openPrice);
+    const dailyChangePercentage = ((dailyChange / openPrice) * 100);
     const changePositive = dailyChange >= 0 ? true : false;
     const fillColor = dailyChange >= 0 ? '#30cd9a' : '#f68f7c';
 
     this.setState({
-      dailyChange: dailyChange.toLocaleString('en', { minimumFractionDigits: 2 }),
-      dailyChangePercentage: dailyChangePercentage.toLocaleString('en', { minimumFractionDigits: 2 }),
+      dailyChange: dailyChange.toFixed(2),
+      dailyChangePercentage: dailyChangePercentage.toFixed(2),
       changePositive,
       fillColor,
     });
@@ -73,6 +73,7 @@ class Dashboard extends Component {
       selectedCompany,
       searchCompanies,
       myStocks,
+      loadingMyStocks,
       currentUserId,
       articles,
       loadingArticles,
@@ -109,18 +110,26 @@ class Dashboard extends Component {
           <div className="dashboard-header">
             <h2 className="portfolio-value">
               {
-                loadingPortfolio ? null :
+                loadingPortfolio ? '' :
                   `
-                    $${portfolioValue.toLocaleString('en', { minimumFractionDigits: 2 })}
+                    $${portfolioValue}
                   `
               }
             </h2>
             <span className="value-change">
               {
-                loadingPortfolioIntra ? null : dailyChangeSpan
+                /* eslint-disable no-nested-ternary */
+                loadingPortfolioIntra
+                  ? ''
+                  : isNaN(dailyChange)
+                    ? ''
+                    : isNaN(dailyChangePercentage)
+                      ? ''
+                      : dailyChangeSpan
+                  /* eslint-enable */
               }
               {
-                loadingPortfolioIntra ? null : timespan
+                loadingPortfolioIntra ? '' : timespan
               }
             </span>
           </div>
@@ -147,6 +156,7 @@ class Dashboard extends Component {
               selectedCompany={selectedCompany}
               followedCompanies={followedCompanies}
               myStocks={myStocks}
+              loadingMyStocks={loadingMyStocks}
               currentUserId={currentUserId}
               intradayData={intradayData}
               fillColor={fillColor}
