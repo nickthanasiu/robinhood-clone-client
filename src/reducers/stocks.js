@@ -8,6 +8,9 @@ import {
   SELL_STOCK_BEGIN,
   SELL_STOCK_SUCCESS,
   SELL_STOCK_ERROR,
+  GET_BUYING_POWER_BEGIN,
+  GET_BUYING_POWER_SUCCESS,
+  GET_BUYING_POWER_ERROR,
 } from '../actions/types';
 
 const initialState = {
@@ -18,6 +21,9 @@ const initialState = {
   buyStockError: '',
   sellStockLoading: false,
   sellStockError: '',
+  buyingPower: null,
+  loadingBuyingPower: false,
+  buyingPowerError: '',
 };
 
 export default (state = initialState, action) => {
@@ -74,6 +80,25 @@ export default (state = initialState, action) => {
         ...state,
         sellStockLoading: false,
         sellStockError: action.payload.error,
+      };
+    case GET_BUYING_POWER_BEGIN:
+      return {
+        ...state,
+        loadingBuyingPower: true,
+        buyingPowerError: '',
+      };
+    case GET_BUYING_POWER_SUCCESS:
+      return {
+        ...state,
+        loadingBuyingPower: false,
+        buyingPower: action.payload.buyingPower,
+      };
+    case GET_BUYING_POWER_ERROR:
+      return {
+        ...state,
+        loadingBuyingPower: false,
+        buyingPowerError: action.payload.error,
+        buyingPower: null,
       };
     default:
       return state;

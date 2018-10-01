@@ -11,11 +11,7 @@ import './style.scss';
 class SignupForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      open: false,
-    };
     this.onSubmit = this.onSubmit.bind(this);
-    this.dropDown = this.dropDown.bind(this);
     this.redirect = this.redirect.bind(this);
   }
 
@@ -27,17 +23,6 @@ class SignupForm extends Component {
     this.props.reset();
   }
 
-  dropDown() {
-    const { errorMessage } = this.props;
-    const message = errorMessage.length === 0 ? 'Welcome Back!' : errorMessage;
-    const color = errorMessage.length === 0 ? '#30cd9a' : '#f68f7c';
-    return (
-      <div className="drop-down" style={{ backgroundColor: color }}>
-        { message }
-      </div>
-    );
-  }
-
   redirect() {
     setTimeout(() => {
       this.props.history.push('/dashboard');
@@ -47,9 +32,6 @@ class SignupForm extends Component {
   render() {
     return (
       <div className="signup-page">
-        {
-          this.state.open ? this.dropDown() : null
-        }
         <div className="signup-header">
           <h5>
             Sign Up

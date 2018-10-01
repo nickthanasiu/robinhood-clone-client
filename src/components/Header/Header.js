@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FaSignOutAlt, FaUserAlt } from 'react-icons/fa';
+import { getPortfolioValue } from '../../actions/portfolio';
+import { getBuyingPower } from '../../actions/stocks';
 
 import Feather from '../Feather';
 import SearchBar from './SearchBar';
@@ -19,6 +21,13 @@ export default (ChildComponent) => {
       this.dropdown = this.dropdown.bind(this);
     }
 
+    componentDidMount() {
+      console.log('HEADER MOUNTED WITH PROPS: ', this.props);
+      const { getPortfolioValue, getBuyingPower, currentUserId } = this.props;
+      getPortfolioValue(currentUserId);
+      getBuyingPower(currentUserId);
+    }
+
     dropdown() {
       this.setState({
         dropdownHidden: !this.state.dropdownHidden
@@ -27,6 +36,7 @@ export default (ChildComponent) => {
 
     renderLinks() {
       const { dropdownHidden } = this.state;
+      const { portfolioValue, buyingPower, loadingBuyingPower } = this.props;
       if (this.props.authenticated) {
         return (
           <div className="header-right">
@@ -49,7 +59,9 @@ export default (ChildComponent) => {
                 <li className="account-info">
                   <span className="portfolio-value">
                     <span>
-                      $4.03
+                      {`
+                        $${portfolioValue}
+                      `}
                     </span>
                     <span>
                        Portfolio Value
@@ -57,7 +69,9 @@ export default (ChildComponent) => {
                   </span>
                   <span className="buying-power">
                     <span>
-                      $0.00
+                      {
+                        loadingBuyingPower ? null : `$${buyingPower}`
+                      }
                     </span>
                     <span>
                        Buying Power
@@ -126,7 +140,16 @@ export default (ChildComponent) => {
 
   const mapStateToProps = state => ({
     authenticated: state.auth.authenticated,
+    portfolioValue: state.portfolio.portfolioValue,
+    currentUserId: state.auth.currentUserId,
+    buyingPower: state.stocks.buyingPower,
+    loadingBuyingPower: state.stocks.loadingBuyingPower,
   });
 
-  return connect(mapStateToProps)(Header);
+  const mapDispatchToProps = dispatch => ({
+    getPortfolioValue: currentUserId => dispatch(getPortfolioValue(currentUserId)),
+    getBuyingPower: currentUserId => dispatch(getBuyingPower(currentUserId)),
+  });
+
+  return connect(mapStateToProps, mapDispatchToProps)(Header);
 };

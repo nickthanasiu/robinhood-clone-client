@@ -31,7 +31,8 @@ export const getPortfolioValue = currentUserId => async dispatch => {
 
     const response = await axios.post(`${API_URL}/portfolio_value`, { currentUserId });
     const value = response.data;
-    dispatch(getPortfolioSuccess(value));
+    const formatValue = value.toLocaleString('en', { minimumFractionDigits: 2 });
+    dispatch(getPortfolioSuccess(formatValue));
 
   } catch (err) {
     dispatch(getPortfolioError(err));

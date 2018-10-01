@@ -40,6 +40,10 @@ export const GET_PORTFOLIO_BEGIN = 'get_portfolio_begin';
 export const GET_PORTFOLIO_SUCCESS = 'get_portfolio_success';
 export const GET_PORTFOLIO_ERROR = 'get_portfolio_error';
 
+export const GET_BUYING_POWER_BEGIN = 'get_buying_power_begin';
+export const GET_BUYING_POWER_SUCCESS = 'get_buying_power_success';
+export const GET_BUYING_POWER_ERROR = 'get_buying_power_error';
+
 export const GET_PORTFOLIO_INTRA_BEGIN = 'get_portfolio_intra_begin';
 export const GET_PORTFOLIO_INTRA_SUCCESS = 'get_portfolio_intra_success';
 export const GET_PORTFOLIO_INTRA_ERROR = 'get_portfolio_intra_error';

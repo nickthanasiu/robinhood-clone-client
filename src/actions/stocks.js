@@ -11,6 +11,9 @@ import {
   SELL_STOCK_BEGIN,
   SELL_STOCK_SUCCESS,
   SELL_STOCK_ERROR,
+  GET_BUYING_POWER_BEGIN,
+  GET_BUYING_POWER_SUCCESS,
+  GET_BUYING_POWER_ERROR,
 } from './types';
 
 const fetchStocksBegin = () => ({
@@ -37,6 +40,33 @@ export const getMyStocks = currentUserId => async (dispatch) => {
     dispatch(fetchStocksSuccess(stocks));
   } catch (err) {
     dispatch(fetchStocksError());
+  }
+};
+
+const getBuyingPowerBegin = () => ({
+  type: GET_BUYING_POWER_BEGIN
+});
+
+const getBuyingPowerSuccess = buyingPower => ({
+  type: GET_BUYING_POWER_SUCCESS,
+  payload: { buyingPower }
+});
+
+const getBuyingPowerError = error => ({
+  type: GET_BUYING_POWER_ERROR,
+  payload: { error }
+});
+
+export const getBuyingPower = currentUserId => async (dispatch) => {
+  try {
+    dispatch(getBuyingPowerBegin());
+
+    const response = await axios.post(`${API_URL}/get_buying_power`, { currentUserId });
+    const { buyingPower } = response.data[0];
+    const formatBuyingPower = buyingPower.toLocaleString('en', { minimumFractionDigits: 2 });
+    dispatch(getBuyingPowerSuccess(formatBuyingPower));
+  } catch (err) {
+    dispatch(getBuyingPowerError(err));
   }
 };
 

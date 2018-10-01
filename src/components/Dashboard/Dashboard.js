@@ -24,14 +24,11 @@ class Dashboard extends Component {
     const {
       getFollowedCompanies,
       getMyStocks,
-      getPortfolioValue,
       currentUserId,
-      portfolioValue,
     } = this.props;
 
     getFollowedCompanies(currentUserId);
     getMyStocks(currentUserId);
-    getPortfolioValue(currentUserId);
     this.calculateDailyChange();
   }
 
