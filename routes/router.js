@@ -3,7 +3,7 @@ const AuthenticationController = require('../controllers/authentication');
 const CompaniesController = require('../controllers/api/companies');
 const StocksController = require('../controllers/api/stocks');
 const NewsfeedController = require('../controllers/api/newsfeed');
-//const MarketDataController = require('../controllers/api/marketData');
+const MarketDataController = require('../controllers/api/marketData');
 const PortfolioController = require('../controllers/api/portfolio');
 const passportService = require('../services/passport');
 
@@ -35,9 +35,7 @@ module.exports = (app) => {
   app.post('/api/newsfeed', NewsfeedController.newsFeed);
   app.post('/api/newsfeed_followed', NewsfeedController.newsFeedFollowed);
 
-  /*
   app.post('/api/latest_price', MarketDataController.latest_price);
   app.post('/api/intraday_data', MarketDataController.intraday_data);
   app.post('/api/daily_data', MarketDataController.daily_data);
-  */
 };
