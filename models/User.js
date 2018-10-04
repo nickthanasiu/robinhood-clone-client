@@ -43,7 +43,6 @@ userSchema.pre('save', function(next) {
   // Get access to the user model
   let user = this;
 
-  console.log('THIS IS THE PASSWORD STRING TO BE HASHED WITHIN THE PRE_SAVE HOOK: ', user.password);
   // Generate , then run callback
   bcrypt.genSalt(10, function(saltError, salt) {
     if (saltError) {
@@ -58,7 +57,6 @@ userSchema.pre('save', function(next) {
 
       // Overwrite Plain Text password with hashed password
       user.password = hash;
-      console.log('THIS IS THE HASHED PASSWORD: ', user.password);
       next();
     });
   });

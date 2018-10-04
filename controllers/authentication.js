@@ -2,6 +2,9 @@ const jwt = require('jwt-simple');
 const { PASSPORT_SECRET } = process.env;
 
 const User = require('../models/User');
+const Company = require('../models/Company');
+const Stock = require('../models/Stock');
+const WatchListItem = require('../models/WatchListItem');
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
@@ -95,7 +98,7 @@ exports.signup = (req, res, next) => {
         companies.forEach((company) => {
           const companyId = company._id;
 
-          const watchListItem = new FollowedStock({
+          const watchListItem = new WatchListItem({
             user_id: user._id,
             company_id: companyId
           });
