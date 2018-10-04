@@ -1,10 +1,12 @@
 const passport = require('passport');
 const AuthenticationController = require('../controllers/authentication');
 const CompaniesController = require('../controllers/api/companies');
+const StocksController = require('../controllers/api/stocks');
+
 //const NewsfeedController = require('../controllers/api/newsfeed');
 //const MarketDataController = require('../controllers/api/marketData');
-//const StocksController = require('../controllers/api/stocks');
-//const PortfolioController = require('../controllers/api/portfolio');
+
+const PortfolioController = require('../controllers/api/portfolio');
 const passportService = require('../services/passport');
 
 const requireAuth = passport.authenticate('jwt', { session: false });
@@ -17,18 +19,24 @@ module.exports = (app) => {
   app.get('/api/get_companies', CompaniesController.get_companies);
   app.post('/signin', requireSignin, AuthenticationController.signin);
   app.post('/signup', AuthenticationController.signup);
+  
   app.post('/api/search_companies', CompaniesController.search_companies);
   app.post('/api/follow_company', CompaniesController.follow_company);
   app.post('/api/unfollow_company', CompaniesController.unfollow_company);
   app.post('/api/get_followed_companies', CompaniesController.get_followed_companies);
-  /*
+
   app.post('/api/buy_stock', StocksController.buy_stock);
   app.post('/api/sell_stock', StocksController.sell_stock);
   app.post('/api/get_stocks', StocksController.get_stocks);
+
   app.post('/api/get_buying_power', PortfolioController.get_buying_power);
   app.post('/api/set_buying_power', PortfolioController.set_buying_power);
   app.post('/api/portfolio_value', PortfolioController.get_portfolio_value);
   app.post('/api/portfolio_intraday', PortfolioController.portfolio_intraday);
+
+
+  /*
+
   app.post('/api/newsfeed', NewsfeedController.newsFeed);
   app.post('/api/newsfeed_followed', NewsfeedController.newsFeedFollowed);
   app.post('/api/latest_price', MarketDataController.latest_price);
