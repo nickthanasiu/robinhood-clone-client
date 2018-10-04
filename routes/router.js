@@ -2,10 +2,8 @@ const passport = require('passport');
 const AuthenticationController = require('../controllers/authentication');
 const CompaniesController = require('../controllers/api/companies');
 const StocksController = require('../controllers/api/stocks');
-
-//const NewsfeedController = require('../controllers/api/newsfeed');
+const NewsfeedController = require('../controllers/api/newsfeed');
 //const MarketDataController = require('../controllers/api/marketData');
-
 const PortfolioController = require('../controllers/api/portfolio');
 const passportService = require('../services/passport');
 
@@ -19,7 +17,7 @@ module.exports = (app) => {
   app.get('/api/get_companies', CompaniesController.get_companies);
   app.post('/signin', requireSignin, AuthenticationController.signin);
   app.post('/signup', AuthenticationController.signup);
-  
+
   app.post('/api/search_companies', CompaniesController.search_companies);
   app.post('/api/follow_company', CompaniesController.follow_company);
   app.post('/api/unfollow_company', CompaniesController.unfollow_company);
@@ -34,11 +32,10 @@ module.exports = (app) => {
   app.post('/api/portfolio_value', PortfolioController.get_portfolio_value);
   app.post('/api/portfolio_intraday', PortfolioController.portfolio_intraday);
 
-
-  /*
-
   app.post('/api/newsfeed', NewsfeedController.newsFeed);
   app.post('/api/newsfeed_followed', NewsfeedController.newsFeedFollowed);
+
+  /*
   app.post('/api/latest_price', MarketDataController.latest_price);
   app.post('/api/intraday_data', MarketDataController.intraday_data);
   app.post('/api/daily_data', MarketDataController.daily_data);

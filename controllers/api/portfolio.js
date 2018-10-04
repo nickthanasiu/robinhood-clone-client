@@ -5,7 +5,7 @@ const User = require('../../models/User');
 
 const { cacheShouldRefresh } = require('../../util/market_data_util');
 
-const ALPHA_VANTAGE_KEY = 'KMUV9GNYBNT67P4R';
+const { ALPHA_VANTAGE_KEY } = process.env;
 const API_URL = 'https://www.alphavantage.co';
 
 exports.get_portfolio_value = (req, res, next) => {
