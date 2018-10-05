@@ -6,7 +6,7 @@ const StockSchema = new mongoose.Schema({
     auto: true,
   },
   user_id: {
-    type: mongoose.Schema.ObjectId,
+    type: String,
     ref: 'User',
     required: true,
   },
