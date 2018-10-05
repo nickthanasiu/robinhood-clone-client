@@ -9,7 +9,9 @@ const Company = require('../models/Company');
 
 const { MONGO_DB_USER, MONGO_DB_PASSWORD } = process.env;
 
-mongoose.connect(`mongodb://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@ds117623.mlab.com:17623/doohnibor-db-nickthanasiu`);
+mongoose.connect(`mongodb://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@ds223343.mlab.com:23343/heroku_n7pngq09`, {
+  useNewUrlParser: true
+});
 
 const companies = [
   new Company({
