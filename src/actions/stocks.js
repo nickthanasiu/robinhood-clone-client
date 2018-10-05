@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from '../api';
+//import { API_URL } from '../api';
 
 import {
   FETCH_STOCKS_BEGIN,
@@ -14,10 +14,9 @@ import {
   GET_BUYING_POWER_BEGIN,
   GET_BUYING_POWER_SUCCESS,
   GET_BUYING_POWER_ERROR,
-  SET_BUYING_POWER_BEGIN,
-  SET_BUYING_POWER_SUCCESS,
-  SET_BUYING_POWER_ERROR,
 } from './types';
+
+const API_URL = 'http://localhost:3090/api';
 
 const fetchStocksBegin = () => ({
   type: FETCH_STOCKS_BEGIN

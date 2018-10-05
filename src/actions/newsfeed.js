@@ -1,12 +1,14 @@
 /*eslint-disable*/
 import axios from 'axios';
-import { API_URL } from '../api';
+//import { API_URL } from '../api';
 
 import {
   FETCH_ARTICLES_BEGIN,
   FETCH_ARTICLES_SUCCESS,
   FETCH_ARTICLES_ERROR,
 } from './types';
+
+const API_URL = 'http://localhost:3090/api';
 
 const fetchArticlesBegin = () => ({
   type: FETCH_ARTICLES_BEGIN

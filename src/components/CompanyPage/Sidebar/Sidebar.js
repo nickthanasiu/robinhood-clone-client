@@ -92,12 +92,6 @@ class Sidebar extends Component {
     });
   }
 
-  // @TODO: Things to consider when 'buying' stock:
-    // Should not create new StockItem if current User already owns the stock. Should instead update pre-existing object
-    // This component needs access to the following state: selectedCompany, currentUserId, numShares of selectedCompany owned by currentUserId
-    //
-
-
   handleBuyButtonClick(e) {
     e.preventDefault();
     const { selectedCompany } = this.props;
@@ -180,12 +174,18 @@ class Sidebar extends Component {
   }
 
   renderSubmitButton() {
-    const { buyStockLoading } = this.props;
+    const { buyStockLoading, sellStockLoading } = this.props;
+
+    const tradeLoading = buyStockLoading
+      ? true
+      : sellStockLoading
+        ? true
+        : false;
 
     return (
       <button type="submit" onClick={this.handleSubmitButtonClick} style={{ backgroundColor: this.props.fillColor }}>
         {
-          buyStockLoading ? <LoadingTradeSpinner /> : 'Submit'
+          tradeLoading ? <LoadingTradeSpinner /> : 'Submit'
         }
       </button>
     );

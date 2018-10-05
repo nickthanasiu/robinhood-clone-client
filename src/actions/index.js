@@ -1,22 +1,31 @@
 import axios from 'axios';
-import { AUTH_URL } from '../api';
 
 import {
   AUTH_USER,
   AUTH_ERROR,
   CURRENT_USER,
   SIGN_OUT,
+
 } from './types';
+
+const AUTH_URL = 'http://localhost:3090';
+
+const currentUser = currentUserId => ({
+  type: CURRENT_USER,
+  payload: { currentUserId }
+});
 
 export const signup = (formProps, callback) => async (dispatch) => {
   try {
     const response = await axios.post(`${AUTH_URL}/signup`, formProps);
+    const { token, currentUserId } = response.data;
     dispatch({
       type: AUTH_USER,
-      payload: response.data.token
+      payload: token
     });
+    localStorage.setItem('token', token);
+    dispatch(currentUser(currentUserId));
 
-    localStorage.setItm('token', response.data.token);
     callback();
   } catch (err) {
     dispatch({
@@ -26,12 +35,6 @@ export const signup = (formProps, callback) => async (dispatch) => {
   }
 };
 
-
-const currentUser = currentUserId => ({
-  type: CURRENT_USER,
-  payload: { currentUserId }
-});
-
 const signinHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Content-Type': 'application/json',
@@ -40,13 +43,16 @@ const signinHeaders = {
 export const signin = (formProps, callback) => async (dispatch) => {
   try {
     const response = await axios.post(`${AUTH_URL}/signin`, formProps, { signinHeaders });
+    const { token, currentUserId } = response.data;
+    console.log('currentUserId: ', currentUserId);
+    console.log('token: ', token);
     dispatch({
       type: AUTH_USER,
-      payload: response.data.token
-    });
+      payload: token,
+    })
+    localStorage.setItem('token', token);
+    dispatch(currentUser(currentUserId));
 
-    localStorage.setItem('token', response.data.token);
-    dispatch(currentUser(response.data.currentUserId));
     callback();
   } catch (err) {
     dispatch({

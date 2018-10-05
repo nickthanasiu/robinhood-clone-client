@@ -2,6 +2,9 @@ export const AUTH_USER = 'auth_user';
 export const AUTH_ERROR = 'auth_error';
 export const SIGN_OUT = 'sign_out';
 
+export const SIGNUP_BEGIN = 'signup_begin';
+export const SIGNIN_BEGIN = 'signin_begin';
+
 export const CURRENT_USER = 'get_current_user';
 
 export const COMPANY_SEARCH_BEGIN = 'company_search_begin';

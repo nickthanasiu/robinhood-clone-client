@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import axios from 'axios';
-import { API_URL } from '../api';
+//import { API_URL } from '../api';
 
 import {
   GET_INTRADAY_BEGIN,
@@ -11,6 +11,7 @@ import {
   GET_LATEST_ERROR
 } from './types';
 
+const API_URL = 'http://localhost:3090/api';
 
 const getIntradayBegin= () => ({
   type: GET_INTRADAY_BEGIN,

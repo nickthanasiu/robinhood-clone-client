@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import axios from 'axios';
-import { API_URL } from '../api';
+//import { API_URL } from '../api';
 
 import {
   GET_PORTFOLIO_BEGIN,
@@ -11,6 +11,8 @@ import {
   GET_PORTFOLIO_INTRA_SUCCESS,
   GET_PORTFOLIO_INTRA_ERROR,
 } from './types';
+
+const API_URL = 'http://localhost:3090/api';
 
 const getPortfolioBegin = () => ({
   type: GET_PORTFOLIO_BEGIN

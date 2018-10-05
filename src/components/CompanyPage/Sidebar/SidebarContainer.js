@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
   followedCompanies: state.companies.followedCompanies,
   myStocks: state.stocks.myStocks,
   buyStockLoading: state.stocks.buyStockLoading,
+  sellStockLoading: state.stocks.sellStockLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

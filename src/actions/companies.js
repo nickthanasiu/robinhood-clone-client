@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from '../api';
+//import { API_URL } from '../api';
 
 
 import {
@@ -19,6 +19,8 @@ import {
   FETCH_FOLLOWED_COMPANIES_SUCCESS,
   FETCH_FOLLOWED_COMPANIES_ERROR,
 } from './types';
+
+const API_URL = 'http://localhost:3090/api';
 
 const companySearchBegin = () => ({
   type: COMPANY_SEARCH_BEGIN
