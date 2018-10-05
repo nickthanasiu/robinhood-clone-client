@@ -37,6 +37,8 @@ app.use((req, res, next) => {
    next();
 });
 
+app.use(cors());
+
 app.use(bodyParser.json());
 
 router(app);
