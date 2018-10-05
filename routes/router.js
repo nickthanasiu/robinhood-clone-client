@@ -1,5 +1,6 @@
 const passport = require('passport');
 const AuthenticationController = require('../controllers/authentication');
+const UserController = require('../controllers/api/user');
 const CompaniesController = require('../controllers/api/companies');
 const StocksController = require('../controllers/api/stocks');
 const NewsfeedController = require('../controllers/api/newsfeed');
@@ -17,6 +18,8 @@ module.exports = (app) => {
   app.get('/api/get_companies', CompaniesController.get_companies);
   app.post('/signin', requireSignin, AuthenticationController.signin);
   app.post('/signup', AuthenticationController.signup);
+
+  app.post('/api/get_user_name', UserController.get_user_name);
 
   app.post('/api/search_companies', CompaniesController.search_companies);
   app.post('/api/follow_company', CompaniesController.follow_company);

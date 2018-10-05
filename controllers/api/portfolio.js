@@ -106,10 +106,11 @@ exports.portfolio_intraday = async (req, res) => {
     return cacheVal.apiResponse;
   });
 
-  console.log('HERE ARE PROMISES FOR PROMISE.ALL: ', promises);
+  console.log('HERE ARE PROMISES FOR PROMISE.ALL: ', promises, ' with type: ', typeof(promises));
 
   Promise.all(promises)
     .then((values) => {
+      console.log('PROMISE ALL RETURNS VALUES: ', values, ' with type: ', typeof(values));
       const timeKeys = Object.keys(values[0]);
       const sumObject = {};
 

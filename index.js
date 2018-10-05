@@ -17,6 +17,7 @@ mongoose.connect(`mongodb://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@ds223343.mlab.
 
 // App setup
 app.use(morgan('tiny'));
+app.use(cors());
 
 app.use((req, res, next) => {
 
@@ -36,8 +37,6 @@ app.use((req, res, next) => {
    // Pass to next layer of middleware
    next();
 });
-
-app.use(cors());
 
 app.use(bodyParser.json());
 
