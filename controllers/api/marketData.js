@@ -32,7 +32,7 @@ exports.latest_price = async (req, res, next) => {
 
   const apiGet = async () => {
     try {
-      const response = await axios.get(`${API_URL}/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${API_KEY}`);
+      const response = await axios.get(`${API_URL}/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${ALPHA_VANTAGE_KEY}`);
       const metaData = Object.values(response.data)[0];
       const timeData = Object.values(response.data)[1];
       const lastRefresh = Object.values(metaData)[2];
@@ -85,7 +85,7 @@ exports.intraday_data = async (req, res) => {
 
   const apiGet = async () => {
     try {
-      const response = await axios.get(`${API_URL}/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${API_KEY}`);
+      const response = await axios.get(`${API_URL}/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${ALPHA_VANTAGE_KEY}`);
 
       const metaData = Object.values(response.data)[0];
       const timeData = Object.values(response.data)[1];
@@ -137,7 +137,7 @@ exports.intraday_data = async (req, res) => {
 
 exports.daily_data = async (req, res) => {
   const { query } = req.body;
-  const response = await axios.get(`${API_URL}/query?function=TIME_SERIES_DAILY&symbol=${query}&apikey=${API_KEY}`);
+  const response = await axios.get(`${API_URL}/query?function=TIME_SERIES_DAILY&symbol=${query}&apikey=${ALPHA_VANTAGE_KEY}`);
   const responseData = Object.values(response.data)[1];
   res.json(responseData);
 };
