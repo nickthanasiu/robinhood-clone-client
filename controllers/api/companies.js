@@ -42,7 +42,7 @@ exports.get_companies = (req, res, next) => {
 exports.follow_company = (req, res, next) => {
   const { currentUserId, companyId } = req.body;
 
-  // Create a followedStock with the provided ID's
+  // Create a WatchListItem with the provided ID's
   const stock = new WatchListItem({
     user_id: currentUserId,
     company_id: companyId,

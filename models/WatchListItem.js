@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const FollowedStockSchema = new mongoose.Schema({
+const WatchListItemSchema = new mongoose.Schema({
   _id: {
     type: mongoose.Schema.ObjectId,
     auto: true,
@@ -15,4 +15,4 @@ const FollowedStockSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-module.exports = mongoose.model('FollowedStock', FollowedStockSchema);
+module.exports = mongoose.model('WatchListItem', WatchListItemSchema);
