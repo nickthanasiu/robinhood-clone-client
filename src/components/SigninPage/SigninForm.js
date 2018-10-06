@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter, Link } from 'react-router-dom';
 import { signin } from '../../actions';
+import Feather from '../Feather';
 
 import './style.scss';
 
@@ -65,6 +66,8 @@ class SigninForm extends Component {
                   <h3>
                     Welcome to Doohnibor
                   </h3>
+
+                  <Feather />
                 </div>
 
                 <form

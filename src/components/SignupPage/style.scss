@@ -2,9 +2,6 @@
 @import '../../styles/_colors.scss';
 
 .signup-page {
-  @include breakpoint-med-up {
-    background-color: orange;
-  }
   padding: 4rem;
 
   display: flex;

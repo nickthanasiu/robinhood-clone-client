@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { withRouter } from 'react-router-dom';
-import { FaUserPlus } from 'react-icons/fa';
+import Feather from '../Feather';
 import { signup } from '../../actions';
 
 import './style.scss';
@@ -38,7 +38,7 @@ class SignupForm extends Component {
           </h5>
         </div>
         <div className="signup-icon">
-          <FaUserPlus />
+          <Feather />
         </div>
         <div className="signup-form">
           <form

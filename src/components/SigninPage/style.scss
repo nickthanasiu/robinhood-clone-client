@@ -9,23 +9,18 @@
   padding: 0;
 
   .drop-down {
-
-    @include breakpoint-sm-down {
-      display: flex;
-      justify-content: center;
+    @include breakpoint-med-up {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3rem;
+      width: 50vw;
+      color: $white;
     }
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 3rem;
-    width: 50vw;
-    color: $white;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
 
     animation-name: slideDown;
     -webkit-animation-name: slideDown;
@@ -117,14 +112,20 @@
           align-items: center;
 
           .signin-header {
-            margin: 0 auto 6rem;
-            padding: 2rem;
+
+            height: 40%;
+            margin: 3rem auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
 
             text-align: center;
           }
 
           form {
-            height: 50vh;
+            height: 60vh;
 
             display: flex;
             flex-wrap: wrap;
