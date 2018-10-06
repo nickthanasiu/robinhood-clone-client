@@ -50,7 +50,7 @@ class BuyModal extends Component {
             <span className="message__body">
               {`
                 You've just purchased ${numShares} share(s) of
-                ${company.name} stock worth $${sharesWorth}
+                ${company.name} stock worth $${sharesWorth.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               `}
             </span>
           </div>
