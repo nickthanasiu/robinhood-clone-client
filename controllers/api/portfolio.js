@@ -103,6 +103,7 @@ exports.portfolio_intraday = async (req, res) => {
       cacheVal = valuesObj;
     }
 
+    console.log('cacheVal.apiResponse: ', cacheVal.apiResponse);
     return cacheVal.apiResponse;
   });
 
