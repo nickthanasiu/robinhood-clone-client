@@ -11,7 +11,6 @@ import appReducer from './reducers';
 import { SIGN_OUT } from './actions/types';
 
 import App from './components/App';
-import Welcome from './components/Welcome';
 import SignupPage from './components/SignupPage';
 import SigninPage from './components/SigninPage';
 import SignoutPage from './components/SignoutPage';

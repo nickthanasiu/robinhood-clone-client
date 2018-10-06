@@ -51,7 +51,7 @@ class SigninForm extends Component {
   render() {
     return (
       <div className="signin-page">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
 
             <div className="col-md-6 image-container" />

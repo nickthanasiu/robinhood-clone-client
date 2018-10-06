@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { GET_USER_NAME_BEGIN, GET_USER_NAME_SUCCESS, GET_USER_NAME_ERROR } from './types';
 
-const API_URL = 'http://localhost:3090/api';
+const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 
 const getUsernameBegin = () => ({
   type: GET_USER_NAME_BEGIN

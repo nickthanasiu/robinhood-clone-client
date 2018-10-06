@@ -2,6 +2,9 @@
 @import '../../styles/_colors.scss';
 
 .signup-page {
+  @include breakpoint-med-up {
+    background-color: orange;
+  }
   padding: 4rem;
 
   display: flex;
@@ -91,9 +94,6 @@
 
         @include breakpoint-lg-up {
           margin-bottom: 3rem;
-        }
-
-        @include breakpoint-xlarge-up {
           width: 65vw;
         }
 

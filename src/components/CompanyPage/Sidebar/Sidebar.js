@@ -31,6 +31,7 @@ class Sidebar extends Component {
     this.handleBuyButtonClick = this.handleBuyButtonClick.bind(this);
     this.resetBuyForm = this.resetBuyForm.bind(this);
     this.handleSellButtonClick = this.handleSellButtonClick.bind(this);
+    this.resetSellForm = this.resetSellForm.bind(this);
     this.handleSubmitButtonClick = this.handleSubmitButtonClick.bind(this);
     this.toggleActive = this.toggleActive.bind(this);
     this.inputActive = this.inputActive.bind(this);

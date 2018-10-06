@@ -2,8 +2,10 @@
 @import '../../styles/_colors.scss';
 
 .signin-page {
-  max-height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  height: 100%;
+  width: 100%;
   padding: 0;
 
   .drop-down {
@@ -69,63 +71,68 @@
     }
   }
 
-  .container {
-    width: 100%;
+  .container-fluid {
+    min-height: 100vh;
     height: 100%;
-    margin: 0;
-    padding: 0;
 
     .row {
+      min-height: 100vh;
       width: 100%;
+      height: 100vh;
+      margin: 0;
 
       .image-container {
         background-image: url('https://d2ue93q3u507c2.cloudfront.net/assets/generated_assets/94977d34f99015525dcd0fc9987fcbe6.png');
         background-size: cover;
 
         max-height: 100vh;
+
+        @include breakpoint-med-down {
+          display: none;
+        }
       }
 
       .page-content {
-
-        width: 100vh;
+        width: 100%;
+        height: 100%;
         padding: 1rem;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        position: relative;
-
 
 
         .signin-form {
-          height: 100vh;
-          max-width: 100%;
-          margin-top: 10rem;
 
+          @include breakpoint-med-down {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          min-height: 80vh;
+          height: 100%;
+          max-width: 100%;
           padding: 1rem 3rem;
 
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
           .signin-header {
-            margin-bottom: 2rem;
+            margin: 0 auto 6rem;
           }
 
           form {
+            height: 50vh;
 
             display: flex;
             flex-wrap: wrap;
-
+            justify-content: center;
 
             .form-input {
               height: 3rem;
+              width: 100%;
               margin-bottom: 2rem;
 
-              @include breakpoint-lg-up {
-                margin-bottom: 3rem;
-              }
 
-              @include breakpoint-xlarge-up {
-                width: 65vw;
-              }
 
               input {
 

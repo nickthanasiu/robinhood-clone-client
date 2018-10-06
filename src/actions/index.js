@@ -8,7 +8,7 @@ import {
 
 } from './types';
 
-const AUTH_URL = 'http://localhost:3090';
+const AUTH_URL = 'https://doohnibor-server.herokuapp.com';
 
 const currentUser = currentUserId => ({
   type: CURRENT_USER,
