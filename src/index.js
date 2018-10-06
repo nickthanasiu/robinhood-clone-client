@@ -15,7 +15,6 @@ import Welcome from './components/Welcome';
 import SignupPage from './components/SignupPage';
 import SigninPage from './components/SigninPage';
 import SignoutPage from './components/SignoutPage';
-import AccountPage from './components/AccountPage';
 import Dashboard from './components/Dashboard';
 import CompanyPage from './components/CompanyPage';
 
@@ -57,7 +56,6 @@ ReactDOM.render(
         <Route path="/signup" component={SignupPage} />
         <Route path="/signin" component={SigninPage} />
         <Route path="/signout" component={SignoutPage} />
-        <Route path="/account" component={AccountPage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/company" component={CompanyPage} />
       </App>

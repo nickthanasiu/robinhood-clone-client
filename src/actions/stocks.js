@@ -73,20 +73,6 @@ export const getBuyingPower = portfolioValueAsNum => async (dispatch) => {
   }
 };
 
-/*
-export const getBuyingPower = currentUserId => async (dispatch) => {
-  try {
-    dispatch(getBuyingPowerBegin());
-
-    const response = await axios.post(`${API_URL}/get_buying_power`, { currentUserId });
-    const { buyingPower } = response.data[0];
-    const formatBuyingPower = buyingPower.toLocaleString('en', { minimumFractionDigits: 2 });
-    dispatch(getBuyingPowerSuccess(formatBuyingPower));
-  } catch (err) {
-    dispatch(getBuyingPowerError(err));
-  }
-};*/
-
 const buyStockBegin = () => ({
   type: BUY_STOCK_BEGIN
 });
@@ -135,15 +121,19 @@ const sellStockError = error => ({
 export const sellStock = (currentUserId, companyId, shares) => async (dispatch) => {
   try {
     dispatch(sellStockBegin());
+    console.log('Beginning to SELL STOCK!!!');
 
-    await axios.post(`${API_URL}/sell_stock`, {
+    axios.post(`${API_URL}/sell_stock`, {
       currentUserId,
       companyId,
       shares
     });
 
-    dispatch(sellStockSuccess());
+    setTimeout(() => {
+      dispatch(sellStockSuccess());
+    }, 2000);
   } catch (err) {
+    console.log('ERROR TRYING TO SELL STOCK?');
     dispatch(sellStockError(err));
   }
 };

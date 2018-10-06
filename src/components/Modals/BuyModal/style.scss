@@ -1,0 +1,70 @@
+@import '../../../styles/_colors.scss';
+
+.buy-modal {
+  z-index: 1000;
+  height: 100%;
+  width: inherit;
+  position: relative;
+
+  border: 1px solid $green;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 1px rgba(0,0,0,.01),
+              0 3px 24px rgba(48,51,51,.09);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $white;
+
+  .close-btn {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+
+    background-color: $white;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      outline: none;
+      border: none;
+    }
+  }
+
+  .buy-modal-wrapper {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+
+    .checkmark-icon {
+
+    }
+
+    .message {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      margin-top: 1rem;
+
+      &__congrats {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      &__body {
+        margin-top: 2.5rem;
+        padding: 2rem;
+      }
+    }
+  }
+}

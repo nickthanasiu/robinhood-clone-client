@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FaSignOutAlt, FaUserAlt } from 'react-icons/fa';
 import { getPortfolioValue } from '../../actions/portfolio';
+import { getUsername } from '../../actions/user';
 import { getBuyingPower } from '../../actions/stocks';
 
 import Feather from '../Feather';
@@ -22,8 +23,9 @@ export default (ChildComponent) => {
     }
 
     componentDidMount() {
-      const { getPortfolioValue, currentUserId } = this.props;
+      const { getPortfolioValue, getUsername, currentUserId } = this.props;
       getPortfolioValue(currentUserId);
+      getUsername(currentUserId);
     }
 
     componentWillReceiveProps(newProps) {
@@ -41,7 +43,14 @@ export default (ChildComponent) => {
 
     renderLinks() {
       const { dropdownHidden } = this.state;
-      const { portfolioValue, buyingPower, loadingBuyingPower } = this.props;
+      const {
+        portfolioValue,
+        buyingPower,
+        loadingBuyingPower,
+        username,
+        loadingUsername
+      } = this.props;
+
       if (this.props.authenticated) {
         return (
           <div className="header-right">
@@ -59,7 +68,9 @@ export default (ChildComponent) => {
               </li>
               <ul className={`account-menu ${dropdownHidden ? 'dropdown-hidden' : null}`}>
                 <li className="account-user">
-                  Nicholas Thanasiu
+                  {
+                    loadingUsername ? '' : `${username}`
+                  }
                 </li>
                 <li className="account-info">
                   <span className="portfolio-value">
@@ -75,19 +86,13 @@ export default (ChildComponent) => {
                   <span className="buying-power">
                     <span>
                       {
-                        loadingBuyingPower ? null : `$${buyingPower}`
+                        loadingBuyingPower ? '' : `$${buyingPower}`
                       }
                     </span>
                     <span>
                        Buying Power
                     </span>
                   </span>
-                </li>
-                <li className="account-link">
-                  <FaUserAlt />
-                  <Link to="/account">
-                    Account
-                  </Link>
                 </li>
                 <li className="signout">
                   <FaSignOutAlt />
@@ -148,6 +153,8 @@ export default (ChildComponent) => {
     portfolioValue: state.portfolio.portfolioValue,
     portfolioValueAsNum: state.portfolio.portfolioValueAsNum,
     currentUserId: state.auth.currentUserId,
+    username: state.user.username,
+    loadingUsername: state.user.loadingUsername,
     buyingPower: state.stocks.buyingPower,
     loadingBuyingPower: state.stocks.loadingBuyingPower,
   });
@@ -155,6 +162,7 @@ export default (ChildComponent) => {
   const mapDispatchToProps = dispatch => ({
     getPortfolioValue: currentUserId => dispatch(getPortfolioValue(currentUserId)),
     getBuyingPower: currentUserId => dispatch(getBuyingPower(currentUserId)),
+    getUsername: currentUserId => dispatch(getUsername(currentUserId)),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(Header);

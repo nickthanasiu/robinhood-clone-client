@@ -7,6 +7,15 @@ export const SIGNIN_BEGIN = 'signin_begin';
 
 export const CURRENT_USER = 'get_current_user';
 
+export const GET_USER_NAME_BEGIN = 'get_user_name_begin';
+export const GET_USER_NAME_SUCCESS = 'get_user_name_success';
+export const GET_USER_NAME_ERROR = 'get_user_name_error';
+
+export const SHOW_BUY_MODAL = 'show_buy_modal';
+export const HIDE_BUY_MODAL = 'hide_buy_modal';
+export const SHOW_SELL_MODAL = 'show_sell_modal';
+export const HIDE_SELL_MODAL = 'hide_sell_modal';
+
 export const COMPANY_SEARCH_BEGIN = 'company_search_begin';
 export const COMPANY_SEARCH_SUCCESS = 'company_search_success';
 export const COMPANY_SEARCH_ERROR = 'company_search_error';

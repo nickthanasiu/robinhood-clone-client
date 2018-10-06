@@ -3,7 +3,6 @@ import Header from '../Header';
 import Chart from './Chart';
 import Newsfeed from './Newsfeed';
 import SidebarContainer from './Sidebar';
-
 import { formatOpenPriceKey } from '../../util/market_data_util';
 
 import './style.scss';

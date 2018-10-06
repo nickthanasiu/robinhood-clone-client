@@ -40,7 +40,7 @@ class Sidebar extends Component {
   render() {
     const { intradayData, loadingMyStocks } = this.props;
     return (
-      <div className="sidebar-container">
+      <div className="sidebar-wrapper">
 
         <div className="sidebar">
           <div className="stocks-list-header">

@@ -30,7 +30,6 @@ const getIntradayError = error => ({
 export const getIntraday = symbol => async (dispatch) => {
   try {
     dispatch(getIntradayBegin());
-    console.log('FIRING GET INTRADAY ACTION!!');
     const response = await axios.post(`${API_URL}/intraday_data`, { symbol });
     dispatch(getIntradaySuccess(response.data));
   } catch (err) {

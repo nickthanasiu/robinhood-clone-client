@@ -33,7 +33,7 @@ class SigninForm extends Component {
 
   dropDown() {
     const { errorMessage } = this.props;
-    const message = errorMessage.length === 0 ? 'Welcome Back!' : errorMessage;
+    const message = errorMessage.length === 0 ? 'Loading your profile...' : errorMessage;
     const color = errorMessage.length === 0 ? '#30cd9a' : '#f68f7c';
     return (
       <div className="drop-down" style={{ color }}>

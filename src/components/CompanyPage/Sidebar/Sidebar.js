@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import LoadingTradeSpinner from './LoadingTradeSpinner';
+import BuyModal from '../../Modals/BuyModal';
+import SellModal from '../../Modals/SellModal';
 
 import './style.scss';
 
@@ -20,11 +22,14 @@ class Sidebar extends Component {
       inputActive: false,
     };
 
+    this.displayBuyModal = this.displayBuyModal.bind(this);
+    this.displaySellModal = this.displaySellModal.bind(this);
     this.updateNumShares = this.updateNumShares.bind(this);
     this.handleWatchButtonClick = this.handleWatchButtonClick.bind(this);
     this.watchCompany = this.watchCompany.bind(this);
     this.unwatchCompany = this.unwatchCompany.bind(this);
     this.handleBuyButtonClick = this.handleBuyButtonClick.bind(this);
+    this.resetBuyForm = this.resetBuyForm.bind(this);
     this.handleSellButtonClick = this.handleSellButtonClick.bind(this);
     this.handleSubmitButtonClick = this.handleSubmitButtonClick.bind(this);
     this.toggleActive = this.toggleActive.bind(this);
@@ -33,7 +38,7 @@ class Sidebar extends Component {
 
   componentDidMount() {
     const { selectedCompany, followedCompanies, myStocks } = this.props;
-
+    console.log('SIDEBAR PROPS: ', this.props);
     const index = followedCompanies.map((company) => {
       return company._id;
     }).indexOf(selectedCompany._id);
@@ -51,6 +56,35 @@ class Sidebar extends Component {
         sharesOwned: filterResult[0].shares
       });
     }
+  }
+
+  componentWillUnmount() {
+    const {
+      displayBuyModal,
+      displaySellModal,
+      hideBuyModal,
+      hideSellModal,
+    } = this.props;
+
+    if (displayBuyModal) {
+      hideBuyModal();
+    }
+
+    if (displaySellModal) {
+      hideSellModal();
+    }
+  }
+
+  displayBuyModal() {
+    setTimeout(() => {
+      this.props.showBuyModal();
+    }, 2000);
+  }
+
+  displaySellModal() {
+    setTimeout(() => {
+      this.props.showSellModal();
+    }, 2000);
   }
 
   isCompanyOwned(company) {
@@ -103,6 +137,14 @@ class Sidebar extends Component {
     });
   }
 
+  resetBuyForm() {
+    this.setState({
+      estimatedCost: '0',
+      orderSummaryDisplay: 'none',
+      submitButtonDisplay: false,
+    });
+  }
+
   handleSellButtonClick(e) {
     e.preventDefault();
     const { selectedCompany } = this.props;
@@ -119,6 +161,14 @@ class Sidebar extends Component {
     this.sellError.style.display = numShares > 0 ? 'none' : 'flex';
   }
 
+  resetSellForm() {
+    this.setState({
+      estimatedCredit: '0',
+      orderSummaryDisplay: 'none',
+      submitButtonDisplay: false,
+    });
+  }
+
   handleSubmitButtonClick(e) {
     e.preventDefault();
     const {
@@ -130,13 +180,16 @@ class Sidebar extends Component {
 
     const { numShares, buyActive } = this.state;
     if (buyActive) {
-      buyStock(currentUserId, selectedCompany._id, numShares);
+      buyStock(currentUserId, selectedCompany._id, numShares)
+        .then(() => {
+          this.displayBuyModal();
+        });
     } else {
-      sellStock(currentUserId, selectedCompany._id, numShares);
+      sellStock(currentUserId, selectedCompany._id, numShares)
+        .then(() => {
+          this.displaySellModal();
+        });
     }
-    this.setState({
-      numShares: '0'
-    });
   }
 
   toggleActive(e) {
@@ -175,13 +228,13 @@ class Sidebar extends Component {
 
   renderSubmitButton() {
     const { buyStockLoading, sellStockLoading } = this.props;
-
+    /* eslint-disable no-nested-ternary */
     const tradeLoading = buyStockLoading
       ? true
       : sellStockLoading
         ? true
         : false;
-
+    /* eslint-enable */
     return (
       <button type="submit" onClick={this.handleSubmitButtonClick} style={{ backgroundColor: this.props.fillColor }}>
         {
@@ -236,7 +289,8 @@ class Sidebar extends Component {
             <span>
               { loadingLatestPrice
                 ? ''
-                : `$${latestPrice.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` }
+                : `$${latestPrice.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+              }
             </span>
           </div>
 
@@ -317,7 +371,10 @@ class Sidebar extends Component {
               Market Price
             </span>
             <span>
-              { loadingLatestPrice ? selectedCompany.price : latestPrice }
+              { loadingLatestPrice
+                ? ''
+                : `$${latestPrice.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+              }
             </span>
           </div>
 
@@ -359,7 +416,7 @@ class Sidebar extends Component {
     );
   }
 
-  render() {
+  renderOrderForm() {
     const { selectedCompany } = this.props;
     const {
       watching,
@@ -372,12 +429,11 @@ class Sidebar extends Component {
       sellActive,
     } = this.state;
 
-    const buyTabStyle = buyActive ? {borderBottom: `2px solid ${this.props.fillColor}`} : {borderBottom: 'none' }
-    const sellTabStyle = sellActive ? {borderBottom: `2px solid ${this.props.fillColor}`} : {borderBottom: 'none' }
+    const buyTabStyle = buyActive ? {borderBottom: `2px solid ${this.props.fillColor}`} : {borderBottom: 'none' };
+    const sellTabStyle = sellActive ? {borderBottom: `2px solid ${this.props.fillColor}`} : {borderBottom: 'none' };
 
     return (
       <div className="sidebar">
-
         <div className="order-form">
           <div className="order-form-header">
             <div
@@ -427,6 +483,35 @@ class Sidebar extends Component {
           </button>
         </div>
       </div>
+    );
+  }
+
+  render() {
+    const { displayBuyModal, displaySellModal, selectedCompany } = this.props;
+    const { numShares, estimatedCost, estimatedCredit } = this.state;
+
+    return (
+      /* eslint-disable no-nested-ternary */
+      <div className="sidebar-wrapper">
+        {
+          displayBuyModal
+            ? <BuyModal
+                numShares={numShares}
+                company={selectedCompany}
+                sharesWorth={estimatedCost}
+                resetBuyForm={this.resetBuyForm}
+              />
+            : displaySellModal
+              ? <SellModal
+                  numShares={numShares}
+                  company={selectedCompany}
+                  sharesWorth={estimatedCredit}
+                  resetSellForm={this.resetSellForm}
+                />
+              : this.renderOrderForm()
+        }
+      </div>
+      /* eslint-enable */
     );
   }
 }
