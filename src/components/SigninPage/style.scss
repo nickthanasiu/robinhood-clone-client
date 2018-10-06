@@ -9,6 +9,12 @@
   padding: 0;
 
   .drop-down {
+
+    @include breakpoint-sm-down {
+      display: flex;
+      justify-content: center;
+    }
+
     position: absolute;
     top: 0;
     left: 0;
@@ -19,6 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 
     animation-name: slideDown;
     -webkit-animation-name: slideDown;
@@ -87,7 +94,7 @@
 
         max-height: 100vh;
 
-        @include breakpoint-med-down {
+        @include breakpoint-sm-down {
           display: none;
         }
       }
@@ -99,13 +106,6 @@
 
 
         .signin-form {
-
-          @include breakpoint-med-down {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-
           min-height: 80vh;
           height: 100%;
           max-width: 100%;
@@ -118,6 +118,9 @@
 
           .signin-header {
             margin: 0 auto 6rem;
+            padding: 2rem;
+
+            text-align: center;
           }
 
           form {
