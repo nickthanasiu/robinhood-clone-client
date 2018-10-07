@@ -1,6 +1,11 @@
 @import '../../../styles/_colors.scss';
+@import '../../../styles/_breakpoints.scss';
 
 .newsfeed {
+  @include breakpoint-sm-down {
+    margin-top: 0;
+  }
+
   margin-top: 2rem;
 
 

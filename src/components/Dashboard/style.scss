@@ -1,43 +1,80 @@
 @import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
 
 .dashboard {
-  padding-top: 5rem;
-  margin-left: 6rem;
+  width: 100vw;
   min-height: 100vh;
 
-  display: flex;
+  @include breakpoint-sm-down {
+    padding: 5rem 1rem 0;
 
-  .column-left {
-    width: 67vw;
-    padding: 1.5rem;
 
-    .dashboard-header {
-      .portfolio-value {
-        font-size: 2.8rem;
+    .row-top {
+      min-height: 33vh;
+      height: 45%;
+
+      .dashboard-header {
+        height: 25%;
+        margin-bottom: 2rem;
       }
 
-      .value-change {
-        .timespan {
-          color: $darkergrey;
-          margin-left: .25rem;
+      .chart-container {
+
+        height: 75%;
+      }
+    }
+
+    .row-middle {
+      width: 100%;
+      border: 1px solid red;
+
+      .sidebar-container {
+        width: 100%;
+      }
+    }
+
+    .row-bottom {
+      border: 1px solid green;
+    }
+  }
+
+  @include breakpoint-med-up {
+    margin-left: 6rem;
+
+    .column-left {
+      width: 67vw;
+      padding: 1.5rem;
+
+      .dashboard-header {
+        .portfolio-value {
+          font-size: 2.8rem;
+        }
+
+        .value-change {
+          .timespan {
+            color: $darkergrey;
+            margin-left: .25rem;
+          }
         }
       }
+
+      .chart-container {
+        padding: 2rem;
+      }
     }
 
-    .chart-container {
-      padding: 2rem;
+    .column-right {
+      width: 24vw;
+      flex-shrink: 0;
+
+      .sidebar-container {
+        position: fixed;
+        width: 100%;
+        margin-left: 1rem;
+        margin-top: 4rem;
+      }
     }
   }
 
-  .column-right {
-    width: 24vw;
-    flex-shrink: 0;
 
-    .sidebar-container {
-      position: fixed;
-      width: 100%;
-      margin-left: 1rem;
-      margin-top: 4rem;
-    }
-  }
 }

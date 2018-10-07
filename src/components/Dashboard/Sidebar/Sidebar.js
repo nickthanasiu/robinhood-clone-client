@@ -40,75 +40,72 @@ class Sidebar extends Component {
   render() {
     const { intradayData, loadingMyStocks } = this.props;
     return (
-      <div className="sidebar-wrapper">
-
-        <div className="sidebar">
-          <div className="stocks-list-header">
-            Stocks
-          </div>
-          <ul className="stocks-list">
-            {
-              this.props.myStocks.map(stock => (
-                <li
-                  className="stocks-list-item"
-                  key={stock.symbol}
-                  onClick={this.handleClick}
-                >
-                  <div className="list-item-left">
-                    <span className="company-symbol">
-                      { stock.symbol }
-                    </span>
-                    <span className="company-shares">
-                      {
-                        stock.shares === 1 ?
-                          `${stock.shares} Share` :
-                          `${stock.shares} Shares`
-                      }
-                    </span>
-                  </div>
-
-                  <div className="mini-chart-container">
-                    <MiniChart
-                      intradayData={intradayData}
-                    />
-                  </div>
-
-                  <div className="list-item-right">
-                    <span className="company-price">
-                      {
-                        loadingMyStocks
-                          ? ''
-                          : `$${stock.value}`
-                      }
-                    </span>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-          <div className="watchlist-header">
-            Watchlist
-          </div>
-          <ul className="watchlist">
-            {
-              this.props.followedCompanies.map(company => (
-                <li
-                  className="watchlist-item"
-                  key={company.symbol}
-                  onClick={this.handleWatchlistClick}
-                >
-                  <span className="company-symbol">
-                    { company.symbol }
-                  </span>
-                  <span className="company-price">
-                    $
-                    { company.price.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 }) }
-                  </span>
-                </li>
-              ))
-            }
-          </ul>
+      <div className="dash-sidebar-wrapper">
+        <div className="stocks__title">
+          Stocks
         </div>
+        <ul className="stocks__list">
+          {
+            this.props.myStocks.map(stock => (
+              <li
+                className="stocks__item"
+                key={stock.symbol}
+                onClick={this.handleClick}
+              >
+                <div className="stocks__left">
+                  <span className="company-symbol">
+                    { stock.symbol }
+                  </span>
+                  <span className="company-shares">
+                    {
+                      stock.shares === 1 ?
+                        `${stock.shares} Share` :
+                        `${stock.shares} Shares`
+                    }
+                  </span>
+                </div>
+
+                <div className="mini-chart-container">
+                  <MiniChart
+                    intradayData={intradayData}
+                  />
+                </div>
+
+                <div className="stocks__right">
+                  <span className="company-price">
+                    {
+                      loadingMyStocks
+                        ? ''
+                        : `$${stock.value}`
+                    }
+                  </span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+        <div className="watchlist__title">
+          Watchlist
+        </div>
+        <ul className="watchlist__list">
+          {
+            this.props.followedCompanies.map(company => (
+              <li
+                className="watchlist__item"
+                key={company.symbol}
+                onClick={this.handleWatchlistClick}
+              >
+                <span className="company-symbol">
+                  { company.symbol }
+                </span>
+                <span className="company-price">
+                  $
+                  { company.price.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 }) }
+                </span>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     );
   }

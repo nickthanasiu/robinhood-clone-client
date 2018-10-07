@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
+import './style.scss';
+
 const chartData = {
   labels: ["2017-07-19", "2017-07-20", "2017-07-21", "2017-07-24", "2017-07-25", "2017-07-26", "2017-07-27"],
   datasets: [{
@@ -65,7 +67,7 @@ class Chart extends Component {
     return (
       <div className="chart">
         <div className="chart-wrapper">
-          <Line height={75} data={this.setChartData(portfolioIntradayData)} options={chartOptions} />
+          <Line height={100} data={this.setChartData(portfolioIntradayData)} options={chartOptions} />
         </div>
       </div>
     );

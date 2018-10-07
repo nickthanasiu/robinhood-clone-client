@@ -105,8 +105,7 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard">
-
-        <div className="column-left">
+        <div className="row-top">
           <div className="dashboard-header">
             <h2 className="portfolio-value">
               {
@@ -140,16 +139,9 @@ class Dashboard extends Component {
               fillColor={fillColor}
             />
           </div>
-
-          <div className="newsfeed-container">
-            <Newsfeed
-              articles={articles}
-              loadingArticles={loadingArticles}
-            />
-          </div>
         </div>
 
-        <div className="column-right">
+        <div className="column-right row-middle">
           <div className="sidebar-container">
             <SideBar
               searchCompanies={searchCompanies}
@@ -164,7 +156,12 @@ class Dashboard extends Component {
           </div>
         </div>
 
-
+        <div className="newsfeed-container row-bottom">
+          <Newsfeed
+            articles={articles}
+            loadingArticles={loadingArticles}
+          />
+        </div>
       </div>
     );
   }
