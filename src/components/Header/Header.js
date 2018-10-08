@@ -13,6 +13,9 @@ import SearchBar from './SearchBar';
 
 import './style.scss';
 
+//@TODO: Make Font awesome icons work in Firefox on mobile devices
+        // ...currently not sized properly
+
 export default (ChildComponent) => {
   class Header extends Component {
     constructor(props) {

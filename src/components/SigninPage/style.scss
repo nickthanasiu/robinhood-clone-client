@@ -9,6 +9,11 @@
   padding: 0;
 
   .drop-down {
+
+    @include breakpoint-sm-down {
+      margin-top: 1rem;
+    }
+
     @include breakpoint-med-up {
       position: absolute;
       top: 0;
@@ -97,14 +102,14 @@
       .page-content {
         width: 100%;
         height: 100%;
-        padding: 1rem;
+        padding: 0 1rem;
 
 
         .signin-form {
           min-height: 80vh;
           height: 100%;
           max-width: 100%;
-          padding: 1rem 3rem;
+          padding: 0 3rem;
 
           display: flex;
           flex-direction: column;
@@ -112,9 +117,8 @@
           align-items: center;
 
           .signin-header {
-
-            height: 40%;
-            margin: 3rem auto;
+            height: 25%;
+            margin: -2rem auto 1rem;
 
             display: flex;
             flex-direction: column;
@@ -134,7 +138,7 @@
             .form-input {
               height: 3rem;
               width: 100%;
-              margin-bottom: 2rem;
+              margin-bottom: .5rem;
 
 
 
@@ -171,20 +175,7 @@
               flex-direction: column;
               justify-content: space-between;
 
-              height: 7rem;
-
-              a {
-                text-decoration: none;
-                color: $green;
-                padding: 0;
-
-                height: 1.5rem;
-
-                &:hover {
-                  filter: contrast(125%);
-                  cursor: pointer;
-                }
-              }
+              height: 8rem;
 
               button {
 
@@ -207,6 +198,26 @@
 
                 &:focus {
                   outline: none;
+                }
+              }
+
+              .links {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 4rem;
+
+                a {
+                  text-decoration: none;
+                  color: $green;
+                  padding: 0;
+
+                  height: 1.5rem;
+
+                  &:hover {
+                    filter: contrast(125%);
+                    cursor: pointer;
+                  }
                 }
               }
             }

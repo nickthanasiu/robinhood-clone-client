@@ -471,6 +471,7 @@ class Sidebar extends Component {
 
         <div className="watch-button-container">
           <button
+            className="watch-button"
             type="button"
             onClick={this.handleWatchButtonClick}
             style={{

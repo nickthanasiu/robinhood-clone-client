@@ -108,6 +108,9 @@
               justify-content: center;
 
               button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                border: none;
                 font-weight: 500;
                 color: $white;
                 border-radius: 4px;
@@ -128,10 +131,6 @@
 
           }
 
-          /**************************************************/
-          /**************************************************/
-          /**************************************************/
-
           .buying-power {
             margin-top: 1rem;
             border-top: 1px solid $grey;
@@ -148,10 +147,11 @@
           display: flex;
           justify-content: center;
 
-          button {
+          .watch-button {
+            border: 1px solid red;
             font-weight: 500;
             border-radius: 4px;
-            color: $white;
+            background-color: $white;
 
             height: 3.5rem;
             width: 85%;
@@ -276,9 +276,13 @@
             justify-content: center;
 
             button {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              border: none;
               font-weight: 500;
               color: $white;
               border-radius: 4px;
+
 
               height: 3.5rem;
               width: 85%;
@@ -306,20 +310,17 @@
 
       } /* Order Form END */
 
-      /**************************************************/
-      /**************************************************/
-      /**************************************************/
-
       .watch-button-container {
         margin-top: 1.25rem;
         padding: .5rem;
         display: flex;
         justify-content: center;
 
-        button {
+        .watch-button {
+          border: 1px solid red;
           font-weight: 500;
           border-radius: 4px;
-          color: $white;
+          background-color: $white;
 
           height: 3.5rem;
           width: 85%;

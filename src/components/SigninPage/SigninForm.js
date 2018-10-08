@@ -17,6 +17,7 @@ class SigninForm extends Component {
       open: false,
     };
 
+    this.demoSignin = this.demoSignin.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.dropDown = this.dropDown.bind(this);
     this.redirect = this.redirect.bind(this);
@@ -30,6 +31,13 @@ class SigninForm extends Component {
       this.redirect();
     });
     this.props.reset();
+  }
+
+  demoSignin() {
+    this.onSubmit({
+      email: 'demo',
+      password: 'abc123'
+    });
   }
 
   dropDown() {
@@ -98,13 +106,23 @@ class SigninForm extends Component {
                   </div>
 
                   <div className="buttons-wrapper">
-                    <Link to="/signup">
-                      Not a user? Sign up here
-                    </Link>
-
                     <button type="submit">
                       Sign In
                     </button>
+                    <div className="links">
+                      <Link to="/signup">
+                        Not a user? Sign up here
+                      </Link>
+
+                      <div
+                        className="demo-signin"
+                        onClick={this.demoSignin}
+                      >
+                        <Link to="/dashboard">
+                          Click here to demo the app
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </form>
               </div>
