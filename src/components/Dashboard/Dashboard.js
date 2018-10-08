@@ -164,7 +164,7 @@ class Dashboard extends Component {
             />
           </div>
         </div>
-        
+
         <div className="column__right">
           <div className="sidebar-container">
             <SideBar

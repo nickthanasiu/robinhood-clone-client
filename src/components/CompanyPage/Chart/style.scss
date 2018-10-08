@@ -1,0 +1,14 @@
+@import '../../../styles/_breakpoints.scss';
+
+.chart {
+
+  @include breakpoint-sm-down {
+    height: 100%;
+
+    .chart-wrapper {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

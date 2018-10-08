@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
+import './style.scss';
+
 const chartOptions = {
   legend: {
     display: false
@@ -62,7 +64,7 @@ class Chart extends Component {
     return (
       <div className="chart">
         <div className="chart-wrapper">
-          <Line height={75} data={this.setChartData(intradayData)} options={chartOptions} />
+          <Line height={100} data={this.setChartData(intradayData)} options={chartOptions} />
         </div>
       </div>
     );
