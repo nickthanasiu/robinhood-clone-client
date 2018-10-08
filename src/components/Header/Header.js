@@ -141,6 +141,9 @@ export default (ChildComponent) => {
                       </div>
                     </IconContext.Provider>
                   </li>
+                  <div className="search--mobile">
+                    <SearchBar />
+                  </div>
                   <li className="account-info">
                     <span className="portfolio-value">
                       <span>
@@ -169,9 +172,6 @@ export default (ChildComponent) => {
                       Sign Out
                     </Link>
                   </li>
-                  <div className="search--mobile">
-                    <SearchBar />
-                  </div>
                 </ul>
               </div>
             </div>
