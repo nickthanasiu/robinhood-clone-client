@@ -47,6 +47,7 @@
           }
 
           .company-about-grid {
+            border: 1px solid red;
             margin-top: 2rem;
             height: 10rem;
 
@@ -75,9 +76,23 @@
             }
           }
         }
-
-
       }
+
+      .row__middle--mobile {
+        border: 1px solid blue;
+
+        .sidebar-container--mobile {
+
+        }
+      }
+
+      .newsfeed-container {
+        border: 1px solid green;
+      }
+    }
+
+    .column-right {
+      display: none;
     }
   }
 }
