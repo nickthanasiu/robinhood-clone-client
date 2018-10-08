@@ -71,7 +71,7 @@ class SearchBar extends Component {
             <input
               className="search-input"
               type="text"
-              placeholder="Search..."
+              placeholder="Search for companies..."
               ref={input => this.search = input}
               onChange={this.handleInputChange}
             />

@@ -6,7 +6,7 @@ import './style.scss';
 
 const NewsFeed = props => (
   <div className="newsfeed">
-    <h3>
+    <h3 className="newsfeed__title">
       Recent News
     </h3>
 
@@ -45,6 +45,11 @@ const NewsFeed = props => (
                           { article.title }
                         </h5>
 
+                        <span className="article-published--mobile">
+                          <Moment fromNow>
+                            { article.publishedAt }
+                          </Moment>
+                        </span>
                         <p className="article-preview">
                           { article.description }
                         </p>

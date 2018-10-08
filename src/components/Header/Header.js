@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { FaSignOutAlt, FaUserAlt } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
+import { FaSignOutAlt, FaBars, FaTimes } from 'react-icons/fa';
 import { getPortfolioValue } from '../../actions/portfolio';
 import { getUsername } from '../../actions/user';
 import { getBuyingPower } from '../../actions/stocks';
 
 import Feather from '../Feather';
+import MobileFeather from '../MobileFeather';
 import SearchBar from './SearchBar';
 
 import './style.scss';
@@ -16,10 +18,12 @@ export default (ChildComponent) => {
     constructor(props) {
       super(props);
       this.state = {
-        dropdownHidden: true
+        dropdownHidden: true,
       };
 
       this.dropdown = this.dropdown.bind(this);
+      this.handleMenuClick = this.handleMenuClick.bind(this);
+      this.handleCloseBtnClick = this.handleCloseBtnClick.bind(this);
     }
 
     componentDidMount() {
@@ -41,6 +45,14 @@ export default (ChildComponent) => {
       });
     }
 
+    handleMenuClick() {
+      this.dropdown();
+    }
+
+    handleCloseBtnClick() {
+      this.dropdown();
+    }
+
     renderLinks() {
       const { dropdownHidden } = this.state;
       const {
@@ -53,62 +65,122 @@ export default (ChildComponent) => {
 
       if (this.props.authenticated) {
         return (
-          <div className="header-right">
-            <li className="navbar-link">
-              <Link to="/dashboard">
-                Dashboard
-              </Link>
-            </li>
-            <li className='navbar-link'>
-
-              <li onClick={this.dropdown}>
-                <a href="#">
-                  Account
-                </a>
+          <div className="header__auth">
+            <div className="header__right">
+              <li className="navbar-link">
+                <Link to="/dashboard">
+                  Dashboard
+                </Link>
               </li>
-              <ul className={`account-menu ${dropdownHidden ? 'dropdown-hidden' : null}`}>
-                <li className="account-user">
-                  {
-                    loadingUsername ? '' : `${username}`
-                  }
-                </li>
-                <li className="account-info">
-                  <span className="portfolio-value">
-                    <span>
-                      {`
-                        $${portfolioValue}
-                      `}
-                    </span>
-                    <span>
-                       Portfolio Value
-                    </span>
-                  </span>
-                  <span className="buying-power">
-                    <span>
-                      {
-                        loadingBuyingPower ? '' : `$${buyingPower}`
-                      }
-                    </span>
-                    <span>
-                       Buying Power
-                    </span>
-                  </span>
-                </li>
-                <li className="signout">
-                  <FaSignOutAlt />
-                  <Link to="/signout">
-                    Sign Out
-                  </Link>
-                </li>
-              </ul>
-            </li>
+              <li className='navbar-link'>
 
+                <li onClick={this.dropdown}>
+                  <a href="#">
+                    Account
+                  </a>
+                </li>
+                <ul className={`account-menu ${dropdownHidden ? 'dropdown-hidden' : null}`}>
+                  <li className="account-user">
+                    {
+                      loadingUsername ? '' : `${username}`
+                    }
+                  </li>
+                  <li className="account-info">
+                    <span className="portfolio-value">
+                      <span>
+                        {`
+                          $${portfolioValue}
+                        `}
+                      </span>
+                      <span>
+                         Portfolio Value
+                      </span>
+                    </span>
+                    <span className="buying-power">
+                      <span>
+                        {
+                          loadingBuyingPower ? '' : `$${buyingPower}`
+                        }
+                      </span>
+                      <span>
+                         Buying Power
+                      </span>
+                    </span>
+                  </li>
+                  <li className="signout">
+                    <FaSignOutAlt />
+                    <Link to="/signout">
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+            </div>
+
+            <div className="header__right--mobile">
+              <IconContext.Provider value={{ size: '2.5rem' }}>
+                <div
+                  className="header__button"
+                  onClick={this.handleMenuClick}
+                >
+                  <FaBars />
+                </div>
+              </IconContext.Provider>
+              <div className="account-menu-container">
+                <ul className={`account-menu ${dropdownHidden ? 'dropdown-hidden' : null}`}>
+                  <li className="account-user">
+                    {
+                      loadingUsername ? '' : `${username}`
+                    }
+                    <IconContext.Provider value={{ size: '2.25rem', color: '#f68f7c' }}>
+                      <div
+                        className="menu-close-btn"
+                        onClick={this.handleCloseBtnClick}
+                      >
+                        <FaTimes />
+                      </div>
+                    </IconContext.Provider>
+                  </li>
+                  <li className="account-info">
+                    <span className="portfolio-value">
+                      <span>
+                        {`
+                          $${portfolioValue}
+                        `}
+                      </span>
+                      <span>
+                         Portfolio Value
+                      </span>
+                    </span>
+                    <span className="buying-power">
+                      <span>
+                        {
+                          loadingBuyingPower ? '' : `$${buyingPower}`
+                        }
+                      </span>
+                      <span>
+                         Buying Power
+                      </span>
+                    </span>
+                  </li>
+                  <li className="signout">
+                    <FaSignOutAlt />
+                    <Link to="/signout">
+                      Sign Out
+                    </Link>
+                  </li>
+                  <div className="search--mobile">
+                    <SearchBar />
+                  </div>
+                </ul>
+              </div>
+            </div>
           </div>
         );
       }
 
       return (
-        <div className="header-right">
+        <div className="header__right">
           <Link to="/">
             Home
           </Link>
@@ -126,7 +198,7 @@ export default (ChildComponent) => {
       return (
         <div className="composedComponent">
           <div className="header">
-            <div className="header-left">
+            <div className="header__left">
               <div className="brand">
                 <Feather />
               </div>
@@ -134,7 +206,11 @@ export default (ChildComponent) => {
                 <SearchBar />
               </div>
             </div>
-
+            <div className="header__left--mobile">
+              <div className="brand">
+                <MobileFeather />
+              </div>
+            </div>
             {
               this.renderLinks()
             }

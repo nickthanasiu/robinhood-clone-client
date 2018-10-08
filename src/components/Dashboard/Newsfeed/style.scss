@@ -2,86 +2,166 @@
 @import '../../../styles/_breakpoints.scss';
 
 .newsfeed {
+
+
   @include breakpoint-sm-down {
     margin-top: 0;
-  }
 
-  margin-top: 2rem;
-
-
-  & > h3 {
-    border-bottom: 1px solid $grey;
-    padding: 1rem 0;
-    margin-bottom: 1.5rem;
-  }
-
-  .articles-list {
-
-    a {
-      text-decoration: none;
-      color: inherit;
+    .newsfeed__title {
+      padding: 0 0 1rem 1rem;
+      border-bottom: 1px solid $grey;
+      margin-bottom: 1rem;
     }
 
-    .article {
-      padding: .5rem 1rem;
-      margin-bottom: 1rem;
-      height: 12rem;
-      overflow: hidden;
-      border: 1px solid $lightgrey;
-      border-radius: 4px;
-
-      display: flex;
-      justify-content: space-around;
-
-
-      &:hover {
-        background-color: $grey;
-        cursor: pointer;
+    .articles-list {
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
-      .article-left {
-        width: 33%;
-        display: flex;
-        align-items: center;
+      .article {
+        padding: .25rem .5rem;
+        margin-bottom: 1rem;
+        height: 10rem;
+        overflow: hidden;
+        border: 1px solid $lightgrey;
+        border-radius: 4px;
 
-        img {
-          height: 100%;
-          width: 100%;
-          border-radius: 5px;
+        &:hover,
+        &:active {
+          background-color: $grey;
+          cursor: pointer;
         }
-      }
 
-      .article-right {
-        width: 67%;
-        padding: 1rem;
-        margin-left: 1rem;
+        .article-left {
+          min-width: 40vw;
 
-        display: flex;
-        flex-wrap: wrap;
+          img {
+            height: 100%;
+            width: 100%;
 
-        .article-source {
-          font-weight: 500;
-
-          .article-company {
-            color: $green;
+            border-radius: 5px;
           }
         }
 
-        .article-published {
-          margin-left: .5rem;
-          color: $darkergrey;
+        .article-right {
+          min-width: 50vw;
+          position: relative;
+
+          .article-source {
+            font-weight: 500;
+            font-size: 1rem;
+
+            .article-company {
+              color: $green;
+              font-size: 1rem;
+            }
+          }
+
+          .article-published {
+            display: none;
+          }
+
+          .article-headline {
+            font-size: .875rem;
+
+          }
+
+          .article-published--mobile {
+            margin-top: .5rem;
+            font-size: .75rem;
+            margin-left: .5rem;
+            color: $darkergrey;
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+          }
+
+          .article-preview {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint-med-up {
+    margin-top: 2rem;
+
+    .newsfeed__title {
+      border-bottom: 1px solid $grey;
+      padding: 1rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .articles-list {
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .article {
+        padding: .5rem 1rem;
+        margin-bottom: 1rem;
+        height: 12rem;
+        overflow: hidden;
+        border: 1px solid $lightgrey;
+        border-radius: 4px;
+
+        display: flex;
+        justify-content: space-around;
+
+
+        &:hover {
+          background-color: $grey;
+          cursor: pointer;
         }
 
-        .article-headline {
+        .article-left {
+          width: 33%;
+          display: flex;
+          align-items: center;
 
+          img {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+          }
         }
 
-        .article-preview {
-          font-size: 1.125rem;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          width: 100%;
+        .article-right {
+          width: 67%;
+          padding: 1rem;
+          margin-left: 1rem;
+
+          display: flex;
+          flex-wrap: wrap;
+
+          .article-source {
+            font-weight: 500;
+
+            .article-company {
+              color: $green;
+            }
+          }
+
+          .article-published {
+            margin-left: .5rem;
+            color: $darkergrey;
+          }
+
+          .article-headline {
+
+          }
+
+          .article-preview {
+            font-size: 1.125rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+          }
         }
       }
     }

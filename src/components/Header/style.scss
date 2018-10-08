@@ -2,109 +2,251 @@
 @import '../../styles/_breakpoints.scss';
 
 .header {
-  height: 4rem;
-  width: 100%;
-  position: fixed;
-  background-color: $white;
-  padding: .25rem;
-  z-index: 1000;
+  @include breakpoint-sm-down {
+    height: 6rem;
+    width: 100%;
+    position: fixed;
+    background-color: $white;
+    padding: 0 1rem;
+    z-index: 100;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .header-left {
-    width: 50%;
-    margin-left: 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    .search {
-      margin: 4rem;
-      flex: 1
+    .header__left {
+      display: none;
+
     }
-  }
+    .header__left--mobile {
+      padding-left: .5rem;
+    }
 
-  .header-right {
-    margin-right: 1rem;
-    display: flex;
-    position: relative;
-
-    .dropdown-hidden {
+    .header__right {
       display: none;
     }
 
-    .navbar-link {
+    .header__right--mobile {
+      height: 50%;
 
-      margin-right: 2rem;
-      list-style: none;
+      .header__button {
+        padding-right: .5rem;
+      }
 
-      & a {
-        color: $blackish;
+    }
+
+    .account-menu-container {
+      .dropdown-hidden {
+        display: none;
+      }
+
+      .account-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+
+        padding-bottom: .25rem;
+        background-color: #fff;
         font-weight: 500;
-        font-size: .875rem;
-        text-decoration: none;
+        box-shadow: 0 25px 15px rgba(48,51,51,.09);
 
-        &:hover {
-          color: $green;
+        .account-user {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 2rem;
+          font-size: 1.125rem;
+
+          .menu-close-btn {
+
+          }
         }
+
+        .search--mobile {
+          height: 4rem;
+        }
+
+        .account-info {
+          font-size: 1.125rem;
+        }
+
+
+        .signout {
+          padding: 2rem;
+
+          a {
+            color: black;
+            text-decoration: none;
+
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+
+
+        li {
+          padding: 1rem 1rem;
+        }
+
+        .account-info {
+          display: flex;
+          justify-content: space-around;
+          border-bottom: 1px solid $lightgrey;
+
+          & > span {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+
+        .account-link {
+          border-bottom: 1px solid $lightgrey;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $lightgrey;
+          }
+
+          & a {
+            margin-left: 1rem;
+            font-size: 1rem;
+          }
+        }
+
+        .signout {
+          a {
+            margin-left: 1rem;
+            font-size: 1rem;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background-color: $lightgrey;
+          }
+        }
+
+
+
+      }
+    }
+  }
+
+
+  @include breakpoint-med-up {
+    height: 4rem;
+    width: 100%;
+    position: fixed;
+    background-color: $white;
+    padding: .25rem;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header__left {
+      width: 50%;
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+
+      .search {
+        margin: 4rem;
+        flex: 1
       }
     }
 
-    .account-menu {
+    .header__left--mobile {
+      display: none;
+    }
 
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      width: 20rem;
-      background-color: #fff;
+    .header__right {
+      margin-right: 1rem;
+      display: flex;
+      position: relative;
 
-      font-weight: 500;
-      box-shadow: 0 0 4px 1px rgba(0,0,0,.01),
-                  0 3px 24px rgba(48,51,51,.09);
-
-
-      li {
-        padding: 1rem 1rem;
+      .dropdown-hidden {
+        display: none;
       }
 
-      .account-info {
-        display: flex;
-        justify-content: space-around;
-        border-bottom: 1px solid $lightgrey;
+      .navbar-link {
 
-        & > span {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-
-      .account-link {
-        border-bottom: 1px solid $lightgrey;
-
-        &:hover {
-          cursor: pointer;
-          background-color: $lightgrey;
-        }
+        margin-right: 2rem;
+        list-style: none;
 
         & a {
-          margin-left: 1rem;
-          font-size: 1rem;
+          color: $blackish;
+          font-weight: 500;
+          font-size: .875rem;
+          text-decoration: none;
+
+          &:hover {
+            color: $green;
+          }
         }
       }
 
-      .signout {
-        a {
-          margin-left: 1rem;
-          font-size: 1rem;
+      .account-menu {
+
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        width: 20rem;
+        background-color: #fff;
+
+        font-weight: 500;
+        box-shadow: 0 0 4px 1px rgba(0,0,0,.01),
+                    0 3px 24px rgba(48,51,51,.09);
+
+
+        li {
+          padding: 1rem 1rem;
         }
 
-        &:hover {
-          cursor: pointer;
-          background-color: $lightgrey;
+        .account-info {
+          display: flex;
+          justify-content: space-around;
+          border-bottom: 1px solid $lightgrey;
+
+          & > span {
+            display: flex;
+            flex-direction: column;
+          }
         }
+
+        .account-link {
+          border-bottom: 1px solid $lightgrey;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $lightgrey;
+          }
+
+          & a {
+            margin-left: 1rem;
+            font-size: 1rem;
+          }
+        }
+
+        .signout {
+          a {
+            margin-left: 1rem;
+            font-size: 1rem;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background-color: $lightgrey;
+          }
+        }
+
       }
+    }
 
+    .header__right--mobile {
+      display: none;
     }
   }
 }

@@ -6,74 +6,98 @@
   min-height: 100vh;
 
   @include breakpoint-sm-down {
-    padding: 5rem 1rem 0;
+    padding: 7rem 1rem 0;
 
 
-    .row-top {
-      min-height: 33vh;
-      height: 45%;
+    .column__left {
 
-      .dashboard-header {
-        height: 25%;
-        margin-bottom: 2rem;
+      .row__top {
+        min-height: 33vh;
+        height: 45%;
+
+        .dashboard-header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 25%;
+          margin-bottom: 2rem;
+        }
+
+        .chart-container {
+
+          height: 75%;
+        }
       }
 
-      .chart-container {
-
-        height: 75%;
-      }
-    }
-
-    .row-middle {
-      width: 100%;
-      border: 1px solid red;
-
-      .sidebar-container {
+      .row__middle--mobile {
         width: 100%;
+
+        .sidebar-container--mobile {
+          width: 100%;
+        }
+      }
+
+      .row__bottom {
       }
     }
 
-    .row-bottom {
-      border: 1px solid green;
+    .column__right {
+      display: none;
     }
   }
 
   @include breakpoint-med-up {
-    margin-left: 6rem;
+    display: flex;
+    margin-left: 4rem;
+    padding: 5rem 1rem 0;
 
-    .column-left {
+
+
+    .column__left {
       width: 67vw;
-      padding: 1.5rem;
 
-      .dashboard-header {
-        .portfolio-value {
-          font-size: 2.8rem;
-        }
+      .row__top {
+        display: flex;
+        flex-direction: column;
 
-        .value-change {
-          .timespan {
-            color: $darkergrey;
-            margin-left: .25rem;
+        .dashboard-header {
+          .portfolio-value {
+            font-size: 2.8rem;
+          }
+
+          .value-change {
+            .timespan {
+              color: $darkergrey;
+              margin-left: .25rem;
+            }
           }
         }
+
+        .chart-container {
+          padding: 2rem;
+        }
+
+
       }
 
-      .chart-container {
-        padding: 2rem;
+      .row__middle--mobile {
+        display: none;
       }
     }
 
-    .column-right {
+    .column__right {
       width: 24vw;
-      flex-shrink: 0;
 
       .sidebar-container {
-        position: fixed;
+        position: sticky;
+        top: 8rem;
         width: 100%;
         margin-left: 1rem;
-        margin-top: 4rem;
+
       }
     }
+
+
   }
 
 

@@ -105,43 +105,67 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard">
-        <div className="row-top">
-          <div className="dashboard-header">
-            <h2 className="portfolio-value">
-              {
-                loadingPortfolio ? '' :
-                  `
-                    $${portfolioValue}
-                  `
-              }
-            </h2>
-            <span className="value-change">
-              {
-                /* eslint-disable no-nested-ternary */
-                loadingPortfolioIntra
-                  ? ''
-                  : isNaN(dailyChange)
+        <div className="column__left">
+          <div className="row__top">
+            <div className="dashboard-header">
+              <h2 className="portfolio-value">
+                {
+                  loadingPortfolio ? '' :
+                    `
+                      $${portfolioValue}
+                    `
+                }
+              </h2>
+              <span className="value-change">
+                {
+                  /* eslint-disable no-nested-ternary */
+                  loadingPortfolioIntra
                     ? ''
-                    : isNaN(dailyChangePercentage)
+                    : isNaN(dailyChange)
                       ? ''
-                      : dailyChangeSpan
-                  /* eslint-enable */
-              }
-              {
-                loadingPortfolioIntra ? '' : timespan
-              }
-            </span>
+                      : isNaN(dailyChangePercentage)
+                        ? ''
+                        : dailyChangeSpan
+                    /* eslint-enable */
+                }
+                {
+                  loadingPortfolioIntra ? '' : timespan
+                }
+              </span>
+            </div>
+
+            <div className="chart-container">
+              <Chart
+                portfolioIntradayData={portfolioIntradayData}
+                fillColor={fillColor}
+              />
+            </div>
           </div>
 
-          <div className="chart-container">
-            <Chart
-              portfolioIntradayData={portfolioIntradayData}
-              fillColor={fillColor}
+          <div className="row__middle--mobile">
+            <div className="sidebar-container--mobile">
+              <SideBar
+                searchCompanies={searchCompanies}
+                selectedCompany={selectedCompany}
+                followedCompanies={followedCompanies}
+                myStocks={myStocks}
+                loadingMyStocks={loadingMyStocks}
+                currentUserId={currentUserId}
+                intradayData={intradayData}
+                fillColor={fillColor}
+              />
+            </div>
+          </div>
+
+          <div className="newsfeed-container column-left row__bottom">
+            <Newsfeed
+              articles={articles}
+              loadingArticles={loadingArticles}
             />
           </div>
         </div>
-
-        <div className="column-right row-middle">
+        
+        <div className="column__right">
           <div className="sidebar-container">
             <SideBar
               searchCompanies={searchCompanies}
@@ -154,13 +178,6 @@ class Dashboard extends Component {
               fillColor={fillColor}
             />
           </div>
-        </div>
-
-        <div className="newsfeed-container row-bottom">
-          <Newsfeed
-            articles={articles}
-            loadingArticles={loadingArticles}
-          />
         </div>
       </div>
     );

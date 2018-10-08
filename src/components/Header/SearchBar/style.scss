@@ -1,6 +1,70 @@
 @import '../../../styles/_colors.scss';
+@import '../../../styles/_breakpoints.scss';
 
 .search-container {
+  height: 100%;
+
+  @include breakpoint-sm-down {
+    .search-wrapper {
+      height: 100%;
+
+      form {
+        height: 100%;
+        padding: 0 .5rem;
+
+        .search-input {
+          height: 100%;
+          width: 100%;
+          flex: 1;
+          padding-left: 1rem;
+
+          outline: none;
+          border-radius: 5px;
+          border: 1px solid $grey;
+        }
+      }
+    }
+
+    .query-results {
+      z-index: 10;
+      background-color: $white;
+      position: absolute;
+      width: 100%;
+      box-shadow: 0 25px 15px rgba(48,51,51,.09);
+
+
+      .query-results-item {
+        width: 100%;
+        padding: .5rem;
+        font-size: .875rem;
+
+        display: flex;
+
+        &:hover {
+          background-color: $lightgrey;
+          cursor: pointer;
+        }
+
+        .result-wrapper {
+          width: 50%;
+          display: flex;
+
+
+          .result-symbol {
+            width: 100%;
+          }
+
+          .result-name {
+            width: 100%;
+          }
+        }
+
+
+      }
+    }
+  }
+
+  @include breakpoint-med-up {
     position: relative;
 
   .search-wrapper {
@@ -80,6 +144,7 @@
 
 
     }
+  }
   }
 
 }
