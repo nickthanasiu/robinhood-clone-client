@@ -132,7 +132,7 @@ export default (ChildComponent) => {
                     {
                       loadingUsername ? '' : `${username}`
                     }
-                    <IconContext.Provider value={{ size: '2.25rem', color: '#f68f7c' }}>
+                    <IconContext.Provider value={{ size: '1.5rem', color: '#f68f7c' }}>
                       <div
                         className="menu-close-btn"
                         onClick={this.handleCloseBtnClick}
@@ -166,8 +166,12 @@ export default (ChildComponent) => {
                       </span>
                     </span>
                   </li>
+                  <li className="dashboard-link">
+                    <Link to="/dashboard">
+                      Dashboard
+                    </Link>
+                  </li>
                   <li className="signout">
-                    <FaSignOutAlt />
                     <Link to="/signout">
                       Sign Out
                     </Link>
