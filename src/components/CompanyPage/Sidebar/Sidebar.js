@@ -261,7 +261,7 @@ class Sidebar extends Component {
       buyingPower
     } = this.props;
 
-    const inputStyle = inputActive ? {border: `1px solid ${this.props.fillColor}`} : {border: '1px solid #f6f6f6' };
+    const inputStyle = inputActive ? { border: `1px solid ${this.props.fillColor}`} : {border: '1px solid #f6f6f6' };
 
     return (
       <div className="buy-form">

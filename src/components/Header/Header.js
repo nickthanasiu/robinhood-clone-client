@@ -128,6 +128,9 @@ export default (ChildComponent) => {
               </IconContext.Provider>
               <div className="account-menu-container">
                 <ul className={`account-menu ${dropdownHidden ? 'dropdown-hidden' : null}`}>
+                  <div className="search--mobile">
+                    <SearchBar />
+                  </div>
                   <li className="account-user">
                     {
                       loadingUsername ? '' : `${username}`
@@ -141,9 +144,6 @@ export default (ChildComponent) => {
                       </div>
                     </IconContext.Provider>
                   </li>
-                  <div className="search--mobile">
-                    <SearchBar />
-                  </div>
                   <li className="account-info">
                     <span className="portfolio-value">
                       <span>
