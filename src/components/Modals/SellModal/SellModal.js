@@ -45,7 +45,7 @@ class SellModal extends Component {
 
           <div className="message">
             <span className="message__congrats">
-              Congratulations!
+              Success!
             </span>
             <span className="message__body">
               {`
