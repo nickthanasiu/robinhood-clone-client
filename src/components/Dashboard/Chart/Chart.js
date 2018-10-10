@@ -4,22 +4,20 @@ import { Line } from 'react-chartjs-2';
 
 import './style.scss';
 
-const chartData = {
-  labels: ["2017-07-19", "2017-07-20", "2017-07-21", "2017-07-24", "2017-07-25", "2017-07-26", "2017-07-27"],
-  datasets: [{
-    label: 'My First dataset',
-    fill: false,
-    lineTension: 0.1,
-    borderColor: '#30cd9a',
-    borderWidth: 2,
-    pointRadius: 0,
-    data: [0, 10, 5, 2, 20, 30, 45],
-  }]
-};
+
 
 const chartOptions = {
   legend: {
     display: false
+  },
+  responsive: true,
+  tooltips: {
+    mode: 'index',
+    intersect: false,
+  },
+  hover: {
+    mode: 'nearest',
+    intersect: true,
   },
   scales: {
     xAxes: [{
@@ -49,7 +47,7 @@ class Chart extends Component {
     const chartData = {
       labels: Object.keys(data).reverse(),
       datasets: [{
-        label: 'My First dataset',
+        label: 'Your Portfolio',
         fill: false,
         lineTension: 0.1,
         borderColor: borderColor,
