@@ -1,9 +1,11 @@
 @import '../../../styles/_colors.scss';
-@import '../../../styles/_breakpoints.scss';
 
 .buy-modal {
   z-index: 1000;
+  height: 100%;
+  width: inherit;
   position: relative;
+
   border: 1px solid $green;
   border-radius: 5px;
   box-shadow: 0 0 4px 1px rgba(0,0,0,.01),
@@ -12,115 +14,56 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: $white;
 
-  @include breakpoint-sm-down {
-    height: 100vh;
-    width: 100vw;
+  .close-btn {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
 
+    background-color: $white;
+    border: none;
 
-    .close-btn {
-      position: absolute;
-      top: .75rem;
-      right: 1rem;
-
-      background-color: $white;
-      border: none;
-
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-      }
-
-      &:active {
-        outline: none;
-        border: none;
-      }
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
     }
 
-    .buy-modal-wrapper {
-      height: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-
-      .checkmark-icon {
-
-      }
-
-      .message {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        margin-top: 1rem;
-
-        &__congrats {
-          font-size: 1rem;
-          font-weight: 500;
-        }
-
-        &__body {
-          margin-top: 2.5rem;
-          padding: 3rem;
-        }
-      }
+    &:active {
+      outline: none;
+      border: none;
     }
   }
 
-  @include breakpoint-med-up {
-    height: 100%;
-    width: inherit;
+  .buy-modal-wrapper {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
-    .close-btn {
-      position: absolute;
-      top: .75rem;
-      right: 1rem;
 
-      background-color: $white;
-      border: none;
 
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-      }
-
-      &:active {
-        outline: none;
-        border: none;
-      }
+    .checkmark-icon {
+      margin-top: 1.5rem;
     }
 
-    .buy-modal-wrapper {
-      height: 50%;
+    .message {
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
 
+      margin-top: 1rem;
 
-
-      .checkmark-icon {
-
+      &__congrats {
+        font-size: 1rem;
+        font-weight: 500;
       }
 
-      .message {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        margin-top: 1rem;
-
-        &__congrats {
-          font-size: 1rem;
-          font-weight: 500;
-        }
-
-        &__body {
-          margin-top: 2.5rem;
-          padding: 3rem;
-        }
+      &__body {
+        margin-top: 2.5rem;
+        padding: 3rem;
       }
     }
   }
