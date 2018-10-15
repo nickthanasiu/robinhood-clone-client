@@ -48,7 +48,7 @@ class CompanyPage extends Component {
     const { intradayData, latestPrice } = this.props;
     const today = new Date(Date.now());
     const openPriceKey = formatOpenPriceKey(today);
-    const openPrice = parseFloat(intradayData[openPriceKey], 10);
+    const openPrice = intradayData[openPriceKey];
     const dailyChange = latestPrice - openPrice;
     const dailyChangePercentage = ((dailyChange / openPrice) * 100);
     const changePositive = dailyChange >= 0 ? true : false;
@@ -91,7 +91,7 @@ class CompanyPage extends Component {
       </span>
     );
 
-    const renderConditions = loadingLatestPrice || loadingIntraday;
+    const waitToRender = loadingLatestPrice || loadingIntraday;
 
     return (
       <div className="company-page">
@@ -112,10 +112,10 @@ class CompanyPage extends Component {
 
               <span className="price-change">
                 {
-                  loadingIntraday ? null : dailyChangeSpan
+                  waitToRender ? null : dailyChangeSpan
                 }
                 {
-                  loadingIntraday ? null : timespan
+                  waitToRender ? null : timespan
                 }
               </span>
             </div>

@@ -63,5 +63,5 @@ exports.formatOpenPriceKey = (timestamp) => {
 
   const date = checkWeekend ? formatDate(friday) : formatDate(timestamp);
 
-  return `${date} 09:30:00`;
+  return `${date} 09:35:00`;
 };

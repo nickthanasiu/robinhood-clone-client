@@ -39,7 +39,6 @@ class Sidebar extends Component {
 
   componentDidMount() {
     const { selectedCompany, followedCompanies, myStocks } = this.props;
-    console.log('SIDEBAR PROPS: ', this.props);
     const index = followedCompanies.map((company) => {
       return company._id;
     }).indexOf(selectedCompany._id);

@@ -42,11 +42,8 @@ const signinHeaders = {
 
 export const signin = (formProps, callback) => async (dispatch) => {
   try {
-    console.log('SIGNGIN IN WITH FORM PROPS: ', formProps);
     const response = await axios.post(`${AUTH_URL}/signin`, formProps, { signinHeaders });
     const { token, currentUserId } = response.data;
-    console.log('currentUserId: ', currentUserId);
-    console.log('token: ', token);
     dispatch({
       type: AUTH_USER,
       payload: token,
