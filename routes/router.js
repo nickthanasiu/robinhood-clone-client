@@ -41,4 +41,9 @@ module.exports = (app) => {
   app.post('/api/latest_price', MarketDataController.latest_price);
   app.post('/api/intraday_data', MarketDataController.intraday_data);
   app.post('/api/daily_data', MarketDataController.daily_data);
+
+  // Client will periodically ping the backend when signin page is loaded, just to wake it up on Heroku
+  app.get('/api/heroku_ping', (req, res) => {
+    res.send({ ping: 'You pinged?' });
+  });
 };
