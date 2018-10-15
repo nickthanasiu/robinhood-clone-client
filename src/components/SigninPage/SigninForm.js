@@ -3,11 +3,14 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter, Link } from 'react-router-dom';
+import axios from 'axios';
+
 import { signin } from '../../actions';
 import Feather from '../Feather';
 
 import './style.scss';
 
+const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 // @TODO: Update FontAwesome Icon.
 
 class SigninForm extends Component {
@@ -21,6 +24,14 @@ class SigninForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.dropDown = this.dropDown.bind(this);
     this.redirect = this.redirect.bind(this);
+  }
+
+  componentWillMount() {
+    // Ping the Heroku backend, to wake it up. Improve loading performance
+    const ping = axios.get(`${API_URL}/heroku_ping`)
+      .then((value) => {
+        console.log(value.data);
+      });
   }
 
   onSubmit(formProps) {
