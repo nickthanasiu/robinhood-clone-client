@@ -17,6 +17,7 @@ class Sidebar extends Component {
 
   handleStockClick(e) {
     e.preventDefault();
+    console.log('CLICKING ON STOCK ITEM!');
     const returnNode = e.currentTarget.childNodes;
     const companySymbol = returnNode[0].firstChild.textContent;
 
@@ -25,6 +26,7 @@ class Sidebar extends Component {
 
   handleWatchlistClick(e) {
     e.preventDefault();
+    console.log('CLICKING ON WATCHLIST ITEM!');
     const returnNode = e.currentTarget.childNodes;
     const companySymbol = returnNode[0].textContent;
 
@@ -50,7 +52,7 @@ class Sidebar extends Component {
               <li
                 className="stocks__item"
                 key={stock.symbol}
-                onClick={this.handleClick}
+                onClick={this.handleStockClick}
               >
                 <div className="stocks__left">
                   <span className="company-symbol">
