@@ -17,7 +17,6 @@ class Sidebar extends Component {
 
   handleStockClick(e) {
     e.preventDefault();
-    console.log('CLICKING ON STOCK ITEM!');
     const returnNode = e.currentTarget.childNodes;
     const companySymbol = returnNode[0].firstChild.textContent;
 
@@ -26,7 +25,6 @@ class Sidebar extends Component {
 
   handleWatchlistClick(e) {
     e.preventDefault();
-    console.log('CLICKING ON WATCHLIST ITEM!');
     const returnNode = e.currentTarget.childNodes;
     const companySymbol = returnNode[0].textContent;
 

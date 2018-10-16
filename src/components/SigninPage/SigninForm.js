@@ -28,7 +28,7 @@ class SigninForm extends Component {
 
   componentWillMount() {
     // Ping the Heroku backend, to wake it up. Improve loading performance
-    const ping = axios.get(`${API_URL}/heroku_ping`)
+    axios.get(`${API_URL}/heroku_ping`)
       .then((value) => {
         console.log(value.data);
       });
