@@ -51,7 +51,7 @@ class Chart extends Component {
         lineTension: 0.1,
         borderColor: borderColor,
         borderWidth: 2,
-        pointRadius: 0,
+        pointRadius: 1,
         data: Object.values(data).reverse(),
       }]
     }
