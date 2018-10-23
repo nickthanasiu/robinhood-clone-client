@@ -36,7 +36,7 @@ exports.latest_price = async (req, res, next) => {
       const metaData = Object.values(response.data)[0];
       const timeData = Object.values(response.data)[1];
       const lastRefresh = Object.values(metaData)[2];
-      console.log('LAST REFRESH: ', lastRefresh);
+
       const lastData = Object.values(timeData[lastRefresh]);
       const lastClose = lastData[3];
 
@@ -55,6 +55,7 @@ exports.latest_price = async (req, res, next) => {
     const retrieve = await apiGet();
     latestPriceCache.set(symbol, retrieve);
     cacheVal = retrieve;
+    console.log('CACHE VAL: ', cacheVal);
   }
 
   // Update Company's price in DB with the latest price
