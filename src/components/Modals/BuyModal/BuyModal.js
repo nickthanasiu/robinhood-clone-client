@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { IconContext } from 'react-icons';
-import { FaTimes, FaCheckSquare } from 'react-icons/fa';
+import { withRouter } from 'react-router-dom';
+import Checkmark from '../Checkmark';
 
 import './style.scss';
 
@@ -8,6 +8,7 @@ class BuyModal extends Component {
   constructor(props) {
     super(props);
     this.handleCloseBtnClick = this.handleCloseBtnClick.bind(this);
+    this.redirect = this.redirect.bind(this);
   }
 
   componentWillUnmount() {
@@ -20,28 +21,29 @@ class BuyModal extends Component {
   handleCloseBtnClick() {
     this.props.hideBuyModal();
     this.props.resetBuyForm();
+    this.redirect();
+  }
+
+  redirect() {
+    this.props.history.push('/dashboard');
   }
 
   render() {
     const { numShares, company, sharesWorth } = this.props;
     return (
       <div className="buy-modal">
-        <IconContext.Provider value={{ size: '1.4em', color: '#f68f7c' }}>
-          <button
-            className="close-btn"
-            type="button"
-            onClick={this.handleCloseBtnClick}
-          >
-            <FaTimes />
-          </button>
-        </IconContext.Provider>
+        <button
+          className="close-btn"
+          type="button"
+          onClick={this.handleCloseBtnClick}
+        >
+          &times;
+        </button>
         <div className="buy-modal-wrapper">
 
-          <IconContext.Provider value={{ size: '5em', color: '#30cd9a' }}>
-            <div className="checkmark-icon">
-              <FaCheckSquare />
-            </div>
-          </IconContext.Provider>
+          <div className="checkmark-icon">
+            <Checkmark />
+          </div>
 
           <div className="message">
             <span className="message__congrats">
@@ -60,4 +62,4 @@ class BuyModal extends Component {
   }
 }
 
-export default BuyModal;
+export default withRouter(BuyModal);

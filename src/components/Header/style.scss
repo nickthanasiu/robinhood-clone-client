@@ -144,10 +144,23 @@
     justify-content: space-between;
 
     .header__left {
+      height: 100%;
       width: 50%;
       margin-left: 1rem;
       display: flex;
       align-items: center;
+
+      .brand {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .feather {
+          margin-top: 0;
+          padding-top: 0;
+        }
+      }
 
       .search {
         margin: 4rem;
@@ -228,9 +241,20 @@
         }
 
         .signout {
+
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          svg {
+            margin: 0;
+            padding: 0;
+            width: inherit;
+          }
+
           a {
-            margin-left: 1rem;
             font-size: 1rem;
+            margin-left: .5rem;
           }
 
           &:hover {

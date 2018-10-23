@@ -8,6 +8,7 @@ import marketData from './marketData';
 import stocks from './stocks';
 import portfolio from './portfolio';
 import modals from './modals';
+import fundamentals from './fundamentals';
 
 export default combineReducers({
   auth,
@@ -18,5 +19,6 @@ export default combineReducers({
   marketData,
   stocks,
   portfolio,
+  fundamentals,
   form: formReducer,
 });

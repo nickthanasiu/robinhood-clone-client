@@ -78,6 +78,75 @@
     }
   }
 
+  .demo-drop-down {
+    @include breakpoint-sm-down {
+      margin-top: 1rem;
+    }
+
+    @include breakpoint-med-up {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3rem;
+      width: 50vw;
+      color: $white;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation-name: slideDown;
+    -webkit-animation-name: slideDown;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    visibility: visible;
+
+    @keyframes slideDown {
+      0% {
+        transform: translateY(-100%);
+      }
+      50% {
+        transform: translateY(8%);
+      }
+      65%{
+	    	transform: translateY(-4%);
+	    }
+	    80%{
+		    transform: translateY(4%);
+	    }
+	    95%{
+		    transform: translateY(-2%);
+	    }
+	    100% {
+		    transform: translateY(0%);
+	    }
+    }
+
+    @-webkit-keyframes slideDown {
+      0% {
+        -webkit-transform: translateY(-100%);
+      }
+      50% {
+        -webkit-transform: translateY(8%);
+      }
+      65%{
+	    	-webkit-transform: translateY(-4%);
+	    }
+	    80%{
+		    -webkit-transform: translateY(4%);
+	    }
+	    95%{
+		    -webkit-transform: translateY(-2%);
+	    }
+	    100% {
+		    -webkit-transform: translateY(0%);
+	    }
+    }
+  }
+
   .container-fluid {
     min-height: 100vh;
     height: 100%;
@@ -130,7 +199,6 @@
 
           form {
             height: 60vh;
-
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -171,11 +239,12 @@
             }
 
             .buttons-wrapper {
+              top: 0;
               display: flex;
               flex-direction: column;
               justify-content: space-between;
 
-              height: 8rem;
+              height: 35%;
 
               button {
 
@@ -205,7 +274,8 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                height: 4rem;
+                align-items: center;
+                height: 6rem;
 
                 a {
                   text-decoration: none;

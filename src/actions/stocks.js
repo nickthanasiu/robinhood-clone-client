@@ -121,7 +121,6 @@ const sellStockError = error => ({
 export const sellStock = (currentUserId, companyId, shares) => async (dispatch) => {
   try {
     dispatch(sellStockBegin());
-    console.log('Beginning to SELL STOCK!!!');
 
     axios.post(`${API_URL}/sell_stock`, {
       currentUserId,

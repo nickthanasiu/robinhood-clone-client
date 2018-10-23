@@ -18,11 +18,13 @@ class SigninForm extends Component {
     super(props);
     this.state = {
       open: false,
+      demoOpen: false,
     };
 
     this.demoSignin = this.demoSignin.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.dropDown = this.dropDown.bind(this);
+    this.demoDropDown = this.demoDropDown.bind(this);
     this.redirect = this.redirect.bind(this);
   }
 
@@ -62,6 +64,15 @@ class SigninForm extends Component {
     );
   }
 
+  demoDropDown() {
+    const message = 'Loading demo profile...';
+    return (
+      <div className="demo-drop-down" style={{ color: '#30cd9a' }}>
+        { message }
+      </div>
+    );
+  }
+
   redirect() {
     setTimeout(() => {
       this.props.history.push('/dashboard');
@@ -79,6 +90,9 @@ class SigninForm extends Component {
             <div className="col-md-6 page-content">
               {
                 this.state.open ? this.dropDown() : null
+              }
+              {
+                this.state.demoOpen ? this.demoDropDown() : null
               }
               <div className="signin-form">
                 <div className="signin-header">
@@ -121,18 +135,19 @@ class SigninForm extends Component {
                       Sign In
                     </button>
                     <div className="links">
-                      <Link to="/signup">
-                        Not a user? Sign up here
-                      </Link>
-
                       <div
                         className="demo-signin"
                         onClick={this.demoSignin}
                       >
                         <Link to="/dashboard">
-                          Click here to demo the app
+                          <button type="submit">
+                            Click here to demo the app
+                          </button>
                         </Link>
                       </div>
+                      <Link to="/signup">
+                        Not a user? Sign up here
+                      </Link>
                     </div>
                   </div>
                 </form>

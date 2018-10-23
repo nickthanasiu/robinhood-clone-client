@@ -69,6 +69,10 @@ export const FETCH_ARTICLES_BEGIN = 'fetch_articles_begin';
 export const FETCH_ARTICLES_SUCCESS = 'fetch_articles_success';
 export const FETCH_ARTICLES_ERROR = 'fetch_articles_error';
 
+export const GET_FUNDAMENTALS_BEGIN = 'get_fundamentals_begin';
+export const GET_FUNDAMENTALS_SUCCESS = 'get_fundamentals_success';
+export const GET_FUNDAMENTALS_ERROR = 'get_fundamentals_error';
+
 export const GET_INTRADAY_BEGIN = 'get_intraday_begin';
 export const GET_INTRADAY_SUCCESS = 'get_intraday_success';
 export const GET_INTRADAY_ERROR = 'get_intraday_error';

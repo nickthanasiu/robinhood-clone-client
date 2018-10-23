@@ -19,10 +19,12 @@
 
   .close-btn {
     position: absolute;
-    top: .75rem;
+    top: .125rem;
     right: 1rem;
-
-    background-color: $white;
+    color: #f68f7c;
+    height: 1rem;
+    width: 1rem;
+    font-size: 2rem;
     border: none;
 
     &:hover {
@@ -37,16 +39,14 @@
   }
 
   .sell-modal-wrapper {
-    height: 50%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
-
-
     .checkmark-icon {
-      margin-top: 1.5rem;
+
     }
 
     .message {
@@ -57,13 +57,15 @@
       margin-top: 1rem;
 
       &__congrats {
-        font-size: 1rem;
+        font-size: 1.25rem;
         font-weight: 500;
       }
 
       &__body {
-        margin-top: 2.5rem;
-        padding: 3rem;
+        margin-top: .5rem;
+        padding: 0 2rem;
+        font-weight: 500;
+        text-align: center;
       }
     }
   }

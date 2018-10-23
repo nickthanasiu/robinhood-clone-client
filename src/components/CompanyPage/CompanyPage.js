@@ -25,6 +25,7 @@ class CompanyPage extends Component {
       getLatestPrice,
       latestPrice,
       getIntraday,
+      getFundamentals,
       selectedCompany
     } = this.props;
     getLatestPrice(selectedCompany.symbol);
@@ -32,6 +33,7 @@ class CompanyPage extends Component {
       .then(() => {
         this.calculateDailyChange();
       });
+    getFundamentals(selectedCompany.symbol);
   }
 
   componentWillReceiveProps(newProps) {
