@@ -21,7 +21,7 @@
     height: 1rem;
     width: 1rem;
     font-size: 2rem;
-    border: none;
+
 
     &:hover {
       cursor: pointer;
@@ -36,6 +36,7 @@
 
   @include breakpoint-sm-down {
     min-height: 100vh;
+
 
     .sell-modal-wrapper {
       height: 90%;
@@ -77,7 +78,9 @@
                 0 3px 24px rgba(48,51,51,.09);
 
 
-
+    .close-btn {
+      border: none;
+    }
 
     .sell-modal-wrapper {
       height: 90%;
