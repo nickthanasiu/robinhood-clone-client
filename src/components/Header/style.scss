@@ -62,9 +62,9 @@
           padding: 2rem;
           font-size: 1.125rem;
 
-          .menu-close-btn {
-
-          }
+          /*.menu-close-btn {
+            
+          }*/
         }
 
         .account-info {
@@ -267,7 +267,8 @@
     }
 
     .header__right--mobile {
-      display: none;
+      //display: none;
+      border: 2px solid orange;
     }
   }
 }

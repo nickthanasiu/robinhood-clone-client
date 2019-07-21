@@ -119,7 +119,6 @@ export default (ChildComponent) => {
                 </ul>
               </li>
             </div>
-
             <div className="header__right--mobile">
               <IconContext.Provider value={{ size: '2.5rem' }}>
                 <div

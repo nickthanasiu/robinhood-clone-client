@@ -1,12 +1,12 @@
-{
+  {
   "name": "robinhood-frontend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --env.API_URL=http://localhost:8000",
     "start": "react-scripts start",
-    "build": "webpack",
+    "build": "webpack --env.API_URL=https://doohnibor-server.herokuapp.com/api",
     "heroku-postbuild": "yarn run build"
   },
   "devDependencies": {
