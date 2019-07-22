@@ -55,7 +55,7 @@ const AccountMenu = ({
 AccountMenu.propTypes = {
     loadingUsername: PropTypes.bool.isRequired,
     username: PropTypes.string.isRequired,
-    portfolioValue: PropTypes.number.isRequired,
+    portfolioValue: PropTypes.string.isRequired,
     loadingBuyingPower: PropTypes.bool.isRequired,
     buyingPower: PropTypes.string,
 };
