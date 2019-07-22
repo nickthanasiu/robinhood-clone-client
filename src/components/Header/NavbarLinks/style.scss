@@ -1,0 +1,25 @@
+@import '../../../styles/_colors.scss';
+//@import '../../../styles/_breakpoints.scss';
+
+
+.navbar-links {
+    display: flex;
+    position: relative;
+
+
+    .navbar-links__link-wrapper {
+        margin-right: 2rem;
+    
+        .navbar-links__link {
+          color: $blackish;
+          font-weight: 500;
+          font-size: .875rem;
+          text-decoration: none;
+    
+          &:hover {
+            color: $green;
+          }
+        } // End .navbar-links__link
+    } // End .navbar-links__link-wrapper
+} // End .navbar-links
+

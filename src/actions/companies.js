@@ -1,6 +1,4 @@
 import axios from 'axios';
-//import { API_URL } from '../api';
-
 
 import {
   COMPANY_SEARCH_BEGIN,

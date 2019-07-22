@@ -181,94 +181,11 @@
         display: none;
       }
 
-      .navbar-link {
-
-        margin-right: 2rem;
-        list-style: none;
-
-        & a {
-          color: $blackish;
-          font-weight: 500;
-          font-size: .875rem;
-          text-decoration: none;
-
-          &:hover {
-            color: $green;
-          }
-        }
-      }
-
-      .account-menu {
-
-        position: absolute;
-        top: 1.5rem;
-        right: 2rem;
-        width: 20rem;
-        background-color: #fff;
-
-        font-weight: 500;
-        box-shadow: 0 0 4px 1px rgba(0,0,0,.01),
-                    0 3px 24px rgba(48,51,51,.09);
-
-
-        li {
-          padding: 1rem 1rem;
-        }
-
-        .account-info {
-          display: flex;
-          justify-content: space-around;
-          border-bottom: 1px solid $lightgrey;
-
-          & > span {
-            display: flex;
-            flex-direction: column;
-          }
-        }
-
-        .account-link {
-          border-bottom: 1px solid $lightgrey;
-
-          &:hover {
-            cursor: pointer;
-            background-color: $lightgrey;
-          }
-
-          & a {
-            margin-left: 1rem;
-            font-size: 1rem;
-          }
-        }
-
-        .signout {
-
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-
-          svg {
-            margin: 0;
-            padding: 0;
-            width: inherit;
-          }
-
-          a {
-            font-size: 1rem;
-            margin-left: .5rem;
-          }
-
-          &:hover {
-            cursor: pointer;
-            background-color: $lightgrey;
-          }
-        }
-
-      }
+      
     }
 
     .header__right--mobile {
-      //display: none;
-      border: 2px solid orange;
+      display: none;
     }
   }
 }
