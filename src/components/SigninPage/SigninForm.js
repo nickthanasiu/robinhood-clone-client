@@ -10,6 +10,8 @@ import Feather from '../Feather';
 
 import './style.scss';
 
+// @TODO: Update add 
+
 const API_URL = 'https://doohnibor-server.herokuapp.com/api';
 // @TODO: Update FontAwesome Icon.
 
@@ -35,7 +37,7 @@ class SigninForm extends Component {
         console.log(value.data);
       });
   }
-
+  
   onSubmit(formProps) {
     this.setState({
       open: true
@@ -151,8 +153,8 @@ class SigninForm extends Component {
                     </div>
                   </div>
                 </form>
-              </div>
-            </div>
+              </div> {/* End signin-form */}
+            </div> {/* EEEEENNNNNNDDD */}
           </div>
         </div>
       </div>

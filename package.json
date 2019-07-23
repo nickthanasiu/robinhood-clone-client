@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "client": "REACT_APP_FOO='BAR' webpack-dev-server",
+    "client": "webpack-dev-server",
     "server": "npm run start --prefix server",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "react-scripts start",
