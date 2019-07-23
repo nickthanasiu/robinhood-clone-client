@@ -1,4 +1,9 @@
 import React from 'react';
+
+// Components
+import Header from '../Header';
+
+// HOC that redirects user away from page if not authenticated
 import requireAuth from '../requireAuth';
 
 const AccountPage = () => (
@@ -7,4 +12,6 @@ const AccountPage = () => (
   </div>
 );
 
-export default requireAuth(AccountPage);
+const AccountPageWithHeader = Header(AccountPage);
+
+export default requireAuth(AccountPageWithHeader);
