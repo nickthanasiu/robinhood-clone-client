@@ -16,6 +16,7 @@ import SigninPage from './components/SigninPage';
 import SignoutPage from './components/SignoutPage';
 import Dashboard from './components/Dashboard';
 import CompanyPage from './components/CompanyPage';
+import AccountPage from './components/AccountPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.scss';
@@ -57,6 +58,7 @@ ReactDOM.render(
         <Route path="/signout" component={SignoutPage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/company" component={CompanyPage} />
+        <Route path="/account" component={AccountPage} />
       </App>
     </BrowserRouter>
   </Provider>,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaSignOutAlt } from 'react-icons/fa';
+import { FaSignOutAlt, FaBriefcase } from 'react-icons/fa';
 
 // Styles
 import './style.scss';
@@ -40,6 +40,13 @@ const AccountMenu = ({
                 </div>
             </header>
             <div className="account-menu__links">
+                <Link
+                    to="account"
+                    className="account-menu__link"
+                >
+                    <FaBriefcase />
+                    <span>Account</span>
+                </Link>
                 <Link 
                     to="signout"
                     className="account-menu__link"
