@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaSignOutAlt, FaBriefcase } from 'react-icons/fa';
+import {
+    FaSignOutAlt,
+    FaBriefcase,
+    FaHistory,
+} from 'react-icons/fa';
 
 // Styles
 import './style.scss';
@@ -48,12 +52,27 @@ const AccountMenu = ({
                     <span>Account</span>
                 </Link>
                 <Link 
+                    to="account/banking"
+                    className="account-menu__link"
+                >
+                    <FaSignOutAlt />
+                    <span>Banking</span>
+                </Link>
+                <Link 
+                    to="account/history"
+                    className="account-menu__link"
+                >
+                    <FaHistory />
+                    <span>History</span>
+                </Link>
+                <Link 
                     to="signout"
                     className="account-menu__link"
                 >
                     <FaSignOutAlt />
                     <span>Sign Out</span>
                 </Link>
+                
             </div>
         </div>
     );

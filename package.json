@@ -4,9 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "client": "webpack-dev-server",
-    "server": "npm run start --prefix server",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "webpack-dev-server",
     "start": "react-scripts start",
     "build": "webpack --env.API_URL=https://doohnibor-server.herokuapp.com/api",
     "heroku-postbuild": "yarn run build"
