@@ -17,6 +17,8 @@ const mapStateToProps = state => ({
   sellStockLoading: state.stocks.sellStockLoading,
   displayBuyModal: state.modals.displayBuyModal,
   displaySellModal: state.modals.displaySellModal,
+  loadingBuyingPower: state.stocks.loadingBuyingPower,
+  buyingPower: state.stocks.buyingPower,
 });
 
 const mapDispatchToProps = dispatch => ({

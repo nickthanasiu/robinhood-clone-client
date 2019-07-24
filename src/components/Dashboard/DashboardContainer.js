@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
   portfolioIntradayData: state.portfolio.portfolioIntradayData,
   loadingPortfolioIntra: state.portfolio.loadingPortfolioIntra,
   intradayData: state.marketData.intradayData,
+  portfolioValue: state.portfolio.portfolioValue
 });
 
 const mapDispatchToProps = dispatch => ({

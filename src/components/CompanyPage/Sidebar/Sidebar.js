@@ -257,6 +257,7 @@ class Sidebar extends Component {
       selectedCompany,
       latestPrice,
       loadingLatestPrice,
+      loadingBuyingPower,
       buyingPower
     } = this.props;
 
@@ -320,7 +321,7 @@ class Sidebar extends Component {
 
         <div className="buying-power">
           {`
-            $${buyingPower} Buying Power Available
+            $${ loadingBuyingPower ? '' : buyingPower } Buying Power Available
           `}
         </div>
       </div>
