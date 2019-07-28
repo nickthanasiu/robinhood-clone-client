@@ -28,6 +28,13 @@
         opacity: 1;
     }
 
+    &.account-menu-visible {
+        // reenable clicking
+        pointer-events: all;
+        // show that ish
+        opacity: 1;
+    }
+
     // invisible a tag that encompasses entire page outside of the account menu
     // and closes the account menu when clicked on
     a.close {

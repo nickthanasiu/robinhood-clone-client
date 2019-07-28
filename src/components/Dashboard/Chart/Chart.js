@@ -37,15 +37,19 @@ class Chart extends Component {
     super(props);
     this.state = {
       timeSeries: 'Today',
+      changePositive: true,
     };
-
-    this.setChartData = this.setChartData.bind(this);
   }
 
-  setChartData(data) {
+  componentWillReceiveProps(newProps) {
+    if (newProps.portfolioIntradayData !== this.props.portfolioIntradayData)
+    console.log('chart props: ', newProps.portfolioIntradayData);
+  }
+
+  setChartData = (data) => {
     const borderColor = this.props.fillColor;
     const chartData = {
-      labels: Object.keys(data).reverse(),
+      labels: Object.keys(data),
       datasets: [{
         label: 'Your Portfolio',
         fill: false,
@@ -53,18 +57,60 @@ class Chart extends Component {
         borderColor: borderColor,
         borderWidth: 2,
         pointRadius: 1,
-        data: Object.values(data).reverse(),
+        data: Object.values(data),
       }]
     }
 
     return chartData;
   }
 
+  /*
+  
+  <asd className="dashboard-header">
+              <h2 className="portfolio-value">
+                {
+                  loadingPortfolio ? '' :
+                    `
+                      $${portfolioValue}
+                    `
+                }
+              </h2>
+              <span className="value-change">
+                {
+                  loadingPortfolioIntra
+                    ? ''
+                    : isNaN(dailyChange)
+                      ? ''
+                      : isNaN(dailyChangePercentage)
+                        ? ''
+                        : dailyChangeSpan
+                }
+                {
+                  loadingPortfolioIntra ? '' : timespan
+                }
+              </span>
+            </div>
+  */
+
   render() {
     const { portfolioIntradayData } = this.props;
+    const { changePositive } = this.state;
+    const operator = changePositive ? '+' : '-';
+
     return (
-      <div className="chart">
-        <div className="chart-wrapper">
+      <div className="chart-wrapper">
+        <header className="chart-header">
+          <h1 className="chart-header__portfolio-value">
+            $6.41
+          </h1>
+          <div className="chart-header__portfolio-value-change">
+            +$0.09 (1.41%)
+            <span className="chart-header__portfolio-value-change-timespan">
+              Today
+            </span>
+          </div>
+        </header>
+        <div className="chart-main">
           <Line height={100} data={this.setChartData(portfolioIntradayData)} options={chartOptions} />
         </div>
       </div>

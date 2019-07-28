@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { GET_FUNDAMENTALS_BEGIN, GET_FUNDAMENTALS_SUCCESS, GET_FUNDAMENTALS_ERROR } from './types';
 
-const API_URL = 'https://doohnibor-server.herokuapp.com/api';
+//const API_URL = 'https://doohnibor-server.herokuapp.com/api';
+const API_URL = 'http://localhost:8000/api';
 
 const getFundamentalsBegin = () => ({
   type: GET_FUNDAMENTALS_BEGIN

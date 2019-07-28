@@ -107,34 +107,9 @@ class Dashboard extends Component {
       <div className="dashboard">
         <div className="column__left">
           <div className="row__top">
-            <div className="dashboard-header">
-              <h2 className="portfolio-value">
-                {
-                  loadingPortfolio ? '' :
-                    `
-                      $${portfolioValue}
-                    `
-                }
-              </h2>
-              <span className="value-change">
-                {
-                  /* eslint-disable no-nested-ternary */
-                  loadingPortfolioIntra
-                    ? ''
-                    : isNaN(dailyChange)
-                      ? ''
-                      : isNaN(dailyChangePercentage)
-                        ? ''
-                        : dailyChangeSpan
-                    /* eslint-enable */
-                }
-                {
-                  loadingPortfolioIntra ? '' : timespan
-                }
-              </span>
-            </div>
+            
 
-            <div className="chart-container">
+            <div className="chart-section">
               <Chart
                 portfolioIntradayData={portfolioIntradayData}
                 fillColor={fillColor}

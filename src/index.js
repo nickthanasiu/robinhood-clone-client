@@ -18,6 +18,9 @@ import Dashboard from './components/Dashboard';
 import CompanyPage from './components/CompanyPage';
 import AccountPage from './components/AccountPage';
 
+// @TODO: Remove eventually. Just here for experimentation
+import ChartSandBox from './components/Dashboard/Chart/ChartSandbox';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.scss';
 
@@ -59,6 +62,7 @@ ReactDOM.render(
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/company" component={CompanyPage} />
         <Route path="/account" component={AccountPage} />
+        <Route path="/chart_sandbox" component={ChartSandBox} />
       </App>
     </BrowserRouter>
   </Provider>,

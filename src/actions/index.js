@@ -8,7 +8,8 @@ import {
 
 } from './types';
 
-const AUTH_URL = 'https://doohnibor-server.herokuapp.com';
+//const API_URL = 'https://doohnibor-server.herokuapp.com';
+const API_URL = 'http://localhost:8000/api';
 
 const currentUser = currentUserId => ({
   type: CURRENT_USER,
@@ -17,7 +18,7 @@ const currentUser = currentUserId => ({
 
 export const signup = (formProps, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(`${AUTH_URL}/signup`, formProps);
+    const response = await axios.post(`${API_URL}/signup`, formProps);
     const { token, currentUserId } = response.data;
     dispatch({
       type: AUTH_USER,
@@ -42,7 +43,7 @@ const signinHeaders = {
 
 export const signin = (formProps, callback) => async (dispatch) => {
   try {
-    const response = await axios.post(`${AUTH_URL}/signin`, formProps, { signinHeaders });
+    const response = await axios.post(`${API_URL}/signin`, formProps, { signinHeaders });
     const { token, currentUserId } = response.data;
     dispatch({
       type: AUTH_USER,

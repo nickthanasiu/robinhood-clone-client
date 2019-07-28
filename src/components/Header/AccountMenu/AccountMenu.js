@@ -11,14 +11,15 @@ import {
 import './style.scss';
 
 const AccountMenu = ({
+    isVisible,
     loadingUsername,
     username,
     portfolioValue,
     loadingBuyingPower,
-    buyingPower
+    buyingPower,
 }) => {
     return (
-        <div id='account-menu'>
+        <div id="account-menu" className={`account-menu ${ isVisible ? 'account-menu-visible' : '' }`}>
             <a href="#" className="close"></a>
             <header className="account-menu__header">
                 <h3 className="account-menu__username">
@@ -79,6 +80,7 @@ const AccountMenu = ({
 };
 
 AccountMenu.propTypes = {
+    isVisible: PropTypes.bool.isRequired,
     loadingUsername: PropTypes.bool.isRequired,
     username: PropTypes.string.isRequired,
     portfolioValue: PropTypes.string.isRequired,

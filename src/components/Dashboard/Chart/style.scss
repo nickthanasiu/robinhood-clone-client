@@ -1,14 +1,32 @@
 @import '../../../styles/_breakpoints.scss';
+@import '../../../styles/_colors.scss';
 
-.chart {
-
+.chart-wrapper {
+  border: 1px solid green;
   @include breakpoint-sm-down {
     height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-    .chart-wrapper {
-      height: 100%;
-      display: flex;
-      align-items: center;
+  .chart-header {
+
+    .chart-header__portfolio-value {
+      font-size: 2.8rem;
     }
+
+    .chart-header__portfolio-value-change {
+      
+      .chart-header__portfolio-value-change-timespan {
+        color: $darkergrey;
+        margin-left: .25rem;
+      }
+    }
+
+  }
+
+  .chart-main {
+    border: 1px solid purple;
+    padding: 2rem;
   }
 }

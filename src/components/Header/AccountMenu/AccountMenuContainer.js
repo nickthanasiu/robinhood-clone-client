@@ -10,6 +10,14 @@ import { getBuyingPower } from '../../../actions/stocks';
 import AccountMenu from './AccountMenu';
 
 class AccountMenuContainer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isVisible: false
+        };
+    }
+
     componentDidMount() {
         const { currentUserId, getPortfolioValue, getUsername } = this.props;
         getPortfolioValue(currentUserId);
@@ -34,6 +42,7 @@ class AccountMenuContainer extends Component {
 
         return (
             <AccountMenu 
+                isVisible={this.state.isVisible}
                 loadingUsername={loadingUsername}
                 username={username}
                 portfolioValue={portfolioValue}

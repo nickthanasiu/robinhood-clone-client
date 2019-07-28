@@ -8,7 +8,8 @@ import {
   FETCH_ARTICLES_ERROR,
 } from './types';
 
-const API_URL = 'https://doohnibor-server.herokuapp.com/api';
+//const API_URL = 'https://doohnibor-server.herokuapp.com/api';
+const API_URL = 'http://localhost:8000/api';
 
 const fetchArticlesBegin = () => ({
   type: FETCH_ARTICLES_BEGIN

@@ -1,0 +1,19 @@
+@import '../../../styles/colors';
+
+#chart-sandbox {
+
+svg {
+    fill: #000;
+    fill-opacity: 0.3;
+  }
+
+  path {
+    stroke: $green;
+    stroke-width: 3px;
+    fill: none;
+  }
+
+  .axis {
+    stroke: #000;
+  }
+}
