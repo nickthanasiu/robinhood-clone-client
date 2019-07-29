@@ -6,6 +6,7 @@ import {
   GET_PORTFOLIO_INTRA_BEGIN,
   GET_PORTFOLIO_INTRA_SUCCESS,
   GET_PORTFOLIO_INTRA_ERROR,
+  SET_SELECTED_TIMESERIES,
 } from '../actions/types';
 
 
@@ -17,6 +18,13 @@ const initialState = {
   portfolioIntradayData: {},
   loadingPortfolioIntra: false,
   portfolioIntradayError: '',
+
+  selectedTimeSeries: '1D',
+  portfolioData: {
+    '1D': {},
+    '1W': {},
+    '1M': {}
+  },
 };
 
 export default (state = initialState, action) => {
@@ -63,6 +71,11 @@ export default (state = initialState, action) => {
         loadingPortfolioIntra: false,
         portfolioIntradayError: action.payload.error,
         portfolioIntradayData: {},
+      };
+    case SET_SELECTED_TIMESERIES:
+      return {
+        ...state,
+        selectedTimeSeries: action.payload.timeseries
       };
     default:
       return state;

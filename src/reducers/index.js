@@ -22,3 +22,6 @@ export default combineReducers({
   fundamentals,
   form: formReducer,
 });
+
+// Selector functions
+export const getPortfolioData = (state, data) => state.portfolio;

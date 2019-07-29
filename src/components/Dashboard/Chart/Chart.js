@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
+// Styles
 import './style.scss';
+import { $green } from '../../../styles/colors';
 
 
 
@@ -28,22 +30,19 @@ const chartOptions = {
       gridLines: {
         display: false,
       }
-    }],
-  },
+    }]
+  }
 };
 
 class Chart extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      timeSeries: 'Today',
-      changePositive: true,
-    };
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.portfolioIntradayData !== this.props.portfolioIntradayData)
     console.log('chart props: ', newProps.portfolioIntradayData);
+    console.log('full chart props: ', newProps);
   }
 
   setChartData = (data) => {
@@ -56,13 +55,17 @@ class Chart extends Component {
         lineTension: 0.1,
         borderColor: borderColor,
         borderWidth: 2,
-        pointRadius: 1,
+        pointRadius: 0,
         data: Object.values(data),
       }]
     }
 
     return chartData;
   }
+
+  timeseriesSelector = e =>
+    this.props.setSelectedTimeseries(e.target.innerHTML);
+    s
 
   /*
   
@@ -93,8 +96,8 @@ class Chart extends Component {
   */
 
   render() {
-    const { portfolioIntradayData } = this.props;
-    const { changePositive } = this.state;
+    const { portfolioIntradayData, changePositive, selectedTimeSeries } = this.props;
+    const selected_btn_style = { borderBottom: `2px solid ${$green}` };
     const operator = changePositive ? '+' : '-';
 
     return (
@@ -112,6 +115,30 @@ class Chart extends Component {
         </header>
         <div className="chart-main">
           <Line height={100} data={this.setChartData(portfolioIntradayData)} options={chartOptions} />
+        </div>
+
+        <div className="chart-timeseries-buttons">
+          <span
+            className="chart-timeseries-buttons__button 1D"
+            style={ selectedTimeSeries === '1D' ? selected_btn_style : {} }
+            onClick={this.timeseriesSelector}
+          >
+            1D
+          </span>
+          <span
+            className="chart-timeseries-buttons__button 1W"
+            style={ selectedTimeSeries === '1W' ? selected_btn_style : {} }
+            onClick={this.timeseriesSelector}
+          >
+            1W
+          </span>
+          <span
+            className="chart-timeseries-buttons__button 1M"
+            style={ selectedTimeSeries === '1M' ? selected_btn_style : {} }
+            onClick={this.timeseriesSelector}
+          >
+            1M
+          </span>
         </div>
       </div>
     );

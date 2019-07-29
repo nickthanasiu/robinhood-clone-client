@@ -9,6 +9,7 @@ import {
   GET_PORTFOLIO_INTRA_BEGIN,
   GET_PORTFOLIO_INTRA_SUCCESS,
   GET_PORTFOLIO_INTRA_ERROR,
+  SET_SELECTED_TIMESERIES,
 } from './types';
 
 //const API_URL = 'https://doohnibor-server.herokuapp.com/api';
@@ -74,3 +75,8 @@ export const getPortfolioIntraday = symbols => async dispatch => {
     dispatch(getPortfolioIntraError(err));
   }
 };
+
+export const setSelectedTimeseries = timeseries => ({
+  type: SET_SELECTED_TIMESERIES,
+  payload: { timeseries }
+});

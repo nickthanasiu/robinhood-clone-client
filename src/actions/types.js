@@ -64,6 +64,7 @@ export const SET_BUYING_POWER_ERROR = 'set_buying_power_error';
 export const GET_PORTFOLIO_INTRA_BEGIN = 'get_portfolio_intra_begin';
 export const GET_PORTFOLIO_INTRA_SUCCESS = 'get_portfolio_intra_success';
 export const GET_PORTFOLIO_INTRA_ERROR = 'get_portfolio_intra_error';
+export const SET_SELECTED_TIMESERIES = 'set_selected_timeseries';
 
 export const FETCH_ARTICLES_BEGIN = 'fetch_articles_begin';
 export const FETCH_ARTICLES_SUCCESS = 'fetch_articles_success';

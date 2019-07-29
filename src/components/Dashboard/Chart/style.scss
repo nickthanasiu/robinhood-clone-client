@@ -2,7 +2,7 @@
 @import '../../../styles/_colors.scss';
 
 .chart-wrapper {
-  border: 1px solid green;
+  //border: 1px solid green;
   @include breakpoint-sm-down {
     height: 100%;
     display: flex;
@@ -16,7 +16,7 @@
     }
 
     .chart-header__portfolio-value-change {
-      
+
       .chart-header__portfolio-value-change-timespan {
         color: $darkergrey;
         margin-left: .25rem;
@@ -26,7 +26,28 @@
   }
 
   .chart-main {
-    border: 1px solid purple;
+    //border: 1px solid purple;
     padding: 2rem;
+  }
+
+  .chart-timeseries-buttons {
+    margin-right: 2rem;
+    border-bottom: 1px solid $grey;
+    //border: 1px solid red;
+//    padding: 1rem 0;
+    height: 2rem;
+
+    .chart-timeseries-buttons__button {
+      box-sizing: border-box;
+      //border: 1px solid $green;
+      //padding: 2px 0 12px;
+      height: 2rem;
+      width: 2rem;
+      padding-bottom: .5rem;
+      margin-right: 2.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
   }
 }

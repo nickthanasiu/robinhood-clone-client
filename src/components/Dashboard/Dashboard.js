@@ -111,7 +111,6 @@ class Dashboard extends Component {
 
             <div className="chart-section">
               <Chart
-                portfolioIntradayData={portfolioIntradayData}
                 fillColor={fillColor}
               />
             </div>
