@@ -34,115 +34,76 @@ const chartOptions = {
   }
 };
 
-class Chart extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.portfolioIntradayData !== this.props.portfolioIntradayData)
-    console.log('chart props: ', newProps.portfolioIntradayData);
-    console.log('full chart props: ', newProps);
-  }
-
-  setChartData = (data) => {
-    const borderColor = this.props.fillColor;
-    const chartData = {
-      labels: Object.keys(data),
-      datasets: [{
-        label: 'Your Portfolio',
-        fill: false,
-        lineTension: 0.1,
-        borderColor: borderColor,
-        borderWidth: 2,
-        pointRadius: 0,
-        data: Object.values(data),
-      }]
-    }
-
-    return chartData;
-  }
-
-  timeseriesSelector = e =>
-    this.props.setSelectedTimeseries(e.target.innerHTML);
-    s
-
-  /*
-  
-  <asd className="dashboard-header">
-              <h2 className="portfolio-value">
-                {
-                  loadingPortfolio ? '' :
-                    `
-                      $${portfolioValue}
-                    `
-                }
-              </h2>
-              <span className="value-change">
-                {
-                  loadingPortfolioIntra
+function Chart ({
+  loadingPortfolio,
+  portfolioValue,
+  loadingPortfolioIntra,
+  portfolioIntradayData,
+  changePositive,
+  timeseriesSelector,
+  selectedTimeSeries,
+  dailyChange,
+  dailyChangePercentage,
+  timespan,
+  setChartData
+}){
+  const selected_btn_style = { borderBottom: `2px solid ${$green}` };
+  const operator = changePositive ? '+' : '-';
+  const dailyChangeSpan =`
+      ${operator}$${Math.abs(dailyChange)} (${dailyChangePercentage}%)
+    `;
+  return (
+    <div className="chart-wrapper">
+        <header className="chart-header">
+          <h1 className="chart-header__portfolio-value">
+            {
+              loadingPortfolio ? '' : `$${portfolioValue}`
+            }
+          </h1>
+          <div className="chart-header__portfolio-value-change">
+            {
+              loadingPortfolioIntra
                     ? ''
                     : isNaN(dailyChange)
                       ? ''
                       : isNaN(dailyChangePercentage)
                         ? ''
                         : dailyChangeSpan
-                }
-                {
-                  loadingPortfolioIntra ? '' : timespan
-                }
-              </span>
-            </div>
-  */
-
-  render() {
-    const { portfolioIntradayData, changePositive, selectedTimeSeries } = this.props;
-    const selected_btn_style = { borderBottom: `2px solid ${$green}` };
-    const operator = changePositive ? '+' : '-';
-
-    return (
-      <div className="chart-wrapper">
-        <header className="chart-header">
-          <h1 className="chart-header__portfolio-value">
-            $6.41
-          </h1>
-          <div className="chart-header__portfolio-value-change">
-            +$0.09 (1.41%)
+            }
             <span className="chart-header__portfolio-value-change-timespan">
-              Today
+              { loadingPortfolioIntra ? '' : timespan }
             </span>
           </div>
         </header>
         <div className="chart-main">
-          <Line height={100} data={this.setChartData(portfolioIntradayData)} options={chartOptions} />
+          <Line height={100} data={setChartData(portfolioIntradayData)} options={chartOptions} />
         </div>
 
         <div className="chart-timeseries-buttons">
           <span
             className="chart-timeseries-buttons__button 1D"
             style={ selectedTimeSeries === '1D' ? selected_btn_style : {} }
-            onClick={this.timeseriesSelector}
+            onClick={timeseriesSelector}
           >
             1D
           </span>
           <span
             className="chart-timeseries-buttons__button 1W"
             style={ selectedTimeSeries === '1W' ? selected_btn_style : {} }
-            onClick={this.timeseriesSelector}
+            onClick={timeseriesSelector}
           >
             1W
           </span>
           <span
             className="chart-timeseries-buttons__button 1M"
             style={ selectedTimeSeries === '1M' ? selected_btn_style : {} }
-            onClick={this.timeseriesSelector}
+            onClick={timeseriesSelector}
           >
             1M
           </span>
         </div>
       </div>
-    );
-  }
-}
+  );
+};
 
 export default Chart;

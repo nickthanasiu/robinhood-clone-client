@@ -83,7 +83,7 @@ AccountMenu.propTypes = {
     isVisible: PropTypes.bool.isRequired,
     loadingUsername: PropTypes.bool.isRequired,
     username: PropTypes.string.isRequired,
-    portfolioValue: PropTypes.string.isRequired,
+    //portfolioValue: PropTypes.string.isRequired,
     loadingBuyingPower: PropTypes.bool.isRequired,
     buyingPower: PropTypes.string,
 };

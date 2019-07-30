@@ -81,3 +81,14 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export const getTimespan = state => {
+  switch (state.selectedTimeSeries) {
+    case '1D':
+      return 'Today';
+    case '1W':
+      return 'Past Week';
+    case '1M':
+      return 'Past Month';
+  }
+};

@@ -77,31 +77,19 @@ class Dashboard extends Component {
       currentUserId,
       articles,
       loadingArticles,
-      portfolioValue,
-      loadingPortfolio,
-      portfolioIntradayData,
-      loadingPortfolioIntra,
       intradayData
     } = this.props;
 
     const {
       dailyChange,
       dailyChangePercentage,
-      changePositive,
       fillColor,
     } = this.state;
 
-    const operator = changePositive ? '+' : '-';
 
-    const dailyChangeSpan = `
-      ${operator}$${Math.abs(dailyChange)} (${dailyChangePercentage}%)
-    `;
+    
 
-    const timespan = (
-      <span className="timespan">
-        Today
-      </span>
-    );
+    
 
     return (
       <div className="dashboard">
@@ -112,6 +100,8 @@ class Dashboard extends Component {
             <div className="chart-section">
               <Chart
                 fillColor={fillColor}
+                dailyChange={dailyChange}
+                dailyChangePercentage={dailyChangePercentage}
               />
             </div>
           </div>

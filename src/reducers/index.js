@@ -6,7 +6,7 @@ import companies from './companies';
 import newsfeed from './newsfeed';
 import marketData from './marketData';
 import stocks from './stocks';
-import portfolio from './portfolio';
+import portfolio, * as fromPortfolio from './portfolio';
 import modals from './modals';
 import fundamentals from './fundamentals';
 
@@ -25,3 +25,4 @@ export default combineReducers({
 
 // Selector functions
 export const getPortfolioData = (state, data) => state.portfolio;
+export const getTimespan = state => fromPortfolio.getTimespan(state.portfolio);  
