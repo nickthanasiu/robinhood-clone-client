@@ -76,7 +76,25 @@ function Chart ({
           </div>
         </header>
         <div className="chart-main">
-          <Line height={100} data={setChartData(portfolioIntradayData)} options={chartOptions} />
+          { /* @TODO: Remove!! This is temporary until data for 1W and 1M is ready */
+            selectedTimeSeries !== '1D' ? (
+            <div
+              style={{
+                height: '16rem',
+              }}
+            >
+              <h2 style={{ margin: '3rem 0 2rem' }}>
+                Coming Soon!
+              </h2>
+
+              <p style={{ color: 'grey' }}>
+                Doohnibor does not currently provide a weekly or monthly timeseries,
+                but that will change soon
+              </p>
+            </div>
+          ) : (
+            <Line height={100} data={setChartData(portfolioIntradayData)} options={chartOptions} />
+          )}
         </div>
 
         <div className="chart-timeseries-buttons">

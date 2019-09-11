@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../actions/portfolio';
 
 //  Selector functions
-import { getTimespan } from '../../../reducers';
+import { getTimespan, getDailyChange } from '../../../reducers';
 
 // Component to wrap
 import Chart from './Chart';
@@ -61,6 +61,7 @@ const mapStateToProps = (state, ownProps) => {
         portfolioIntradayData: state.portfolio.portfolioIntradayData,
         timespan: getTimespan(state),
         //portfolioData: getPortfolioData(state, filter)
+        dailyChange: getDailyChange(state)
     };
 };
 

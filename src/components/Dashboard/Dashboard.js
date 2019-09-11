@@ -48,6 +48,8 @@ class Dashboard extends Component {
     }
   }
 
+  // @TODO: Re-write this function. It currently assumes that the incoming data is in reverse order
+  //        It also should probably be a redux selector function and dailyChange is a piece of redux state passed down as a prop
   calculateDailyChange() {
     const { portfolioIntradayData } = this.props;
     const today = new Date(Date.now());
@@ -66,6 +68,7 @@ class Dashboard extends Component {
       fillColor,
     });
   }
+
 
   render() {
     const {
@@ -100,7 +103,6 @@ class Dashboard extends Component {
             <div className="chart-section">
               <Chart
                 fillColor={fillColor}
-                dailyChange={dailyChange}
                 dailyChangePercentage={dailyChangePercentage}
               />
             </div>

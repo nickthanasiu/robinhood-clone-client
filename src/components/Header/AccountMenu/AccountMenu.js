@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+// Icons
 import {
     FaSignOutAlt,
     FaBriefcase,
     FaHistory,
 } from 'react-icons/fa';
+import BankIcon from '../../Icons/BankIcon';
 
 // Styles
 import './style.scss';
@@ -56,7 +59,7 @@ const AccountMenu = ({
                     to="account/banking"
                     className="account-menu__link"
                 >
-                    <FaSignOutAlt />
+                    <BankIcon />
                     <span>Banking</span>
                 </Link>
                 <Link 
