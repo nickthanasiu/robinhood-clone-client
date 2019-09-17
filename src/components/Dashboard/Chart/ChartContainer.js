@@ -57,7 +57,7 @@ const mapStateToProps = (state, ownProps) => {
     const filter = ownProps.selectedTimeSeries || '1D';
     const dailyChange = getDailyChange(state);
     const isChangePositive = Math.sign(dailyChange);
-    const fillColor = isChangePositive ? $green : $red;
+    const fillColor = isChangePositive === -1 ? $red : $green;
 
     return {
         selectedTimeSeries: state.portfolio.selectedTimeSeries,

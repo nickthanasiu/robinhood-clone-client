@@ -17,6 +17,7 @@ import SignoutPage from './components/SignoutPage';
 import Dashboard from './components/Dashboard';
 import CompanyPage from './components/CompanyPage';
 import AccountPage from './components/AccountPage';
+import ComingSoon from './components/ComingSoon';
 
 // @TODO: Remove eventually. Just here for experimentation
 import ChartSandBox from './components/Dashboard/Chart/ChartSandbox';
@@ -61,7 +62,7 @@ ReactDOM.render(
         <Route path="/signout" component={SignoutPage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/company" component={CompanyPage} />
-        <Route path="/account" component={AccountPage} />
+        <Route path="/account" component={ComingSoon} />
         <Route path="/chart_sandbox" component={ChartSandBox} />
       </App>
     </BrowserRouter>
