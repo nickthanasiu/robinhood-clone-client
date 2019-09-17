@@ -27,3 +27,4 @@ export default combineReducers({
 export const getPortfolioData = (state, data) => state.portfolio;
 export const getTimespan = state => fromPortfolio.getTimespan(state.portfolio);
 export const getDailyChange = state => fromPortfolio.getDailyChange(state.portfolio);
+export const getDailyChangePercentage = state => fromPortfolio.getDailyChangePercentage(state.portfolio);

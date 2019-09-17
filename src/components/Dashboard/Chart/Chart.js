@@ -39,7 +39,6 @@ function Chart ({
   portfolioValue,
   loadingPortfolioIntra,
   portfolioIntradayData,
-  changePositive,
   timeseriesSelector,
   selectedTimeSeries,
   dailyChange,
@@ -48,7 +47,8 @@ function Chart ({
   setChartData
 }){
   const selected_btn_style = { borderBottom: `2px solid ${$green}` };
-  const operator = changePositive ? '+' : '-';
+  const isChangePositive = Math.sign(dailyChange);
+  const operator = isChangePositive === -1 ? '-' : '+';
   const dailyChangeSpan =`
       ${operator}$${Math.abs(dailyChange)} (${dailyChangePercentage}%)
     `;

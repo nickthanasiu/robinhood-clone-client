@@ -3,18 +3,21 @@ import { connect } from 'react-redux';
 import * as actions from '../../../actions/portfolio';
 
 //  Selector functions
-import { getTimespan, getDailyChange } from '../../../reducers';
+import {
+    getTimespan,
+    getDailyChange,
+    getDailyChangePercentage,
+} from '../../../reducers';
 
 // Component to wrap
 import Chart from './Chart';
 
+// Colors
+import { $green, $red } from '../../../styles/colors';
+
 class ChartContainer extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            changePositive: true,
-          };
     }
 
     setChartData = data => {
@@ -52,6 +55,9 @@ class ChartContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     const filter = ownProps.selectedTimeSeries || '1D';
+    const dailyChange = getDailyChange(state);
+    const isChangePositive = Math.sign(dailyChange);
+    const fillColor = isChangePositive ? $green : $red;
 
     return {
         selectedTimeSeries: state.portfolio.selectedTimeSeries,
@@ -61,7 +67,10 @@ const mapStateToProps = (state, ownProps) => {
         portfolioIntradayData: state.portfolio.portfolioIntradayData,
         timespan: getTimespan(state),
         //portfolioData: getPortfolioData(state, filter)
-        dailyChange: getDailyChange(state)
+        dailyChange,
+        dailyChangePercentage: getDailyChangePercentage(state),
+        isChangePositive,
+        fillColor,
     };
 };
 

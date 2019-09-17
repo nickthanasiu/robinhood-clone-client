@@ -105,15 +105,20 @@ export const getDailyChange = state => {
   const openPrice = data[openPriceKey];
   const prices = Object.values(data);
   const latestPrice = prices[prices.length - 1];
-  const dailyChange = latestPrice - openPrice;
-  const first = prices[0];
-  const last = prices[prices.length - 1];
-  const change = last - first;
-
-  console.log('inside selector DATA: ', data);
-  console.log('FIRST: ', first);
-  console.log('LAST: ', last);
-  console.log('Change: ', change);
-
+  const dailyChange = (latestPrice - openPrice).toFixed(2);
+  
   return dailyChange;
+};
+
+export const getDailyChangePercentage = state => {
+  const data = state.portfolioIntradayData;
+  const today = new Date(Date.now());
+  const openPriceKey = formatOpenPriceKey(today);
+  const openPrice = data[openPriceKey];
+  const prices = Object.values(data);
+  const latestPrice = prices[prices.length - 1];
+  const dailyChange = latestPrice - openPrice;
+  const dailyChangePercentage = ((dailyChange / openPrice) * 100).toFixed(2);
+
+  return dailyChangePercentage;
 };

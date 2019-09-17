@@ -101,10 +101,7 @@ class Dashboard extends Component {
             
 
             <div className="chart-section">
-              <Chart
-                fillColor={fillColor}
-                dailyChangePercentage={dailyChangePercentage}
-              />
+              <Chart />
             </div>
           </div>
 
